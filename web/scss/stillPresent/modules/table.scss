@@ -1,0 +1,151 @@
+@import "../../variables.scss";
+
+.table>:not(caption)>*>* {
+	padding-top: 24px;
+	padding-bottom: 24px;
+	@media #{$wmax} {
+		@include p-sim(8px);
+	}	
+}
+.table-content {
+	@media #{$w768} {
+		display: none;
+	}	
+	.title {
+		display: flex !important;
+		justify-content: space-between;
+		align-items: center;
+		padding: 25px 20px 20px 37px;
+		margin: 0;
+		@media #{$w768} {
+			padding-bottom: 25px;
+		}		
+		h2 {
+			padding: 0;
+			margin: 0;
+			@media #{$w768} {
+				font-size: 14pt;
+			}			
+		}
+		img {
+			padding: 0;
+		}
+	}
+	.table-wrapper {
+		margin: 0;
+		padding: 0;
+		@include radius(12px);
+		background: $white;
+		box-shadow: 0 3px 28px 0 rgba(40, 115, 128, 0.12);
+	}
+	.special-picto {
+		text-align: center;
+	}
+	table {
+		tr {
+			&:nth-child(even) {
+				background-color: rgba(188, 239, 233, 0.2);
+				td {
+					background-color: rgba(188, 239, 233, 0.2);
+				}									
+			}
+			&:nth-child(odd) {
+				background-color: white;
+			}
+
+		}
+	}
+}
+.accordion-button:not(.collapsed) {
+	border: none;
+	box-shadow: inherit;
+}
+.accordion {
+	display: none;
+	padding-right: 30px;	
+	@media #{$w768} {
+		display: block;
+	}		
+	@media #{$w650} {
+		padding-right: 20px;
+	}							
+	button {
+		box-shadow: inherit;
+		padding: 0;
+		background: transparent;
+		.bi {
+			margin-right: 24px;
+		}
+	}
+	.title {
+		display: flex !important;
+		justify-content: space-between;
+		align-items: center;
+		padding: 25px 20px 20px 37px;
+		margin: 0;
+		background: $white;
+		@include radius-x4(12px,12px,0,0);
+		@media #{$w768} {
+			padding-bottom: 25pt;
+			padding-left: 20pt;
+		}		
+		h2 {
+			padding: 0;
+			margin: 0;
+			@media #{$w768} {
+				font-size: 14pt;
+			}			
+		}
+		img {
+			padding: 0;
+		}
+	}						
+	.accordion-item {
+		border: none;
+		&:nth-child(odd) {
+			background: rgba(188, 239, 233, 0.06);
+			.accordion-collapse {
+				background: rgba(188, 239, 233, 0.06);
+			}
+		}
+		.accordion-top {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 18pt 20px;
+			.name {
+				font-size: 12pt;
+				font-weight: 700;
+			}
+			.accordion-top-right {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+			}
+		}
+		.accordion-collapse {
+			margin-top: -20px;
+			.accordion-body {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				ul {
+					margin-bottom: 23pt;
+					li {
+						font-weight: 500;
+						font-size: 10pt;
+						line-height: 15pt;
+						&.alerte {
+							margin-top: 11pt;
+							color: $ter-c;
+							font-weight: 700;
+						}
+						&.questionnaire-state {
+							font-weight: 700;
+						}
+					}
+				}
+			}
+		}
+	}						
+}

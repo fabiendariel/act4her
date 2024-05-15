@@ -1,0 +1,46 @@
+@import "../../variables.scss";
+.acronym {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	@include w-h-sim(75px);
+	min-width: 75px;
+	min-height: 75px;
+	font-size: 26px;
+	font-weight: 700;
+	text-transform: uppercase;
+	@include radius(50%);
+	margin-bottom: 10px;
+	&.tiny-acronym {
+		@include w-h-sim(44px);
+		min-width: 44px;
+		min-height: 44px;
+		@include radius(12px);
+		margin-bottom: 0;
+		color: #253773;
+		font-size: 20px;
+		@media #{$w768} {
+			@include w-h-sim(38pt);
+			min-width: 38pt;
+			min-height: 38pt;
+			font-size: 17pt;
+		}			
+	}
+	&.green {
+		background: $sec-c;
+	}
+	&.pink {
+		background: #f8aab5;
+	}
+	&.yellow {
+		background: #f8da96;
+	}
+	&.ter {
+		background: $ter-c;
+		color: $white;
+	}
+	&.main-c {
+		background: $main-c;
+		color: $white;
+	}								
+}

@@ -1,0 +1,215 @@
+.path-frontpage .container .title.main-title {
+  padding-bottom: 128px; }
+  @media only screen and (max-width: 767px) {
+    .path-frontpage .container .title.main-title {
+      padding-bottom: 64px; } }
+.path-frontpage .container .collection {
+  padding-top: 128px;
+  padding-bottom: 30px;
+  border-top: 1px solid #E3E3E3; }
+  @media only screen and (max-width: 767px) {
+    .path-frontpage .container .collection {
+      padding-top: 48px;
+      padding-bottom: 0; } }
+  .path-frontpage .container .collection .max-width .title {
+    margin-bottom: 96px; }
+    @media only screen and (max-width: 767px) {
+      .path-frontpage .container .collection .max-width .title {
+        margin-bottom: 48px; } }
+    .path-frontpage .container .collection .max-width .title h2 {
+      margin-bottom: 32px; }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .collection .max-width .title h2 {
+          margin-bottom: 16px; } }
+    .path-frontpage .container .collection .max-width .title p {
+      width: 645px;
+      font-size: 37px;
+      line-height: 48px;
+      margin-left: auto;
+      margin-right: auto; }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .collection .max-width .title p {
+          width: 100%;
+          font-size: 17px;
+          line-height: 22px; } }
+  .path-frontpage .container .collection .max-width ul li {
+    display: flex;
+    margin-bottom: 96px; }
+    @media only screen and (max-width: 767px) {
+      .path-frontpage .container .collection .max-width ul li {
+        display: block;
+        margin-bottom: 64px; } }
+    .path-frontpage .container .collection .max-width ul li img {
+      width: 280px;
+      height: 280px;
+      margin-right: 64px; }
+      @media only screen and (max-width: 991px) {
+        .path-frontpage .container .collection .max-width ul li img {
+          width: 200px;
+          height: 200px;
+          margin-right: 20px; } }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .collection .max-width ul li img {
+          width: 160px;
+          height: 160px;
+          margin: 0 auto 24px auto; } }
+    .path-frontpage .container .collection .max-width ul li .collection-content {
+      width: calc(100% - 344px);
+      width: -moz-calc(100% - 344px);
+      width: -webkit-calc(100% - 344px);
+      width: calc(100% - 344px);
+      width: -moz-calc(100% - 344px);
+      width: -webkit-calc(100% - 344px); }
+      @media only screen and (max-width: 991px) {
+        .path-frontpage .container .collection .max-width ul li .collection-content {
+          width: calc(100% - 220px);
+          width: -moz-calc(100% - 220px);
+          width: -webkit-calc(100% - 220px);
+          width: calc(100% - 220px);
+          width: -moz-calc(100% - 220px);
+          width: -webkit-calc(100% - 220px); } }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .collection .max-width ul li .collection-content {
+          width: 100%; } }
+      .path-frontpage .container .collection .max-width ul li .collection-content .collection-title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px; }
+        @media only screen and (max-width: 767px) {
+          .path-frontpage .container .collection .max-width ul li .collection-content .collection-title {
+            display: block;
+            margin-bottom: 32px;
+            text-align: center; } }
+        .path-frontpage .container .collection .max-width ul li .collection-content .collection-title .artist {
+          width: calc(100% - 197px);
+          width: -moz-calc(100% - 197px);
+          width: -webkit-calc(100% - 197px);
+          width: calc(100% - 197px);
+          width: -moz-calc(100% - 197px);
+          width: -webkit-calc(100% - 197px); }
+          @media only screen and (max-width: 767px) {
+            .path-frontpage .container .collection .max-width ul li .collection-content .collection-title .artist {
+              width: 100%; } }
+          .path-frontpage .container .collection .max-width ul li .collection-content .collection-title .artist h3 {
+            color: black;
+            margin-bottom: 8px; }
+            @media only screen and (max-width: 767px) {
+              .path-frontpage .container .collection .max-width ul li .collection-content .collection-title .artist h3 {
+                margin-bottom: 6px; } }
+          .path-frontpage .container .collection .max-width ul li .collection-content .collection-title .artist span {
+            display: inline-block;
+            font-weight: 700;
+            font-size: 26px;
+            line-height: 33px; }
+            @media only screen and (max-width: 767px) {
+              .path-frontpage .container .collection .max-width ul li .collection-content .collection-title .artist span {
+                font-size: 20px;
+                line-height: 26px;
+                margin-bottom: 16px; } }
+        .path-frontpage .container .collection .max-width ul li .collection-content .collection-title .tag {
+          min-width: 182px;
+          margin-left: 15px; }
+          @media only screen and (max-width: 767px) {
+            .path-frontpage .container .collection .max-width ul li .collection-content .collection-title .tag {
+              min-width: 141px;
+              margin-left: auto;
+              margin-right: auto; } }
+      .path-frontpage .container .collection .max-width ul li .collection-content p {
+        margin-bottom: 32px; }
+        @media only screen and (max-width: 767px) {
+          .path-frontpage .container .collection .max-width ul li .collection-content p {
+            margin-bottom: 24px; } }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .collection .max-width ul li .collection-content .button.btn-black, .path-frontpage .container .collection .max-width ul li .collection-content .button.btn-learn {
+          width: 100%; } }
+.path-frontpage .container .we-are {
+  margin-bottom: 137px; }
+  @media only screen and (max-width: 767px) {
+    .path-frontpage .container .we-are {
+      background: linear-gradient(96.51deg, #7534FF 12.59%, #531FC2 92.63%);
+      margin-bottom: 0; } }
+  .path-frontpage .container .we-are .max-width {
+    max-width: 1056px; }
+    @media only screen and (max-width: 1200px) {
+      .path-frontpage .container .we-are .max-width {
+        padding-left: 32px;
+        padding-right: 32px; } }
+    .path-frontpage .container .we-are .max-width .title {
+      width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 123px; }
+      @media only screen and (max-width: 991px) {
+        .path-frontpage .container .we-are .max-width .title {
+          width: 100%; } }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .we-are .max-width .title {
+          display: none; } }
+    .path-frontpage .container .we-are .max-width .we-are-content {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      background: linear-gradient(96.51deg, #7534FF 12.59%, #531FC2 92.63%);
+      padding: 43px 96px 28px 0;
+      -webkit-border-radius: 13px;
+      -moz-border-radius: 13px;
+      border-radius: 13px;
+      color: white; }
+      @media only screen and (max-width: 1200px) {
+        .path-frontpage .container .we-are .max-width .we-are-content {
+          padding-right: 30px; } }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .we-are .max-width .we-are-content {
+          background: inherit;
+          padding: 48px 0 35px 0; } }
+      .path-frontpage .container .we-are .max-width .we-are-content > img {
+        width: 351px;
+        height: auto;
+        position: absolute;
+        top: -25px;
+        left: 15px; }
+        @media only screen and (max-width: 991px) {
+          .path-frontpage .container .we-are .max-width .we-are-content > img {
+            width: 220px;
+            position: absolute;
+            top: -50px;
+            left: -45px; } }
+        @media only screen and (max-width: 767px) {
+          .path-frontpage .container .we-are .max-width .we-are-content > img {
+            display: none; } }
+      .path-frontpage .container .we-are .max-width .we-are-content .we-are-text {
+        width: 497px; }
+        @media only screen and (max-width: 767px) {
+          .path-frontpage .container .we-are .max-width .we-are-content .we-are-text {
+            width: 100%; } }
+        .path-frontpage .container .we-are .max-width .we-are-content .we-are-text span {
+          display: block;
+          font-weight: 700;
+          font-size: 36px;
+          line-height: 54px;
+          margin-bottom: 30px; }
+          @media only screen and (max-width: 767px) {
+            .path-frontpage .container .we-are .max-width .we-are-content .we-are-text span {
+              font-size: 25px;
+              line-height: 35px;
+              text-align: center;
+              margin-bottom: 17px; } }
+        .path-frontpage .container .we-are .max-width .we-are-content .we-are-text ul li {
+          display: flex;
+          align-items: flex-start;
+          font-size: 16px;
+          line-height: 22px;
+          font-weight: 600;
+          margin-bottom: 15px; }
+          @media only screen and (max-width: 767px) {
+            .path-frontpage .container .we-are .max-width .we-are-content .we-are-text ul li {
+              font-size: 13px;
+              line-height: 18px; } }
+          .path-frontpage .container .we-are .max-width .we-are-content .we-are-text ul li img {
+            min-width: 24px;
+            width: 24px;
+            min-height: 17.5px;
+            height: 17.5px;
+            margin-right: 16px; }
+
+/*# sourceMappingURL=styles.css.map */

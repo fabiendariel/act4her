@@ -1,0 +1,95 @@
+#------------------------------
+# Authenfication
+# -----------------------------
+
+homepage:
+    path:     /
+    defaults: { _controller: AppBundle:Professionnel:index }
+
+default:
+    path:     /
+    defaults: { _controller: AppBundle:Professionnel:index }
+
+patient_inscription:
+    path:      /inscription_patient
+    defaults:  { _controller: AppBundle:Professionnel:questionnairePatient}
+
+patient_inscription_preambule:
+    path:      /inscription_patient/preambule
+    defaults:  { _controller: AppBundle:Professionnel:preambule}
+
+professionnel_inscription:
+    path:      /inscription_professionnel
+    defaults:  { _controller: AppBundle:Professionnel:questionnaire}
+
+professionnel_index:
+    path:      /professionnel
+    defaults:  { _controller: AppBundle:Professionnel:index}
+
+envoi_code:
+    path:      /envoi_code
+    defaults:  { _controller: AppBundle:Professionnel:envoiCode}
+
+check_code:
+    path:      /check_code
+    defaults:  { _controller: AppBundle:Professionnel:checkCode}
+
+test_doublon:
+    path:      /test_doublon
+    defaults:  { _controller: AppBundle:Professionnel:testDoublon}
+
+app_questionnaire_new_realise:
+    path:      /questionnaire_realise
+    defaults:  { _controller: 'AppBundle:Professionnel:validation' }
+
+app_questionnaire_patient_realise:
+    path:      /questionnaire_patient_realise
+    defaults:  { _controller: 'AppBundle:Professionnel:validationPatient' }
+
+app_patient_fiche:
+    path:     /professionnel_patient/{patient_id}
+    defaults: { _controller: 'AppBundle:Professionnel:patient' }
+    requirements:
+      patient_id: \d+
+
+download_formulaire:
+    path:     /download_formulaire/{patient_id}
+    defaults: { _controller: 'AppBundle:Professionnel:downloadFormulaire' }
+    requirements:
+      patient_id: \d+
+
+download_questionnaire:
+    path:     /download_questionnaire/{doc_id}
+    defaults: { _controller: 'AppBundle:Professionnel:downloadQuestionnaire' }
+    requirements:
+      doc_id: \d+
+
+download_document:
+    path:     /download_document/{doc_id}
+    defaults: { _controller: 'AppBundle:Professionnel:downloadDocument' }
+    requirements:
+      doc_id: \d+
+
+app_validation:
+    path:      /validation
+    defaults:  { _controller: AppBundle:Accueil:validation}
+
+app_check:
+    path:      /check
+    defaults:  { _controller: AppBundle:Professionnel:check}
+
+app_mentions_legales:
+    path:    /mentions_legales
+    defaults:  { _controller: AppBundle:Accueil:mentionsLegales}
+
+app_mentions_legales_consent:
+    path:    /mentions_legales_consentement
+    defaults:  { _controller: AppBundle:Accueil:mentionsLegalesConsent}
+
+app_autoquestionnaire_patient:
+    path:     /questionnaire_patient/{token}
+    defaults: { _controller: AppBundle:Professionnel:questionnairePapier}
+
+app_dl_doc_fiche:
+    path:     /professionnel_document
+    defaults: { _controller: 'AppBundle:Professionnel:addFile' }

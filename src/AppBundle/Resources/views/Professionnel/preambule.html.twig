@@ -1,0 +1,106 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/questionnaire.css') }}" type="text/css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block app_body %}
+    <div class="dash questionnaire">
+        <div class="dash-left">
+            <div class="dash-left-top">
+                <div class="dash-prez-accroche">
+                  <img class="desktop" src="{{ asset('images/logo_application.png') }}" alt="Promed">
+                  <img class="resp" src="{{ asset('images/logo-resp.png') }}" alt="Promed">
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{{ path('professionnel_index')}}">
+                            <img src="{{ asset('images/picto/dashboard.png') }}" alt="">
+                            <span>Mon Tableau de bord</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="{{ path('patient_inscription_preambule')}}">
+                            <img src="{{ asset('images/picto/coach.png') }}" alt="">
+                            <span>Inscrire un patient</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="dash-left-bottom">
+                <div class="question">
+                    <p>Pour toute question,<br/>contactez-nous au N° Vert :​</p>
+                    <span>Une question ?</span><br/>
+                    <img class="desktop" src="{{ asset('images/numero-vert.png') }}" width="200">
+                    <img class="resp" src="{{ asset('images/numero-vert_short.png') }}" width="150">
+                </div>
+            </div>
+            <div class="burger-menu">
+                <div class="burger-icon">
+                    <input type="checkbox" id="sidebartoggler">
+                    <div class="page-wrap">
+                        <label for="sidebartoggler" class="toggle">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </label>
+                        <div class="sidebar">
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('professionnel_index')}}">
+                                            <img src="{{ asset('image/picto/dashboard.png') }}" alt="">
+                                            <span>Mon Tableau de bord</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('patient_inscription_preambule')}}">
+                                            <img src="{{ asset('image/picto/coach.png') }}" alt="">
+                                            <span>Inscrire un patient</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dash-right">
+            <section class="title">
+                <div class="h1">
+                    <a href="{{ path('default')}}">
+                        <img src="{{ asset('images/picto/arrow-back.png') }}" alt="back">
+                    </a>
+                    <h1>Inscription de votre patient au programme</h1>
+                </div>
+            </section>
+            <section class="content">
+                <div class="card">
+                    <div class="card-body row">
+                        <div class="col-4 col-md-3 card-image">
+                            <img src="{{ asset('images/logo_application.png') }}" alt="" style="width: 200px">
+                        </div>
+                        <div class="col-8 col-md-9">
+                            <h2 class="card-title text-primary">
+                                L’inscription de votre patient(e) se fait par sms.
+                            </h2>
+                            <h2 class="card-title text-primary">
+                                Veuillez vérifier que votre patient(e) est bien en possession d’un téléphone lui permettant de recevoir le code nécessaire à son inscription.
+                            </h2>
+                            <div class="text-right">
+                                <a href="{{ path('patient_inscription')}}"><button type="button" class="btn btn-secondary">Continuer</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+{% endblock %}

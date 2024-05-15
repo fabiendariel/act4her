@@ -1,0 +1,248 @@
+
+/* Calendrier */
+
+.main_calendar {
+    margin: 0 auto 0;
+    width: 1179px;
+    padding: 0 0 0 9px;
+}
+
+.calendar_container {
+    position: relative;
+    width: 800px;
+    float: left;
+    margin: 0 9px 0 0;
+}
+
+.calendar_main,
+.calendar_main_current{
+    background-color: #e7e7e7;
+    color: #555;
+    padding: 5px;
+    text-align: center;
+    width: 1179px;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-bottom: 0;
+}
+
+.calendar_main_current {
+    background: #9cc2cb;
+    color: #fff;
+}
+
+.calendar_plage_horaire {
+    position: absolute;
+    background-color: #169f85;
+    color: #fff;
+    border: 1px solid #ccc;
+    border-left: 1px solid #428bca;
+    border-right: 1px solid #428bca;
+    height: 25px;
+    padding: 2px;
+}
+
+.calendar_plage_horaire span {
+    font-size: 10px;
+}
+
+.calendar_slot {
+    height: 200px;
+    margin: 25px 0 0 0;
+    border: 1px solid #34495e;
+    border-top: 0;
+    padding: 4px;
+    overflow: auto;
+    background: #fff;
+}
+
+.calendar_slot ul {
+    padding: 0;
+    list-style: none;
+}
+
+.calendar_slot li {
+    margin: 0 0 5px 0;
+    padding: 4px;
+}
+
+/* Rappel */
+.calendar_slot li.slot_1 {
+    background-color: #d1ddf3;
+    border: 1px solid #5d626c;
+}
+
+/* Appel j-X */
+.calendar_slot li.slot_8 {
+    background-color: #d4f3d0;
+    border: 1px solid #778975;
+}
+
+
+.calendar_slot li.slot_1:hover,
+.calendar_slot li.slot_8:hover {
+    background: #fff;
+}
+
+.calendar_hour {
+    color: #428bca;
+    font-size: 11px;
+}
+
+.calendar_slot li.slot_1 .rappel_label,
+.calendar_slot li.slot_8 .rappel_label,
+.calendar_slot li.slot_1 .rappel_label_accessed,
+.calendar_slot li.slot_8 .rappel_label_accessed {
+    color: #346d9f;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0 0 0 5px;
+}
+
+.calendar_slot li.slot_1 .rappel_label
+{
+    background: #c8d3e8;
+}
+
+.calendar_slot li.slot_8 .rappel_label
+{
+    background: #cae7c6;
+}
+
+.calendar_slot li.slot_1 .rappel_label_accessed,
+.calendar_slot li.slot_8 .rappel_label_accessed {
+    background: #9d4233;
+    color: #fff;
+}
+
+.typeahead-container .typeahead-field input.input_loading {
+    background: #fff url(../images/ajax-loader-mini.gif) no-repeat 97% 50%;
+}
+
+
+.case {
+    margin:4px;
+
+    float:left;
+}
+
+.case .radio{
+    display: inline !important;
+}
+
+.case input{
+    display: none !important;
+}
+
+.case label {
+    text-align:center;
+    float:left;
+    width:118px;
+    height:120px;
+    margin:4px;
+    background-color:#EFEFEF;
+    border-radius:4px;
+    border:1px solid #D0D0D0;
+    cursor: pointer;
+    break-inside: avoid;
+    display: table;
+}
+
+.case label span{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+
+.grade{
+    vertical-align: top !important;
+}
+
+
+.case label span b{
+    text-align:center;
+    font-size: 16px;
+    font-weight: normal !important;
+    display:block;
+    margin: auto;
+}
+
+.case label span p{
+    text-align:center;
+    font-size: 16px;
+    display:block;
+    margin: auto;
+}
+
+/*.case label input {
+    position:absolute;
+    top:-20px;
+}*/
+
+.case input:checked + label {
+    background-color:#4ab5dd;
+    border:1px solid #4ab5dd;
+    color:#F7F7F7;
+}
+
+.center_case {
+    vertical-align: middle !important;
+    text-align: cente
+}
+
+.radio_margin input[type=radio]{
+    margin: 4px 4px 0 !important;
+}
+
+.title_question label {
+    font-weight: bold !important;
+    font-size: 16px;
+    margin-left: 5px;
+}
+
+.text_align_center{
+    text-align: center;
+}
+
+.center_block{
+    display: block;
+    margin : auto;
+}
+
+.small_date{
+    font-size:12px;
+}
+
+.fa_right{
+    position: absolute;
+    right: 0px;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.fa_container{
+    position: relative;
+}
+
+.pastille{
+    display:            block;
+    position:           absolute;
+    width:              30px;
+    height:             30px;
+    right:              -15px;
+    top:                -10px;
+    font-size:          12px;
+    border-radius:      15px;
+}
+
+.panel-primary>.panel-heading {
+    background-color: #a161b1 !important;
+    border-color: #a161b1 !important;
+}
+
+.panel-info>.panel-heading {
+    color: #a161b1 !important;
+    background-color: #be96bf !important;
+    border-color: #be96bf !important;
+}

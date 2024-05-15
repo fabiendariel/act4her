@@ -1,0 +1,153 @@
+@import "../variables.scss";
+
+.path-frontpage {
+
+	.max-width {
+		@media #{$w992} {
+			@include p-sim(20px);
+		}				
+	}
+	.container {
+		padding: 91px 0 0 0;
+		@media #{$w768} {
+			padding: 30px 0;
+		}			
+		.max-width {
+			max-width: 1092px;	
+			.login {
+				display: flex;
+				background: $bg-sec;
+				@include radius(1.5rem);
+				@media #{$w768} {
+					display: block;
+					background: $white;
+					@include p-sim(22px);
+				}				
+				.login-prez {
+					width: 408px;
+					background-color: $white;
+					padding: 99px 70px 0 70px;
+					@include radius-x4(1.5rem,0,0,1.5rem);
+					@media #{$w992} {
+						width: 300px;
+						@include p-sim(25px);
+						@include radius(1.5rem);
+					}	
+					@media #{$w768} {
+						width: 100%;
+						padding: 35px 0 0 0;
+					}									
+					.login-prez-accroche {
+						margin-bottom: 73px;
+						@media #{$w768} {
+							margin-bottom: 30px;
+						}						
+						.logo {
+							@media #{$w768} {
+								@include w-h(auto,39pt);
+							}								
+						}
+						div {
+							display: flex;
+							align-items: center;
+							margin-top: 8px;
+							font-weight: 500;
+							color: $sec-c;
+							font-size: 21px;
+							@media #{$w768} {
+								font-size: 15pt;
+							}							
+							span {
+								padding-right: 7px;
+							}
+							img {
+								@media #{$w768} {
+									@include w-h(76pt,auto);
+								}								
+							}
+						}
+					}
+					.login-prez-welcome {
+						h1 {
+							position: relative;
+							padding-bottom: 7px;
+							margin-bottom: 25px;
+							font-size: 30px;
+							line-height: 50px;
+							@media #{$w768} {
+								font-size: 24pt;
+								line-height: 46px;
+								margin-bottom: 20pt;
+							}							
+							&:before {
+								@include w-h(23px,2px);
+								background: $main-c;
+								@include ab-bl(0,0);
+								content:'';
+							}
+						}
+						p {
+							font-size: 14px;
+							line-height: 24px;
+							@media #{$w768} {
+								font-size: 12pt;
+								line-height: 21pt;
+							}							
+						}	
+					}
+				}
+				.login-form {
+					@include w-100(408px);
+					display: flex;
+					justify-content: center;
+					padding: 137px 0 81px 0;
+					@media #{$w992} {
+						@include w-100(300px);
+					}		
+					@media #{$w768} {
+						width: 100%;
+						padding: 40px 0 0 0; 
+					}								
+					form {
+						width: 316px;
+						@media #{$w768} {
+							width: 100%;
+						}						
+						.input {
+							margin-bottom: 30px;
+							@media #{$w768} {
+								margin-bottom: 18px;
+							}							
+						}
+						.a-word {
+							display: block;
+							text-align: center;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+							font-size: 12px;
+							line-height: 17px;
+							color: $ter-c;
+							text-transform: uppercase;
+							font-weight: 700;
+							margin-bottom: 45px;
+							@media #{$w768} {
+								margin-bottom: 27pt;
+								font-size: 12pt;
+							}							
+							img {
+								@include w-h(10.5px,auto);
+								margin-left: 9px;
+								transform: rotate(-90deg);
+							}
+						}
+						.btn {
+							@include m-sim(auto);
+						}						
+					}
+				}
+			}
+		}
+	}
+}
+

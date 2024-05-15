@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <g id="icone-carte-questionnaire" transform="translate(7.001 4.768)">
+    <rect id="Rectangle_2169" data-name="Rectangle 2169" width="44" height="44" transform="translate(-7.001 -4.768)" fill="#fff"/>
+    <g id="icone" transform="translate(2.999 2.231)">
+      <g id="Rectangle_2070" data-name="Rectangle 2070" fill="none" stroke="#287380" stroke-width="2">
+        <rect width="20.406" height="25.742" rx="4" stroke="none"/>
+        <rect x="1" y="1" width="18.406" height="23.742" rx="3" fill="none"/>
+      </g>
+      <g id="Rectangle_2071" data-name="Rectangle 2071" transform="translate(5.279 4.399)" fill="#fff" stroke="#287380" stroke-width="2">
+        <rect width="20.406" height="25.742" rx="4" stroke="none"/>
+        <rect x="1" y="1" width="18.406" height="23.742" rx="3" fill="none"/>
+      </g>
+      <g id="Groupe_217" data-name="Groupe 217" transform="translate(10.451 11.859)">
+        <g id="Groupe_214" data-name="Groupe 214" transform="translate(0)">
+          <path id="Tracé_67" data-name="Tracé 67" d="M0,0H5.89" transform="translate(5.032 1.416)" fill="none" stroke="#287380" stroke-linecap="round" stroke-width="1.5"/>
+          <path id="Tracé_70" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#287380" stroke-linecap="round" stroke-width="1.5"/>
+        </g>
+        <g id="Groupe_219" data-name="Groupe 219" transform="translate(0 8.799)">
+          <path id="Tracé_67-2" data-name="Tracé 67" d="M0,0H5.89" transform="translate(5.032 1.416)" fill="none" stroke="#287380" stroke-linecap="round" stroke-width="1.5"/>
+          <path id="Tracé_70-2" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#287380" stroke-linecap="round" stroke-width="1.5"/>
+        </g>
+        <g id="Groupe_218" data-name="Groupe 218" transform="translate(0 4.399)">
+          <path id="Tracé_67-3" data-name="Tracé 67" d="M0,0H4.306" transform="translate(5.032 1.416)" fill="none" stroke="#287380" stroke-linecap="round" stroke-width="1.5"/>
+          <path id="Tracé_70-3" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#287380" stroke-linecap="round" stroke-width="1.5"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,124 @@
+.table > :not(caption) > * > * {
+  padding-top: 24px;
+  padding-bottom: 24px; }
+  @media only screen and (max-width: 1304px) {
+    .table > :not(caption) > * > * {
+      padding-left: 8px;
+      padding-right: 8px; } }
+
+@media only screen and (max-width: 767px) {
+  .table-content {
+    display: none; } }
+.table-content .title {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 20px 20px 37px;
+  margin: 0; }
+  @media only screen and (max-width: 767px) {
+    .table-content .title {
+      padding-bottom: 25px; } }
+  .table-content .title h2 {
+    padding: 0;
+    margin: 0; }
+    @media only screen and (max-width: 767px) {
+      .table-content .title h2 {
+        font-size: 14pt; } }
+  .table-content .title img {
+    padding: 0; }
+.table-content .table-wrapper {
+  margin: 0;
+  padding: 0;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 3px 28px 0 rgba(40, 115, 128, 0.12); }
+.table-content .special-picto {
+  text-align: center; }
+.table-content table tr:nth-child(even) {
+  background-color: rgba(188, 239, 233, 0.2); }
+  .table-content table tr:nth-child(even) td {
+    background-color: rgba(188, 239, 233, 0.2); }
+.table-content table tr:nth-child(odd) {
+  background-color: white; }
+
+.accordion-button:not(.collapsed) {
+  border: none;
+  box-shadow: inherit; }
+
+.accordion {
+  display: none;
+  padding-right: 30px; }
+  @media only screen and (max-width: 767px) {
+    .accordion {
+      display: block; } }
+  @media only screen and (max-width: 650px) {
+    .accordion {
+      padding-right: 20px; } }
+  .accordion button {
+    box-shadow: inherit;
+    padding: 0;
+    background: transparent; }
+    .accordion button .bi {
+      margin-right: 24px; }
+  .accordion .title {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 20px 20px 37px;
+    margin: 0;
+    background: #fff;
+    -webkit-border-radius: 12px 12px 0 0;
+    -moz-border-radius: 12px 12px 0 0;
+    border-radius: 12px 12px 0 0; }
+    @media only screen and (max-width: 767px) {
+      .accordion .title {
+        padding-bottom: 25pt;
+        padding-left: 20pt; } }
+    .accordion .title h2 {
+      padding: 0;
+      margin: 0; }
+      @media only screen and (max-width: 767px) {
+        .accordion .title h2 {
+          font-size: 14pt; } }
+    .accordion .title img {
+      padding: 0; }
+  .accordion .accordion-item {
+    border: none; }
+    .accordion .accordion-item:nth-child(odd) {
+      background: rgba(188, 239, 233, 0.06); }
+      .accordion .accordion-item:nth-child(odd) .accordion-collapse {
+        background: rgba(188, 239, 233, 0.06); }
+    .accordion .accordion-item .accordion-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18pt 20px; }
+      .accordion .accordion-item .accordion-top .name {
+        font-size: 12pt;
+        font-weight: 700; }
+      .accordion .accordion-item .accordion-top .accordion-top-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center; }
+    .accordion .accordion-item .accordion-collapse {
+      margin-top: -20px; }
+      .accordion .accordion-item .accordion-collapse .accordion-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; }
+        .accordion .accordion-item .accordion-collapse .accordion-body ul {
+          margin-bottom: 23pt; }
+          .accordion .accordion-item .accordion-collapse .accordion-body ul li {
+            font-weight: 500;
+            font-size: 10pt;
+            line-height: 15pt; }
+            .accordion .accordion-item .accordion-collapse .accordion-body ul li.alerte {
+              margin-top: 11pt;
+              color: #b03661;
+              font-weight: 700; }
+            .accordion .accordion-item .accordion-collapse .accordion-body ul li.questionnaire-state {
+              font-weight: 700; }
+
+/*# sourceMappingURL=table.css.map */

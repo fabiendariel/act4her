@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Consentement</title>
+  <link rel="stylesheet" href="/var/www/extranet_dupixent/web/bundles/plugins/bootstrap/bootstrap.min.css"/>
+  <style type="text/css">
+    body,td,th {
+      font-family: "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", Helvetica, Arial, sans-serif;
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+<table width="100%" border="0" cellpadding="10px" style="page-break-after: always">
+  <tbody>
+  <tr>
+    <td width="34%" height="102"><p style="font-size:20px;color:#163571;"><Strong>Consentement</strong><br/> de participation</p>
+      <p>Compléter en détail les sections ci-dessous avec votre médecin sans oublier de signer et dater</p></td>
+    <td width="25%">&nbsp;</td>
+    <td width="41%" align=center>&nbsp;</td>
+
+  </tr>
+  <tr>
+    <td  colspan="3">
+      <table width="100%" border="0" style="background-color:#d8e1ed;">
+        <tbody>
+        <tr>
+          <td colspan="4"><div style="width:250px;border: 2px solid #163571;background-color:#163571;border-radius: 25px;padding:5px;text-align:center;font-size:14px;color:#ffffff;"><strong>Médecin prescripteur</strong></div></td>
+        </tr>
+        <tr>
+          <td colspan="4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="13%" nowrap>Je soussigné(e) : </td>
+          <td width="30%">Prénom : {{ datas.prenom}}</td>
+          <td width="38%">Nom : {{ datas.nom}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">Adresse : </td>
+          <td colspan="2">{{ datas.adresse}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+          <td colspan="2">{{ datas.cp}} {{ datas.ville}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">Tél : {{ datas.tel}}</td>
+        </tr>
+        <tr>
+          <td colspan="4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="4">Souhaite inscrire mon patient au programme DUPIXENT.</td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="4"><span style="font-size: 14px; color: #163571"> Signature et date <strong>OBLIGATOIRES</strong></span></td>
+        </tr>
+        <tr>
+          <td colspan="2">Date : {{ 'now'|date('d/m/Y')}}</td>
+          <td colspan="2">Signature : {{ datas.prenom}} {{ datas.nom}}</td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        </tbody>
+      </table></td>
+  </tr>
+  <tr>
+    <td  colspan="3">
+      <table width="100%" border="0" style="background-color:#f0e4d8;">
+        <tbody>
+        <tr>
+          <td colspan="4"><div style="width:250px;border: 2px solid #f0442a;background-color:#f0442a;border-radius: 25px;padding:5px;text-align:center;font-size:14px;color:#ffffff;"><strong>Patient</strong></div></td>
+        </tr>
+        <tr>
+          <td colspan="4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td width="13%" nowrap>Je soussigné(e) : </td>
+          <td width="19%" nowrap>M. {{ datas.civilite=='Monsieur' ? '&#9745;' : '&#9744;' }}&nbsp;&nbsp;Mme.{{ datas.civilite=='Madame'   ?  '&#9745;' : '&#9744;' }}&nbsp;&nbsp;Mlle.{{ datas.civilite=='Mademoiselle'  ?  '&#9745;' : '&#9744;' }}</td>
+          <td width="30%">Prénom : {{  datas.prenom_patient  }}</td>
+          <td width="38%">Nom : {{  datas.nom_patient  }}</td>
+        </tr>
+        <tr>
+          <td colspan="2">Tél : {{ datas.tel_patient}}</td>
+          <td>Email : {{ datas.email_patient}}</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="4"><strong>Accepte en tant que</strong></td>
+        </tr>
+        <tr>
+          <td colspan="4">&#9745; patient de participer au programme</td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <hr style="border: 1px solid #f0442a;"/>
+            &#9745; <span style="color:#f0442a;"><strong>J’accepte d'être appelé par PATIENTYS pour valider mon inscription au numéro :</strong> {{ datas.tel_patient != '' ? datas.tel_patient : '__________________'  }} ou {{ datas.mobile_patient != '' ? datas.mobile_patient : '__________________'  }}</span><br/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4">
+            <hr style="border: 1px solid #f0442a;"/>
+            Les informations me concernant seront collectées dans un fichier informatique pour la seule mise en oeuvre de ce programme.<br>
+            Ces informations seront conservées uniquement pendant la durée de ma participation au programme et seront hébergées, pour<br>
+            la même durée, chez l’hébergeur agréé CIS Valley.</td>
+        </tr>
+
+        <tr>
+          <td colspan="4">
+            <hr style="border: 1px solid #f0442a;"/>
+            {{ datas.traitant ==1 ? '&#9745;' : '&#9744;'  }} Je souhaite que mon médecin traitant/le médecin traitant de mon enfant soit informé de mon inscription/l’inscription de mon<br>
+            enfant et du suivi de ce programme d’{{ site.type }}.</td>
+        </tr>
+        <tr>
+          <td colspan="4">&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="2" nowrap><strong>Coordonnées du médecin traitant</strong></td>
+          <td colspan="2">Nom : {{ datas.traitant==1 ? datas.prenom_traitant : ''  }} {{ datas.traitant==1 ? datas.nom_traitant : ''  }}</td>
+        </tr>
+        <tr>
+          <td colspan="2">Adresse : </td>
+          <td colspan="2">{{ datas.traitant==1 ? datas.adresse_traitant : ''  }}</td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+          <td colspan="2">{{ datas.traitant==1 ? datas.cp_traitant : ''  }} {{ datas.traitant==1 ? datas.ville_traitant : ''  }}</td>
+        </tr>
+        <tr>
+          <td colspan="2">Tél : {{ datas.traitant==1 ? datas.tel_traitant : ''  }}</td>
+          <td>Fax : {{ datas.traitant==1 ? datas.fax_traitant : ''  }}</td>
+          <td>Email : {{ datas.traitant==1 ? datas.email_traitant : ''  }}</td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td colspan="4" nowrap><span style="font-size: 14px; color: #f0442a;"> Signature et date <strong>OBLIGATOIRES</strong></span></td>
+        </tr>
+        <tr>
+          <td colspan="2">Date : {{ 'now'|date('d/m/Y')}}</td>
+          <td colspan="2">Signature :  {{  datas.prenom_patient }}  {{ datas.nom_patient }} </td>
+        </tr>
+        <tr>
+          <td colspan="4">&nbsp;</td>
+        </tr>
+        </tbody>
+      </table></td>
+  </tr>
+  </tbody>
+</table>
+
+<table  border="0" cellpadding="30px"  style="page-break-inside: avoid;">
+  <tr>
+      <td style="font-size: 8px;">
+          <h3 style="font-size: 12px;text-align:center">MENTIONS LEGALES</h3>
+          <p>Vous souhaitez participer au programme d’{{ site.type }} {{ site.name }}.</p>
+          <p>La participation au programme est <b>libre et gratuite</b>. Votre médecin
+              reste le seul responsable de votre traitement, les infirmiers/
+              infirmières du programme ne peuvent prendre aucune décision
+              médicale. Tous les entretiens que vous aurez avec les infirmiers/
+              infirmières du programme sont strictement confidentiels. Dans le
+              cadre de notre démarche d’amélioration qualité, sauf avis contraire
+              de votre part, vos appels avec les infirmiers/infirmières Patientys
+              joignables sur le numéro vert dédié sont susceptibles d’être écoutés.</p>
+          <p>Ce programme d’{{ site.type }} est mis en place conformément au
+              décret n°2010-1031 du 31 août 2010, pris en application de l’article
+              L 1161-5 du Code de Santé Publique. Le programme {{ site.name }} à
+              l’initiative de Pfizer, est géré par la société Patientys situé au 31 rue
+              des Longs Prés 92100 Boulogne-Billancourt, qui agit comme Tiers
+              de confiance.</p>
+          <p><b>Pour Patientys*, la protection de votre vie privée est essentielle.</b></p>
+          <p>Vous êtes informé(e) qu’au sens de la loi n° 78-17 du 6 janvier 1978
+              modifiée relative à l’informatique, aux fichiers et aux libertés, et
+              du Règlement UE 2016/679 relatif à la protection des personnes
+              physiques à l’égard du traitement des données à caractère personnel
+              et à la libre circulation de ces données du 27 avril 2016 Patientys est
+              responsable du traitement de vos données dans le cadre du
+              programme d’{{ site.type }} {{ site.name }}.</p>
+          <p>Vos données à caractère personnel – vos données d’identification
+              et vos données de santé – sont collectées et traitées dans le cadre
+              de votre participation au programme d’{{ site.type }} afin de
+              vous en faire bénéficier et permettre aux professionnels de santé
+              de Patientys d’assurer la meilleure prise en charge possible, sur
+              le fondement de votre consentement explicite. La fourniture de
+              ces données personnelles est nécessaire à la bonne exécution du
+              programme d’{{ site.type }} auquel vous avez souscrit et leur non
+              fourniture pourrait entrainer une incapacité à ce que ce programme
+              soit mis en œuvre.</p>
+          <p>Pour assurer la sécurité de vos données, nous nous engageons à
+              les conserver uniquement durant votre participation au programme.
+              Vos données sont hébergées par un hébergeur de données certifié
+              par le ministère de la santé pour l’hébergement de données de santé
+              Cis Valley. Aucune donnée ne sera transmise à Pfizer.</p>
+          <p>Dans le respect des règles relatives au secret médical, à l’échange et
+              au partage des données de santé couvertes, les informations vous
+              concernant sont strictement destinées à votre usage personnel ;
+              aux membres du personnel de Patientys, spécifiquement habilités,
+              dans le strict respect de leurs missions de suivi des patients; aux
+              professionnels de santé de Patientys ; à votre médecin prescripteur ;
+              aux administrateurs strictement habilités de l’hébergeur de données
+              de santé, au sens de l’article L.1111-8 du Code de la santé publique,
+              dans la limite de leurs attributions respectives ; aux personnes
+              habilitées au titre des tiers autorisés (les juridictions concernées,
+              les arbitres, les médiateurs, les ministères concernés,…), ainsi
+              qu’éventuellement au service de pharmacovigilance de Pfizer dans
+              le cadre de la réalisation de nos obligations légales en matière de
+              pharmacovigilance.</p>
+          <p>Conformément au Règlement UE 2016/679 du parlement européen,
+              relatif à la protection des personnes physiques à l’égard du traitement
+              des données à caractère personnel et à la libre circulation de ces
+              données, vous pouvez à tout moment nous demander l’accès à vos
+              données à caractère personnel, leur rectification, leur effacement,
+              leur portabilité. Vous pouvez aussi limiter ou vous opposer à leur
+              traitement et introduire une réclamation auprès de la CNIL. Vous
+              pouvez également retirer à tout moment votre consentement, dans
+              ce cas, vous ne pourrez plus bénéficier des services et informations
+              accessibles dans le cadre du programme d’{{ site.type }}. Sachez
+              que le retrait de votre consentement ne portera pas atteinte à la
+              licéité du traitement de vos données effectué avant le retrait de votre
+              consentement et ne remettra pas en cause votre prise en charge
+              habituelle.</p>
+          <p>Pour plus d’informations ou pour exercer vos droits, vous pouvez
+              nous contacter par courriel Privacy@test.com ou par courrier
+              à Patientys Data Protection Officer – Délégué à la Protection des
+              Données, 31 rue des Longs Prés 92100 Boulogne-Billancourt.</p>
+          <p><i>*Patientys est une société dédiée à la relation aux patients. A l’initiative
+                  des premiers dispositifs d’accompagnement, coaching ou apprentissage
+                  des patients, Patientys a développé une expertise et un savoir-faire
+                  unique en France dans le dépistage, la prévention et l’accompagnement</i></p>
+          <br/><br/>
+      </td>
+  </tr>
+</table>
+</body>
+</html>

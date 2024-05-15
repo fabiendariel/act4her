@@ -1,0 +1,27 @@
+imports:
+    - { resource: config.yml }
+    - { resource: parameters_dev.yml }
+    - { resource: params_dev.yml }
+
+framework:
+    router:
+        resource: '%kernel.root_dir%/config/routing_dev.yml'
+        strict_requirements: false
+    session:
+        cookie_secure: false
+        cookie_httponly: false
+    profiler: { only_exceptions: false }
+
+web_profiler:
+    toolbar: true
+    intercept_redirects: false
+
+swiftmailer:
+    delivery_addresses: ['test@test.com']
+
+#knp_snappy:
+#    temporary_folder: /media/sf_sfprojects3/tmp
+#    pdf:
+#        enabled: true
+#        binary:  /usr/local/bin/wkhtmltopdf.sh
+#        options: []

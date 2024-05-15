@@ -1,0 +1,19 @@
+{# app/Resources/TwigBundle/views/Exception/error404.html.twig #}
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block app_body %}
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="bloc bloc_blanc" style="margin-top:0;text-align:center;">
+      <div class="bloc_content">
+        <h1>Page introuvable</h1>
+
+        <p>
+          La page que vous recherchez n'existe pas. Merci de retourner sur la page d'accueil en cliquant sur le bouton Accueil<br/><br/>
+          <button class="btn btn50 textbtn1 fondviolet" onclick="document.location.href='{{ path('homepage') }}';return false;">Accueil</button>
+        </p>
+      </div>
+      <br><br>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+{% endblock %}

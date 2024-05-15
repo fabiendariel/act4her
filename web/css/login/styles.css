@@ -1,0 +1,151 @@
+@media only screen and (max-width: 991px) {
+  .path-frontpage .max-width {
+    padding-left: 20px;
+    padding-right: 20px; } }
+.path-frontpage .container {
+  padding: 91px 0 0 0; }
+  @media only screen and (max-width: 767px) {
+    .path-frontpage .container {
+      padding: 30px 0; } }
+  .path-frontpage .container .max-width {
+    max-width: 1092px; }
+    .path-frontpage .container .max-width .login {
+      display: flex;
+      background: #f2f8f7;
+      -webkit-border-radius: 1.5rem;
+      -moz-border-radius: 1.5rem;
+      border-radius: 1.5rem; }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .max-width .login {
+          display: block;
+          background: #fff;
+          padding-left: 22px;
+          padding-right: 22px; } }
+      .path-frontpage .container .max-width .login .login-prez {
+        width: 408px;
+        background-color: #fff;
+        padding: 99px 70px 0 70px;
+        -webkit-border-radius: 1.5rem 0 0 1.5rem;
+        -moz-border-radius: 1.5rem 0 0 1.5rem;
+        border-radius: 1.5rem 0 0 1.5rem; }
+        @media only screen and (max-width: 991px) {
+          .path-frontpage .container .max-width .login .login-prez {
+            width: 300px;
+            padding-left: 25px;
+            padding-right: 25px;
+            -webkit-border-radius: 1.5rem;
+            -moz-border-radius: 1.5rem;
+            border-radius: 1.5rem; } }
+        @media only screen and (max-width: 767px) {
+          .path-frontpage .container .max-width .login .login-prez {
+            width: 100%;
+            padding: 35px 0 0 0; } }
+        .path-frontpage .container .max-width .login .login-prez .login-prez-accroche {
+          margin-bottom: 73px; }
+          @media only screen and (max-width: 767px) {
+            .path-frontpage .container .max-width .login .login-prez .login-prez-accroche {
+              margin-bottom: 30px; } }
+          @media only screen and (max-width: 767px) {
+            .path-frontpage .container .max-width .login .login-prez .login-prez-accroche .logo {
+              width: auto;
+              height: 39pt; } }
+          .path-frontpage .container .max-width .login .login-prez .login-prez-accroche div {
+            display: flex;
+            align-items: center;
+            margin-top: 8px;
+            font-weight: 500;
+            color: #7ed7c2;
+            font-size: 21px; }
+            @media only screen and (max-width: 767px) {
+              .path-frontpage .container .max-width .login .login-prez .login-prez-accroche div {
+                font-size: 15pt; } }
+            .path-frontpage .container .max-width .login .login-prez .login-prez-accroche div span {
+              padding-right: 7px; }
+            @media only screen and (max-width: 767px) {
+              .path-frontpage .container .max-width .login .login-prez .login-prez-accroche div img {
+                width: 76pt;
+                height: auto; } }
+        .path-frontpage .container .max-width .login .login-prez .login-prez-welcome h1 {
+          position: relative;
+          padding-bottom: 7px;
+          margin-bottom: 25px;
+          font-size: 30px;
+          line-height: 50px; }
+          @media only screen and (max-width: 767px) {
+            .path-frontpage .container .max-width .login .login-prez .login-prez-welcome h1 {
+              font-size: 24pt;
+              line-height: 46px;
+              margin-bottom: 20pt; } }
+          .path-frontpage .container .max-width .login .login-prez .login-prez-welcome h1:before {
+            width: 23px;
+            height: 2px;
+            background: #485b5c;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: ''; }
+        .path-frontpage .container .max-width .login .login-prez .login-prez-welcome p {
+          font-size: 14px;
+          line-height: 24px; }
+          @media only screen and (max-width: 767px) {
+            .path-frontpage .container .max-width .login .login-prez .login-prez-welcome p {
+              font-size: 12pt;
+              line-height: 21pt; } }
+      .path-frontpage .container .max-width .login .login-form {
+        width: calc(100% - 408px);
+        width: -moz-calc(100% - 408px);
+        width: -webkit-calc(100% - 408px);
+        width: calc(100% - 408px);
+        width: -moz-calc(100% - 408px);
+        width: -webkit-calc(100% - 408px);
+        display: flex;
+        justify-content: center;
+        padding: 137px 0 81px 0; }
+        @media only screen and (max-width: 991px) {
+          .path-frontpage .container .max-width .login .login-form {
+            width: calc(100% - 300px);
+            width: -moz-calc(100% - 300px);
+            width: -webkit-calc(100% - 300px);
+            width: calc(100% - 300px);
+            width: -moz-calc(100% - 300px);
+            width: -webkit-calc(100% - 300px); } }
+        @media only screen and (max-width: 767px) {
+          .path-frontpage .container .max-width .login .login-form {
+            width: 100%;
+            padding: 40px 0 0 0; } }
+        .path-frontpage .container .max-width .login .login-form form {
+          width: 316px; }
+          @media only screen and (max-width: 767px) {
+            .path-frontpage .container .max-width .login .login-form form {
+              width: 100%; } }
+          .path-frontpage .container .max-width .login .login-form form .input {
+            margin-bottom: 30px; }
+            @media only screen and (max-width: 767px) {
+              .path-frontpage .container .max-width .login .login-form form .input {
+                margin-bottom: 18px; } }
+          .path-frontpage .container .max-width .login .login-form form .a-word {
+            display: block;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            line-height: 17px;
+            color: #b03661;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 45px; }
+            @media only screen and (max-width: 767px) {
+              .path-frontpage .container .max-width .login .login-form form .a-word {
+                margin-bottom: 27pt;
+                font-size: 12pt; } }
+            .path-frontpage .container .max-width .login .login-form form .a-word img {
+              width: 10.5px;
+              height: auto;
+              margin-left: 9px;
+              transform: rotate(-90deg); }
+          .path-frontpage .container .max-width .login .login-form form .btn {
+            margin-left: auto;
+            margin-right: auto; }
+
+/*# sourceMappingURL=styles.css.map */

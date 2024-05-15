@@ -1,0 +1,190 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/dash.css') }}" type="text/css" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block app_body %}
+  <div class="dash dashboard">
+    <div class="dash-left">
+      <div class="dash-left-top">
+        <div class="dash-prez-accroche">
+                    <img class="desktop" src="{{ asset('images/logo.png') }}" alt="Promed">
+                    <img class="resp" src="{{ asset('images/logo-resp.png') }}" alt="Promed">
+                    <div>
+                        <span>Une solution</span>
+                        <img class="desktop" src="{{ asset('images/patientys.png') }}" alt="Patientys">
+                        <img class="resp" src="{{ asset('images/patientys-resp.png') }}" alt="Patientys">
+                    </div>
+                </div>
+        <nav>
+          <ul>
+            <li class="active">
+              <a href="{{ path('professionnel_index')}}">
+                <img src="{{ asset('images/picto/dashboard.png') }}" alt="">
+                <span>Mon Tableau de bord</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ path('patient_inscription_preambule')}}">
+                <img src="{{ asset('images/picto/coach.png') }}" alt="">
+                <span>Inscrire un patient</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="dash-left-bottom">
+        <div class="question">
+          <p>Pour toute question,<br/>contactez-nous au N° Vert :​</p>
+          <span>Une question ?</span><br/>
+          <img class="desktop" src="{{ asset('images/numero-vert.png') }}" width="200">
+          <img class="resp" src="{{ asset('images/numero-vert_short.png') }}" width="150">
+        </div>
+      </div>
+      <div class="burger-menu">
+        <div class="burger-icon">
+          <input type="checkbox" id="sidebartoggler">
+          <div class="page-wrap">
+            <label for="sidebartoggler" class="toggle">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </label>
+            <div class="sidebar">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="{{ path('professionnel_index')}}">
+                      <img src="{{ asset('image/picto/dashboard.png') }}" alt="">
+                      <span>Mon Tableau de bord</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path('patient_inscription_preambule')}}">
+                      <img src="{{ asset('image/picto/coach.png') }}" alt="">
+                      <span>Inscrire un patient</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dash-right">
+      <section class="message-info">
+
+      </section>
+      <section class="title">
+        <div class="h1">
+          <a href="">
+            <img src="{{ asset('images/picto/arrow-back.png') }}" alt="back">
+          </a>
+          <h1>Programme {{ site.name }}</h1>
+        </div>
+        <div class="options">
+          <div class="search d-none">
+            <input type="text" class="form-control" id="search" placeholder="Rechercher un patient">
+            <img src="{{ asset('images/picto/loupe.png') }}" alt="">
+          </div>
+          <ul>
+            <li class="account">
+              <a href="{{ path('fos_user_security_logout')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Me déconnecter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41">
+                  <g id="icones-compte" transform="translate(0)">
+                    <g id="Rectangle_2053" data-name="Rectangle 2053" transform="translate(0)" fill="" stroke="" stroke-width="2">
+                      <rect width="41" height="41" rx="12" stroke="none"></rect>
+                      <rect x="1" y="1" width="39" height="39" rx="11" fill="none"></rect>
+                    </g>
+                    <g id="Icon_feather-user-check" data-name="Icon feather-user-check" transform="translate(10.5 5.5)">
+                      <path id="Tracé_172" data-name="Tracé 172" d="M18.562,29.325V27.05a4.55,4.55,0,0,0-4.55-4.55H6.05A4.55,4.55,0,0,0,1.5,27.05v2.275" transform="translate(0 -4.35)" fill="none" stroke="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                      <path id="Tracé_173" data-name="Tracé 173" d="M15.85,9.05A4.55,4.55,0,1,1,11.3,4.5a4.55,4.55,0,0,1,4.55,4.55Z" transform="translate(-1.269 0)" fill="none" stroke="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="table-content">
+        <div class="table-wrapper">
+          <div class="title">
+            <h2 class="text-primary">Mes patients</h2>
+            <h4>Nombre de patients affiliés : {{ liste_patients|length }}</h4>
+          </div>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénom</th>
+              <th scope="col">Date de<br/>Naissance</th>
+              <th scope="col">Date de<br/>prise en charge</th>
+              <th scope="col">Date MAJ<br/>dossier</th>
+              <th scope="col">
+                <span>Alerte(s)</span>
+              </th>
+              <th class="questionnaire" scope="col">
+                <span>Docs à<br/>Consulter</span>
+              </th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for patient in liste_patients %}
+              <tr>
+                <td>{{ patient.nom }}</td>
+                <td>{{ patient.prenom }}</td>
+                <td>{{ patient.date_naissance?patient.date_naissance|date('d/m/Y'):' ' }}</td>
+                <td>{{ patient.date_validation_inscription is defined ?patient.date_validation_inscription|date('d/m/Y'):' ' }}</td>
+                <td>{{ patient.date_maj?patient.date_maj|date('d/m/Y'):' ' }}</td>
+                <td class="special-picto">
+                  {% if patient.alerte_1 > 0 or patient.alerte_2 > 0 or patient.alerte_3 > 0 or patient.alerte_4 > 0 %}
+                    {% set alert = '' %}
+                    {% if (patient.alerte_1 == 0 and patient.alerte_2 == 0 and patient.alerte_3 == 0)
+                    or (patient.alerte_4 == 0 and patient.alerte_2 == 0 and patient.alerte_3 == 0)
+                    or (patient.alerte_1 == 0 and patient.alerte_4 == 0 and patient.alerte_3 == 0)
+                    or (patient.alerte_1 == 0 and patient.alerte_2 == 0 and patient.alerte_4 == 0)
+                    %}
+                      {% set alert = alert ~ '<ul style="list-style:none; margin:10px 0 0 30px;padding:0;">' %}
+                    {% else %}
+                      {% set alert = alert ~ '<ul style="list-style:none; margin:25px 0 0 30px;padding:0;">' %}
+                    {% endif %}
+                    {% set alert = alert ~ (patient.alerte_4 > 0 ? '<li style="margin-top:-35px;color:#a161b1;"><b>Qualité de vie</b></li>' : '') %}
+                    {% set alert = alert ~ (patient.alerte_3 > 0 ? '<li style="margin-top:-35px;color:#a161b1;"><b>Patiente vulnérable</b></li>' : '') %}
+                    {% set alert = alert ~ (patient.alerte_2 > 0 ? '<li style="margin-top:-35px;color:#a161b1;"><b>Symptômes sévères</b></li>' : '') %}
+                    {% set alert = alert ~ (patient.alerte_1 > 0 ? '<li style="margin-top:-35px;color:#a161b1;"><b>Non observance</b></li>' : '') %}
+                    {% set alert = alert ~ '</ul>' %}
+
+                    <i class="bi bi-exclamation-circle text-secondary-light" data-bs-toggle="tooltip" data-bs-html="true" data-bs-placement="bottom" title="{{ alert }}"></i>
+                  {% else %}
+                    <i class="bi bi-check2 text-primary-light"></i>
+                  {% endif %}
+                </td>
+                <td>
+                  {% if patient.count_cr > 0 %}
+                    <i class="bi bi-exclamation-circle text-secondary-light" data-bs-toggle="tooltip" data-bs-placement="bottom" title="CR APPEL DE SUIVI"></i>
+                  {% else %}
+                    <i class="bi bi-check2 text-primary-light"></i>
+                  {% endif %}
+                </td>
+                <td>
+                  <a href="{{ path('app_patient_fiche', {'patient_id': patient.num_fiche}) }}">
+                    <i class="bi bi-file-earmark text-secondary"></i>
+                  </a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+    </div>
+  </div>
+{% endblock %}

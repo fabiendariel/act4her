@@ -1,0 +1,62 @@
+{% trans_default_domain 'FOSUserBundle' %}
+{% block subject %}
+Accompagnement Symphonie – Réinitialisation de votre mot de passe
+{% endblock %}
+{% block body_text %}
+{{ 'resetting.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
+{% endblock %}
+{% block body_html %}
+<style>
+
+    body {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #676767;
+    }
+</style>
+<table width="850" cellpadding="0" cellspacing="0">
+    <tr>
+        <td width="23"></td>
+        <td width="806" valign="top" style="padding:10px 20px;">
+            <br/>
+            Bonjour Docteur {{ user.lastname }},<br/><br/><br/><br/>
+            Vous avez oublié votre mot de passe pour l’accès à notre plateforme Démo.<br/><br/>
+            Pour poursuivre la procédure de réinitialisation du mot de passe, veuillez cliquer sur ce lien :
+            <br/><br/>
+            <a href="{{ confirmationUrl }}">{{ confirmationUrl }}</a>
+            <br/><br/>
+            Si ce lien ne fonctionne pas, essayez de le recopier entièrement dans la barre d’adresse de votre navigateur.
+            <br/><br/>
+            Ce lien sera valide pendant 24h. S’il est expiré, vous pouvez en générer un nouveau ici <a href="{{ url('fos_user_resetting_request') }}">"Mot de passe oublié"</a>
+            <br/>
+            <i>Ceci est un courriel automatique.</i>
+            <br/><br/>
+            Pour toute question, vous pouvez contacter l’équipe infirmière Démo au N°Vert : <b>0 800 691 104</b><br/>
+            du lundi au vendredi de 9 h à 18 h.
+            <br/><br/><br/>
+            Cordialement,
+            <div style="text-align:left;">
+                <b>L’équipe infirmière Démo</b><br/>
+                <img src="http://images.directmedica.com/extranet_symphonie/logo_symphonie_fblanc.png" width="145" />
+            </div>
+            <br/><br/>
+            <div style="font-size:0.8em; color:#A6A6A6;">
+                <b>La protection de votre vie privée est essentielle</b><br/>
+                Vos données à caractère personnel sont collectées et traitées par PATIENTYS pour les besoins et dans le cadre de votre participation au
+                programme d’accompagnement Démo, afin de lui permettre de satisfaire à ses obligations légales et afin de pouvoir vous communiquer
+                des informations relatives à votre activité professionnelle. A ce titre, vous disposez d’un droit d’accès, d’opposition, de rectification,
+                de limitation du traitement, d’un droit à l’effacement et à la portabilité de vos données. Vous disposez également du droit de communiquer
+                vos directives concernant le sort de vos données à caractère personnel après votre décès et du droit d’introduire une réclamation auprès de
+                la CNIL. Le programme d’accompagnement Démo est initié par l’ADIIS, soutenu institutionnellement par Pfizer et opéré par PATIENTYS.
+                Pour plus d’information sur vos droits, les mentions légales sont disponibles sur ce lien :<br/>
+                <a href="https://mlmedac.test.com">https://mlmedac.test.com</a>
+            </div>
+        </td>
+        <td width="21"></td>
+    </tr>
+</table>
+{% endblock %}

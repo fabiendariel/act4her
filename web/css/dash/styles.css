@@ -1,0 +1,148 @@
+.path-frontpage .container .max-width .dashboard .dash-right {
+  width: calc(100% - 256px);
+  width: -moz-calc(100% - 256px);
+  width: -webkit-calc(100% - 256px);
+  width: calc(100% - 256px);
+  width: -moz-calc(100% - 256px);
+  width: -webkit-calc(100% - 256px);
+  padding: 27px 0 0 75px; }
+  @media only screen and (max-width: 1200px) {
+    .path-frontpage .container .max-width .dashboard .dash-right {
+      padding-left: 20px; } }
+  @media only screen and (max-width: 991px) {
+    .path-frontpage .container .max-width .dashboard .dash-right {
+      width: 100%;
+      padding: 20px 0 40px 30px; } }
+  @media only screen and (max-width: 650px) {
+    .path-frontpage .container .max-width .dashboard .dash-right {
+      padding-left: 20px; } }
+  .path-frontpage .container .max-width .dashboard .dash-right .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+    padding-right: 24px; }
+    @media only screen and (max-width: 991px) {
+      .path-frontpage .container .max-width .dashboard .dash-right .title {
+        padding-right: 30px; } }
+    @media only screen and (max-width: 767px) {
+      .path-frontpage .container .max-width .dashboard .dash-right .title {
+        display: block;
+        margin-bottom: 28pt; } }
+    .path-frontpage .container .max-width .dashboard .dash-right .title h1 {
+      font-size: 20px;
+      line-height: 19px; }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .max-width .dashboard .dash-right .title h1 {
+          font-size: 18pt;
+          margin-bottom: 21pt; } }
+    .path-frontpage .container .max-width .dashboard .dash-right .title .options {
+      display: flex;
+      justify-content: flex-end; }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .max-width .dashboard .dash-right .title .options {
+          display: block; } }
+      .path-frontpage .container .max-width .dashboard .dash-right .title .options .search {
+        position: relative;
+        width: 337px;
+        height: 48px;
+        margin-right: 55px; }
+        @media only screen and (max-width: 1200px) {
+          .path-frontpage .container .max-width .dashboard .dash-right .title .options .search {
+            width: 250px;
+            margin-right: 25px; } }
+        @media only screen and (max-width: 767px) {
+          .path-frontpage .container .max-width .dashboard .dash-right .title .options .search {
+            width: 100%; } }
+        .path-frontpage .container .max-width .dashboard .dash-right .title .options .search img {
+          width: 16px;
+          height: 16px;
+          position: absolute;
+          top: calc(50% - 8px);
+          top: -moz-calc(50% - 8px);
+          top: -webkit-calc(50% - 8px);
+          top: calc(50% - 8px);
+          top: -moz-calc(50% - 8px);
+          top: -webkit-calc(50% - 8px);
+          right: 20px; }
+        .path-frontpage .container .max-width .dashboard .dash-right .title .options .search input {
+          background-color: #fff;
+          box-shadow: 0 3px 28px 0 rgba(40, 115, 128, 0.12);
+          -webkit-border-radius: 22px;
+          -moz-border-radius: 22px;
+          border-radius: 22px;
+          font-size: 12px; }
+    .path-frontpage .container .max-width .dashboard .dash-right .title ul {
+      display: flex;
+      justify-content: flex-end; }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .max-width .dashboard .dash-right .title ul {
+          display: none; } }
+      .path-frontpage .container .max-width .dashboard .dash-right .title ul li {
+        position: relative;
+        cursor: pointer;
+        z-index: 888; }
+        .path-frontpage .container .max-width .dashboard .dash-right .title ul li #Rectangle_2053 {
+          fill: transparent; }
+        .path-frontpage .container .max-width .dashboard .dash-right .title ul li #Icon_feather-mail,
+        .path-frontpage .container .max-width .dashboard .dash-right .title ul li #Rectangle_2053,
+        .path-frontpage .container .max-width .dashboard .dash-right .title ul li #Icon_feather-user-check {
+          stroke: #b03661; }
+        .path-frontpage .container .max-width .dashboard .dash-right .title ul li:hover #Icon_feather-mail,
+        .path-frontpage .container .max-width .dashboard .dash-right .title ul li:hover #Icon_feather-user-check, .path-frontpage .container .max-width .dashboard .dash-right .title ul li:focus #Icon_feather-mail,
+        .path-frontpage .container .max-width .dashboard .dash-right .title ul li:focus #Icon_feather-user-check, .path-frontpage .container .max-width .dashboard .dash-right .title ul li.open #Icon_feather-mail,
+        .path-frontpage .container .max-width .dashboard .dash-right .title ul li.open #Icon_feather-user-check {
+          stroke: #fff; }
+        .path-frontpage .container .max-width .dashboard .dash-right .title ul li:hover #Rectangle_2053, .path-frontpage .container .max-width .dashboard .dash-right .title ul li:focus #Rectangle_2053, .path-frontpage .container .max-width .dashboard .dash-right .title ul li.open #Rectangle_2053 {
+          fill: #b03661; }
+  .path-frontpage .container .max-width .dashboard .dash-right .glide {
+    margin-bottom: 27px; }
+    .path-frontpage .container .max-width .dashboard .dash-right .glide .card {
+      height: 86px; }
+      .path-frontpage .container .max-width .dashboard .dash-right .glide .card .card-body {
+        padding: 15px 0; }
+      .path-frontpage .container .max-width .dashboard .dash-right .glide .card.card-primary .card-body {
+        padding: 10px 0; }
+      .path-frontpage .container .max-width .dashboard .dash-right .glide .card.card-primary .card-text {
+        margin-top: -5px; }
+    .path-frontpage .container .max-width .dashboard .dash-right .glide .glide__bullets {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 6px; }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .max-width .dashboard .dash-right .glide .glide__bullets {
+          display: none; } }
+      .path-frontpage .container .max-width .dashboard .dash-right .glide .glide__bullets button {
+        width: 6px;
+        height: 6px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        border-radius: 50px;
+        padding: 0;
+        margin-left: 2.5px;
+        margin-right: 2.5px;
+        background-color: #b03661;
+        opacity: 0.4; }
+        .path-frontpage .container .max-width .dashboard .dash-right .glide .glide__bullets button.glide__bullet--active {
+          opacity: 1; }
+  @media only screen and (max-width: 1304px) {
+    .path-frontpage .container .max-width .dashboard .dash-right .table tr th.questionnaire span,
+    .path-frontpage .container .max-width .dashboard .dash-right .table tr td.questionnaire span {
+      display: block;
+      width: 75px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; } }
+  .path-frontpage .container .max-width .dashboard .dash-right .table-wrapper {
+    margin-right: 44px; }
+    @media only screen and (max-width: 1200px) {
+      .path-frontpage .container .max-width .dashboard .dash-right .table-wrapper {
+        margin-right: 20px; } }
+    @media only screen and (max-width: 991px) {
+      .path-frontpage .container .max-width .dashboard .dash-right .table-wrapper {
+        margin-right: 30px; } }
+    .path-frontpage .container .max-width .dashboard .dash-right .table-wrapper .title {
+      margin-bottom: 0; }
+
+/*# sourceMappingURL=styles.css.map */

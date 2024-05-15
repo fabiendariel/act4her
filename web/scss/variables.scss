@@ -1,0 +1,496 @@
+// COLORS
+$main-c : #485b5c;
+$sec-c : #7ed7c2;
+$ter-c: #b03661;
+$grey: #979797;
+$grey-light: #BBBBBB;
+$grey-dark: #c4c4c4;
+$bg-main: #287380;
+$bg-sec: #f2f8f7;
+$white: #fff;
+$ter-light: #fbeced;
+
+// MEDIA QUERIES
+$wmax:  #{"only screen and (max-width:1304px)"};
+$w1200:  #{"only screen and (max-width:1200px)"};
+$w992:     #{"only screen and (max-width:991px)"};
+$w768:      #{"only screen and (max-width:767px)"};
+$w650:      #{"only screen and (max-width:650px)"};
+$w480: #{"only screen and (max-width:480px)"};
+$w380: #{"only screen and (max-width:380px)"};
+$w320: #{"only screen and (max-width:320px)"};
+
+//BORDER RADIUS KIT
+@mixin radius($radius){
+     -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+     border-radius: $radius;
+}
+//MULTIPLE BORDER RADIUS KIT
+@mixin radius-x4($radiusTop, $radiusRight, $radiusBottom, $radiusLeft){
+     -webkit-border-radius: $radiusTop $radiusRight $radiusBottom $radiusLeft;
+     -moz-border-radius: $radiusTop $radiusRight $radiusBottom $radiusLeft;
+     border-radius: $radiusTop $radiusRight $radiusBottom $radiusLeft;
+}
+
+// TRANSFORM
+@mixin transform($degrees){
+  -moz-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+  -webkit-transform: rotate($degrees);
+  transform: rotate($degrees);  
+}
+// BOX SHADOW KIT
+@mixin box-shadow($string: 0 1px 3px 0 rgba(0, 73, 103, 0.2)){
+  -webkit-box-shadow: $string;
+  -moz-box-shadow:    $string;
+  box-shadow:         $string;
+}
+
+// HEIGHT LINEHEIGHT SIMILAIRES
+@mixin h-lh-sim($height-lineheight){
+  height:$height-lineheight;
+  line-height: $height-lineheight;
+}
+// HEIGHT + LINEHEIGHT
+@mixin h-lh($valHeight, $vallineHeight){
+  height:$valHeight;
+  line-height: $vallineHeight;
+}
+// WIDTH + LINEHEIGHT
+@mixin w-lh($valWidth, $vallineHeight){
+  width:$valWidth;
+  line-height: $vallineHeight;
+}
+// WIDTH + HEIGHT
+@mixin w-h($valWidth, $valHeight){
+  width:$valWidth;
+  height:$valHeight;
+}
+// WIDTH + HEIGHT SIMILARITIES
+@mixin w-h-sim($width-height-sim){
+  width:$width-height-sim;
+  height:$width-height-sim;
+}
+// WIDTH + HEIGHT + LINE-HEIGHT
+@mixin w-h-lh($valWidth, $valHeight, $vallineHeight){
+  width:$valWidth;
+  height:$valHeight;
+  line-height: $vallineHeight;
+}
+// WIDTH + HEIGHT/LINE-HEIGHT SIMILARITIES
+@mixin w-h-lh-sim($valWidth, $height-lineheight){
+  width:$valWidth;
+  @include h-lh-sim ($height-lineheight);
+}
+
+// PADDING LEFT = PADDING RIGHT
+@mixin p-sim($padding-sim){
+  padding-left:$padding-sim;
+  padding-right: $padding-sim;
+}
+
+// MARGIN LEFT = MARGIN RIGHT
+@mixin m-sim($margin-sim){
+  margin-left:$margin-sim;
+  margin-right: $margin-sim;
+}
+
+// WIDTH - MIN WIDTH
+@mixin w-mw($w-mw){
+  width:$w-mw;
+  min-width: $w-mw;
+}
+
+// CALCUL LARGEUR PAR 100
+// exemple : ((53px))
+@mixin w-100($widthCalc){
+  width:calc#{"(100% - #{$widthCalc})"};
+  width:-moz-calc#{"(100% - #{$widthCalc})"};
+  width:-webkit-calc#{"(100% - #{$widthCalc})"};
+  width:#{"calc(100% - #{$widthCalc})"};
+  width:#{"-moz-calc(100% - #{$widthCalc})"};
+  width:#{"-webkit-calc(100% - #{$widthCalc})"};
+}
+// CALCUL LARGEUR PAR 50
+// exemple : ((53px))
+@mixin w-50($widthCalc){
+  width:calc#{"(50% - #{$widthCalc})"};
+  width:-moz-calc#{"(50% - #{$widthCalc})"};
+  width:-webkit-calc#{"(50% - #{$widthCalc})"};
+  width:#{"calc(50% - #{$widthCalc})"};
+  width:#{"-moz-calc(50% - #{$widthCalc})"};
+  width:#{"-webkit-calc(50% - #{$widthCalc})"};
+}
+// CALCUL LARGEUR PAR 20
+// exemple : ((53px))
+@mixin w-20($widthCalc){
+  width:calc#{"(20% - #{$widthCalc})"};
+  width:-moz-calc#{"(20% - #{$widthCalc})"};
+  width:-webkit-calc#{"(20% - #{$widthCalc})"};
+  width:#{"calc(20% - #{$widthCalc})"};
+  width:#{"-moz-calc(20% - #{$widthCalc})"};
+  width:#{"-webkit-calc(20% - #{$widthCalc})"}; 
+}
+// CALCUL LARGEUR PAR 25
+// exemple : ((53px))
+@mixin w-25($widthCalc){
+  width:calc#{"(25% - #{$widthCalc})"};
+  width:-moz-calc#{"(25% - #{$widthCalc})"};
+  width:-webkit-calc#{"(25% - #{$widthCalc})"};
+  width:#{"calc(25% - #{$widthCalc})"};
+  width:#{"-moz-calc(25% - #{$widthCalc})"};
+  width:#{"-webkit-calc(25% - #{$widthCalc})"}; 
+}
+// CALCUL LARGEUR PAR 33
+// exemple : ((53px))
+@mixin w-33($widthCalc){
+  width:calc#{"(33.3% - #{$widthCalc})"};
+  width:-moz-calc#{"(33.3% - #{$widthCalc})"};
+  width:-webkit-calc#{"(33.3% - #{$widthCalc})"};
+  width:#{"calc(33.3% - #{$widthCalc})"};
+  width:#{"-moz-calc(33.3% - #{$widthCalc})"};
+  width:#{"-webkit-calc(33.3% - #{$widthCalc})"}; 
+}
+// CALCUL LARGEUR PAR 16
+// exemple : ((53px))
+@mixin w-16($widthCalc){
+  width:calc#{"(16.6% - #{$widthCalc})"};
+  width:-moz-calc#{"(16.6% - #{$widthCalc})"};
+  width:-webkit-calc#{"(16.6% - #{$widthCalc})"};
+  width:#{"calc(16.6% - #{$widthCalc})"};
+  width:#{"-moz-calc(16.6% - #{$widthCalc})"};
+  width:#{"-webkit-calc(16.6% - #{$widthCalc})"}; 
+}
+// CALCUL LARGEUR PAR 14.25
+// exemple : ((53px))
+@mixin w-14($widthCalc){
+  width:calc#{"(14.25% - #{$widthCalc})"};
+  width:-moz-calc#{"(14.25% - #{$widthCalc})"};
+  width:-webkit-calc#{"(14.25% - #{$widthCalc})"};
+  width:#{"calc(14.25% - #{$widthCalc})"};
+  width:#{"-moz-calc(14.25% - #{$widthCalc})"};
+  width:#{"-webkit-calc(14.25% - #{$widthCalc})"}; 
+}
+
+// BEFORE/AFTER : POSITION ABSOLUE + CONTENT
+  @mixin bef(){
+  position:absolute;
+  content:'';
+}
+// VARIABLE BOTTOM (ne pas forcement s'en servir dans CSS)
+// ex : (10px)
+@mixin ab-b($ab-b){
+  bottom:$ab-b;  
+}
+
+// VARIABLE TOP (ne pas forcement s'en servir dans CSS)
+// ex : (10px)
+@mixin ab-t($ab-t){
+  top:$ab-t;  
+}
+
+// VARIABLE LEFT (ne pas forcement s'en servir dans CSS)
+// ex : (10px)
+@mixin ab-l($ab-l){
+  left:$ab-l;  
+}
+
+// VARIABLE RIGHT (ne pas forcement s'en servir dans CSS)
+// ex : (10px)
+@mixin ab-r($ab-r){
+  right:$ab-r;  
+}
+
+// VARIABLE CALCUL BOTTOM PAR 50 (ne pas forcement s'en servir dans CSS)
+// ex : ((53px))
+@mixin ab-b50($ab-b50){
+  bottom:calc#{"(50% - #{$ab-b50})"};
+  bottom:-moz-calc#{"(50% - #{$ab-b50})"};
+  bottom:-webkit-calc#{"(50% - #{$ab-b50})"};
+  bottom:#{"calc(50% - #{$ab-b50})"};
+  bottom:#{"-moz-calc(50% - #{$ab-b50})"};
+  bottom:#{"-webkit-calc(50% - #{$ab-b50})"};
+}
+
+// VARIABLE CALCUL TOP PAR 50 (ne pas forcement s'en servir dans CSS)
+// ex : ((53px))
+@mixin ab-t50($ab-t50){
+  top:calc(50% - #{$ab-t50});
+top:-moz-calc#{"(50% - #{$ab-t50})"};
+  top:-webkit-calc#{"(50% - #{$ab-t50})"};
+  top:#{"calc(50% - #{$ab-t50})"};
+  top:#{"-moz-calc(50% - #{$ab-t50})"};
+  top:#{"-webkit-calc(50% - #{$ab-t50})"};
+}
+
+// VARIABLE CALCUL LEFT PAR 50 (ne pas forcement s'en servir dans CSS)
+// ex : ((53px))
+@mixin ab-l50($ab-l50){
+  left:calc#{"(50% - #{$ab-l50})"};
+  left:-moz-calc#{"(50% - #{$ab-l50})"};
+  left:-webkit-calc#{"(50% - #{$ab-l50})"};
+  left:#{"calc(50% - #{$ab-l50})"};
+  left:#{"-moz-calc(50% - #{$ab-l50})"};
+  left:#{"-webkit-calc(50% - #{$ab-l50})"};
+}
+
+//VARIABLE CALCUL RIGHT PAR 50 (ne pas forcement s'en servir dans CSS)
+// ex : ((53px))
+@mixin ab-r50($ab-r50){
+  right:calc#{"(50% - #{$ab-r50})"};
+  right:-moz-calc#{"(50% - #{$ab-r50})"};
+  right:-webkit-calc#{"(50% - #{$ab-r50})"};
+  right:#{"calc(50% - #{$ab-r50})"};
+  right:#{"-moz-calc(50% - #{$ab-r50})"};
+  right:#{"-webkit-calc(50% - #{$ab-r50})"};
+}
+
+// POSITION ABSOLUTE + TOP + LEFT
+// ex : (15px, 20px)
+@mixin ab-tl($ab-t, $ab-l){
+  position:absolute;
+  top:$ab-t;
+  left: $ab-l;
+}
+// POSITION FIXED + TOP + LEFT
+// ex : (15px, 20px)
+@mixin fix-tl($ab-t, $ab-l){
+  position:fixed;
+  top:$ab-t;
+  left: $ab-t;
+}
+// POSITION FIXED + TOP + RIGHT
+// ex : (15px, 20px)
+@mixin fix-tr($ab-t, $ab-r){
+  position:fixed;
+  top:$ab-t;
+  right: $ab-r;
+}
+// POSITION FIXED + BOTTOM + LEFT
+// ex : (15px, 20px)
+@mixin fix-bl($ab-b, $ab-l){
+  position:fixed;
+  bottom:$ab-b;
+  left: $ab-l;
+}
+// POSITION FIXED + BOTTOM + RIGHT
+// ex : (15px, 20px)
+@mixin fix-br($ab-b, $ab-r){
+  position:fixed;
+  bottom:$ab-b;
+  right: $ab-r;
+}
+//  POSITION ABSOLU + TOP + LEFT CALC
+// ex : (15px, (20px)
+@mixin ab-tl50($ab-t, $ab-l50){
+  position:absolute;
+  @include ab-t ($ab-t);  
+  @include ab-l50 ($ab-l50);
+}
+
+// BEFORE/AFTER + TOP + LEFT
+// ex : (15px, 20px)
+@mixin be-tl($ab-t, $ab-l){
+  @include content-abs();
+  @include ab-t ($ab-t);  
+  @include ab-l ($ab-l);  
+}
+
+// POSITION ABSOLUTE + TOP + RIGHT
+// ex : (15px, 20px)
+@mixin ab-tr($ab-t, $ab-r){
+  position: absolute;
+  @include ab-t ($ab-t);  
+  @include ab-r ($ab-r);  
+}
+
+// BEFORE/AFTER + TOP + RIGHT
+// ex : (15px, 20px)
+@mixin be-tr($ab-t, $ab-r){
+  @include content-abs();
+  @include ab-t ($ab-t);  
+  @include abs-r ($ab-r);  
+}
+// BEFORE/AFTER + TOP + LEFT CALCUL PAR 50
+// ex : ((10px),(25px))
+@mixin be-tl50($ab-t, $ab-l50){
+  @include content-abs();
+  @include ab-t ($ab-t);  
+  @include ab-l50 ($ab-l50);
+}
+
+// POSITION ABSOLUTE + BOTTOM + LEFT
+// ex : (15px, 20px)
+@mixin ab-bl($ab-b, $ab-l){
+  position: absolute;
+  @include ab-b ($ab-b);  
+  @include ab-l ($ab-l);  
+}
+
+// POSITION ABSOLUTE + BOTTOM + RIGHT
+// ex : (15px, 20px)
+@mixin ab-br($ab-b, $ab-r){
+  position: absolute;
+  @include ab-b ($ab-b);  
+  @include ab-r ($ab-r);  
+}
+
+// BEFORE/AFTER + BOTTOM + RIGHT
+// ex : (15px, 20px)
+@mixin be-br($ab-b, $ab-r){
+  @include content-abs();
+  @include ab-b ($ab-b);  
+  @include ab-r ($ab-r);  
+}
+
+// BEFORE/AFTER + BOTTOM + LEFT CALC
+// ex : (15px, (20px)
+@mixin be-bl50($ab-b, $ab-l){
+  @include content-abs();
+  @include ab-b ($ab-b);  
+  @include ab-l ($ab-l);
+}
+//  POSITION ABSOLU + BOTTOM + LEFT CALC
+// ex : (15px, (20px)
+@mixin ab-bl50($ab-b, $ab-l50){
+  position:absolute;
+  @include ab-b ($ab-b);  
+  @include ab-l50 ($ab-l50);
+}
+
+// BEFORE/AFTER + BOTTOM + LEFT
+// ex : (15px, (20px)
+@mixin be-bl($ab-b, $ab-l){
+  @include content-abs();
+  @include ab-b ($ab-b);  
+  @include ab-l ($ab-l);  
+}
+
+// BEFORE/AFTER + TOP CALCUL PAR 50 + LEFT CALCUL PAR 50
+// ex : ((10px),(25px))
+@mixin be-t50l50($ab-t50, $ab-l50){
+  @include content-abs();
+  @include ab-t50 ($ab-t50);
+  @include ab-l50 ($ab-l50);
+}
+
+// POSITION ABSOLU + TOP CALCUL PAR 50 + LEFT CALCUL PAR 50
+// ex : ((10px),(25px))
+@mixin ab-t50l50($ab-t50, $ab-l50){
+  position: absolute;
+  @include ab-t50 ($ab-t50);
+  @include ab-l50 ($ab-l50);
+}
+
+// POSITION ABSOLU + BOTTOM CALCUL PAR 50 + LEFT CALCUL PAR 50
+// ex : ((10px),(25px))
+@mixin ab-b50l50($ab-b50, $ab-l50){
+  position: absolute;
+  @include ab-b50 ($ab-b50);
+  @include ab-l50 ($ab-l50);
+}
+
+// BEFORE/AFTER + TOP CALCUL PAR 50 + RIGHT CALCUL PAR 50
+// ex : ((10px),(25px))
+@mixin be-t50r50($ab-t50, $ab-r50){
+  @include content-abs();
+  @include ab-t50 ($ab-t50);
+  @include ab-r50 ($ab-r50);
+}
+
+// BEFORE/AFTER + TOP ABSOLUE + LEFT CALCUL PAR 50
+// ex : (0, (30px));
+@mixin be-tl50($ab-t, $ab-l50){
+  @include content-abs();
+  @include ab-t ($ab-t);
+  @include ab-l50 ($ab-l50);
+}
+
+// BEFORE/AFTER + TOP CALCUL PAR 50 + RIGHT ABSOLUTE
+// ex : ((30px), 0);
+@mixin be-t50r($ab-t50, $ab-r){
+  @include content-abs();
+  @include ab-t50 ($ab-t50);
+  @include ab-r ($ab-r);
+}
+
+// BEFORE/AFTER + TOP CALCUL PAR 50 + LEFT ABSOLUTE
+// ex : ((30px), 0);
+@mixin be-t50l($ab-t50, $ab-l){
+  @include content-abs();
+  @include ab-t50 ($ab-t50);
+  @include ab-l ($ab-l);
+}
+
+// ABSOLU + TOP CALCUL PAR 50 + LEFT ABSOLUTE
+// ex : ((30px), 0);
+@mixin ab-t50l($ab-t50, $ab-l){
+  position: absolute;
+  @include ab-t50 ($ab-t50);
+  @include ab-l ($ab-l);
+}
+
+// ABSOLU + TOP CALCUL PAR 50 + RIGHT ABSOLUTE
+// ex : ((30px), 0);
+@mixin ab-t50r($ab-t50, $ab-r){
+  position: absolute;
+  @include ab-t50 ($ab-t50);
+  @include ab-r ($ab-r);
+}
+
+// ELLIPSIS OVERFLOW
+@mixin ellipsis(){
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+@mixin cover(){
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+// OBJECTFIT
+@mixin fit($valWidth, $valHeight){
+  object-fit:cover;
+  width:$valWidth;
+  height:$valHeight;
+}
+
+@mixin border($border-color){
+  border-width: 1px;
+  border-style:solid;
+  border-color:$border-color;
+}
+
+//TRANSITION KIT
+@mixin transition($kind, $rapidity, $type){
+  -moz-transition: $kind $rapidity $type;
+  -o-transition: $kind $rapidity $type;
+  -webkit-transition: $kind $rapidity $type;
+  transition: $kind $rapidity $type;  
+}
+
+@mixin invisible(){
+  visibility: hidden; 
+  opacity: 0;
+  @include transition(all, 0.5s, ease);	
+}
+
+@mixin invisible-h(){
+  @include invisible();
+  height: 0;
+}
+
+@mixin visible(){
+  visibility: visible; 
+  opacity: 1;
+  @include transition(all, 0.5s, ease); 
+}
+
+@mixin visible-h(){
+  @include visible();
+  height: auto;
+}

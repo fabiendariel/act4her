@@ -1,0 +1,6 @@
+###> symfony/framework-bundle ###
+/web/app_dev.php
+/web/env
+/var/
+/vendor/
+###< symfony/framework-bundle ###

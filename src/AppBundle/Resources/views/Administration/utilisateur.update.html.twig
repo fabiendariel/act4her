@@ -1,0 +1,105 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block ocplatform_body %}
+
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            {% block title %}
+                Utilisateur
+            {% endblock %}
+        </h1>
+    </section>
+
+    <section class="content">
+
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                Recherche
+            </h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                            class="fa fa-minus"></i></button>
+            </div>
+        </div>
+
+        <div class="box-body">
+            {{ form_start(form, {'attr': {'novalidate': 'confiture', 'autocomplete': 'nope', 'class': 'form-horizontal'}}) }}
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+                {{ form_label(form.firstname, "Prénom", {'label_attr': {'class': 'control-label'}}) }}
+                {{ form_errors(form.firstname) }}
+                {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm-6">
+                {{ form_label(form.lastname, "Nom", {'label_attr': {'class': 'control-label'}}) }}
+                {{ form_errors(form.lastname) }}
+                {{ form_widget(form.lastname, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+                {{ form_label(form.username, "Username", {'label_attr': {'class': 'control-label'}}) }}
+                {{ form_errors(form.username) }}
+                {{ form_widget(form.username, {'attr': {'class': 'form-control '}}) }}
+                </div>
+                <div class="col-sm-6">
+                {{ form_label(form.email, "Email", {'label_attr': {'class': 'control-label'}}) }}
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email, {'attr': {'class': 'form-control '}}) }}
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+                    {{ form_label(form.urlAdobe, "Url Adobe", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.urlAdobe) }}
+                    {{ form_widget(form.urlAdobe, {'attr': {'class': 'form-control '}}) }}
+                </div>
+                <div class="col-sm-6">
+                    {{ form_label(form.urlIslider, "Url Islider", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.urlIslider) }}
+                    {{ form_widget(form.urlIslider, {'attr': {'class': 'form-control '}}) }}
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+                    {{ form_label(form.roles, "Rôles", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.roles) }}
+                    {{ form_widget(form.roles, {'attr': {'class': 'form-control '}}) }}
+                </div>
+                <div class="col-sm-6">
+                    {{ form_label(form.idOperation, "Id Operation", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.idOperation) }}
+                    {{ form_widget(form.idOperation, {'attr': {'class': 'form-control '}}) }}
+                </div>
+            </div>
+
+            {% if form.password is defined %}
+            <div class="col-sm-12">
+                <div class="col-sm-6">
+                    {{ form_label(form.password, "Mot de passe", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.password) }}
+                    {{ form_widget(form.password, {'attr': {'class': 'form-control '}}) }}
+                </div>
+                <div class="col-sm-6">
+                </div>
+            </div>
+            {% endif %}
+
+
+            <div class="col-sm-12 text-center">
+                <br/>
+                <input type="submit" value="{{ button|trans }}" class="btn btn-sm btn-success"/>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/questionnaire.css') }}" type="text/css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block app_body %}
+
+    <section class="dash questionnaire">
+        <div class="dash-left">
+            <div class="dash-left-top">
+                <div class="dash-prez-accroche">
+                    <img class="desktop" src="{{ asset('images/logo_application.png') }}" alt="{{ site.name }}">
+                </div>
+            </div>
+            <div class="dash-left-bottom">
+                <div class="question">
+                    <p style="margin-bottom: 1rem;">Pour toute question,<br/>contactez-nous au N° Vert :​</p>
+                    <span>Une question ?</span><br/>
+                    <img class="desktop" src="{{ asset('images/numero-vert.png') }}" width="200">
+                    <img class="resp" src="{{ asset('images/numero-vert_short.png') }}" width="150">
+                </div>
+            </div>
+        </div>
+        <section class="dash-right">
+            <section class="title">
+                <div class="h1">
+                    <a href="{{ path('homepage')}}">
+                        <img src="{{ asset('images/picto/arrow-back.png') }}" alt="back">
+                    </a>
+                    <h1>Mentions Légales de consentement</h1>
+                </div>
+            </section>
+            <section class="content">
+                <div class="card">
+                    <div class="card-body row">
+                        <p style="margin-bottom: 1rem;">Vous souhaitez participer au programme d’{{ site.type }} {{ site.name }}.</p>
+                        <p style="margin-bottom: 1rem;">La participation au programme est <b>libre et gratuite</b>. Votre médecin reste le seul responsable de votre traitement, les infirmiers/infirmières du programme ne peuvent prendre aucune décision médicale. Tous les entretiens que vous aurez avec les infirmiers/ infirmières du programme sont strictement confidentiels. Dans le cadre de notre démarche d’amélioration qualité, sauf avis contraire de votre part, vos appels avec les infirmiers/infirmières Patientys
+                            joignables sur le numéro vert dédié sont susceptibles d’être écoutés.​</p>
+                        <p style="margin-bottom: 1rem;">Ce programme d’{{ site.type }} est mis en place conformément au décret n°2010-1031 du 31 août 2010, pris en application de l’article L 1161-5 du Code de Santé Publique. Le programme {{ site.name }} à l’initiative de Pfizer, est géré par la société Patientys situé au 31 rue des Longs Prés 92100 Boulogne-Billancourt, qui agit comme Tiers de confiance.</p>
+                        <br/><br/>
+                        <p style="margin-bottom: 1rem;"><strong>​Pour Patientys*, la protection de votre vie privée est essentielle. </strong></p>
+                        <p style="margin-bottom: 1rem;">Vous êtes informé(e) qu’au sens de la loi n° 78-17 du 6 janvier 1978 modifiée relative à l’informatique, aux fichiers et aux libertés, et du Règlement UE 2016/679 relatif à la protection des personnes physiques à l’égard du traitement des données à caractère personnel et à la libre circulation de ces données du 27 avril 2016 Patientys est responsable du traitement de vos données dans le cadre du programme d’{{ site.type }} {{ site.name }}.</p>
+                        <p style="margin-bottom: 1rem;">Vos données à caractère personnel – vos données d’identification et vos données de santé – sont collectées et traitées dans le cadre de votre participation au programme d’{{ site.type }} afin de vous en faire bénéficier et permettre aux professionnels de santé de Patientys d’assurer la meilleure prise en charge possible, sur le fondement de votre consentement explicite. La fourniture de ces données personnelles est nécessaire à la bonne exécution du programme d’{{ site.type }} auquel vous avez souscrit et leur non fourniture pourrait entrainer une incapacité à ce que ce programme
+                            soit mis en œuvre.</p>
+                        <p style="margin-bottom: 1rem;">Pour assurer la sécurité de vos données, nous nous engageons à  les conserver uniquement durant votre participation au programme. Vos données sont hébergées par un hébergeur de données certifié par le ministère de la santé pour l’hébergement de données de santé Cis Valley. Aucune donnée ne sera transmise à Pfizer.</p>
+                        <p style="margin-bottom: 1rem;">Dans le respect des règles relatives au secret médical, à l’échange et au partage des données de santé couvertes, les informations vous concernant sont strictement destinées à votre usage personnel ; aux membres du personnel de Patientys, spécifiquement habilités, dans le strict respect de leurs missions de suivi des patients; aux professionnels de santé de Patientys ; à votre médecin prescripteur ; aux administrateurs strictement habilités de l’hébergeur de données de santé, au sens de l’article L.1111-8 du Code de la santé publique, dans la limite de leurs attributions respectives ; aux personnes
+                            habilitées au titre des tiers autorisés (les juridictions concernées, les arbitres, les médiateurs, les ministères concernés,…), ainsi qu’éventuellement au service de pharmacovigilance de Pfizer dans le cadre de la réalisation de nos obligations légales en matière de pharmacovigilance.</p>
+                        <p style="margin-bottom: 1rem;">Conformément au Règlement UE 2016/679 du parlement européen, relatif à la protection des personnes physiques à l’égard du traitement des données à caractère personnel et à la libre circulation de ces données, vous pouvez à tout moment nous demander l’accès à vos données à caractère personnel, leur rectification, leur effacement, leur portabilité. Vous pouvez aussi limiter ou vous opposer à leur traitement et introduire une réclamation auprès de la CNIL. Vous pouvez également retirer à tout moment votre consentement, dans ce cas, vous ne pourrez plus bénéficier des services et informations
+                            accessibles dans le cadre du programme d’{{ site.type }}. Sachez que le retrait de votre consentement ne portera pas atteinte à la licéité du traitement de vos données effectué avant le retrait de votre consentement et ne remettra pas en cause votre prise en charge habituelle.</p>
+                        <p style="margin-bottom: 1rem;">Pour plus d’informations ou pour exercer vos droits, vous pouvez nous contacter par courriel <a href="mailto:Privacy@test.com">Privacy@test.com</a> ou par courrier à Patientys Data Protection Officer – Délégué à la Protection des Données, 31 rue des Longs Prés 92100 Boulogne-Billancourt.</p>
+                        <br/><br/><br/>
+                        <p style="margin-bottom: 1rem;"> *Patientys est une société dédiée à la relation aux patients. A l’initiative des premiers dispositifs d’accompagnement, coaching ou apprentissage des patients, Patientys a développé une expertise et un savoir-faire unique en France dans le dépistage, la prévention et l’accompagnement.</p><br/>
+                    </div>
+                </div>
+                <br/><br/><br/>
+                <div class="row">
+                    <div class="buttons">
+                        <button class="btn btn-secondary" type="button" onclick="document.location.href='{{ path('homepage') }}';"><span class="glyphicon glyphicon-home"></span> Retour</button>
+                    </div>
+                </div>
+
+                <br/><br/><br/>
+            </section>
+        </section>
+    </section>
+{% endblock %}
+

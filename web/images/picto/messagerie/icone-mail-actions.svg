@@ -1,0 +1,14 @@
+<svg id="icone-mail-actions" xmlns="http://www.w3.org/2000/svg" width="5" height="21" viewBox="0 0 5 21">
+  <g id="Ellipse_60" data-name="Ellipse 60" fill="none" stroke="#7ed7c2" stroke-width="2">
+    <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+    <circle cx="2.5" cy="2.5" r="1.5" fill="none"/>
+  </g>
+  <g id="Ellipse_60-2" data-name="Ellipse 60" transform="translate(0 8)" fill="none" stroke="#7ed7c2" stroke-width="2">
+    <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+    <circle cx="2.5" cy="2.5" r="1.5" fill="none"/>
+  </g>
+  <g id="Ellipse_60-3" data-name="Ellipse 60" transform="translate(0 16)" fill="none" stroke="#7ed7c2" stroke-width="2">
+    <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+    <circle cx="2.5" cy="2.5" r="1.5" fill="none"/>
+  </g>
+</svg>

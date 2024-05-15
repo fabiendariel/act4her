@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="{{ asset('bundles/plugins/iCheck/all.css') }}" />
+{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                  {{ form_label(form.type_ope, "Type d'opération", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                  {{ form_errors(form.type_ope) }}
+                  <div class="col-sm-10">
+                    {{ form_widget(form.type_ope, {'attr': {'class': 'form-control'}}) }}
+                  </div>
+              </div>
+              <!-- /.form-group -->  
+              <div class="form-group">
+                  {{ form_label(form.description, "Description", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                  {{ form_errors(form.description) }}
+                  <div class="col-sm-10">
+                    {{ form_widget(form.description, {'attr': {'class': 'form-control datepicker'}}) }}
+                  </div>
+              </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                    {{ form_label(form.logo, "Logo", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.logo) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.logo, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+              <!-- /.form-group -->
+                <div class="form-group">
+                    {{ form_label(form.jeton, "Persistance du jeton", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.jeton) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.jeton, {'attr': {'class': ''}}) }}
+                    </div>
+                </div>
+
+
+              {% set prototype_colis= form.fichiers.vars.prototype %}
+              <div id="prototype-colis" class="prototype-colis hide form-group" style="padding: 5px;">
+                  <div class="col-sm-12 form-colis">
+                    <div class="col-sm-1"></div>
+                    <label class="col-sm-1 control-label" style="margin-left: -10px; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">Fichier __name__</label>
+                      {{ form_errors(prototype_colis.fichier) }}
+                      {{ form_widget(prototype_colis.fichier, {'attr': {'class': 'col-sm-4 form-control', 'style': 'margin-right: 10px; margin-left: 10px; width:30%', 'placeholder': 'Fichier'}}) }}
+                      {{ form_errors(prototype_colis.groupe_fichiers) }}
+                      {{ form_widget(prototype_colis.groupe_fichiers, {'attr': {'class': 'col-sm-4 form-control', 'style': 'margin-right: 10px; margin-left: 10px; width:30%', 'placeholder': 'Groupe'}}) }}
+                    <div class="button-colis"></div>
+                  </div>
+              </div>
+
+                {% for key_colis, form_children in form.fichiers.vars.form.children %}
+                    <div class="colis-div form-group" style="padding: 5px;">
+                        <div class="col-sm-12 form-colis pastcolis{{ key_colis }}" data-colis="{{ key_colis }}">
+                            <div class="col-sm-1"></div>
+                            <label class="col-sm-1 control-label" style="margin-left: -10px; border-bottom: 1px solid #ccc; border-right: 1px solid #ccc;">Fichier {{ key_colis }}</label>
+                            {{ form_errors(form_children.fichier) }}
+                            {{ form_widget(form_children.fichier, {'attr': {'class': 'col-sm-4 form-control', 'style': 'margin-right: 10px; margin-left: 10px; width:30%', 'placeholder': 'Fichier'}}) }}
+                            {{ form_errors(form_children.groupe_fichiers) }}
+                            {{ form_widget(form_children.groupe_fichiers, {'attr': {'class': 'col-sm-4 form-control', 'style': 'margin-right: 10px; margin-left: 10px; width:30%', 'placeholder': 'Groupe'}}) }}
+                            <div class="button-colis"></div>
+                        </div>
+                    </div>
+                {% endfor %}
+              <!-- /.form-group -->
+
+             <section id="container-colis">
+                <div>
+                    <a href="#" id="add-colis" class="btn btn-success" style="float:right">Ajouter un fichier</a>
+                </div>
+            </section>
+            <section id="container-enp"></section>
+            </div>
+          </div>
+          <div class="box-footer">
+              {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary operation_save'},  'label': 'Enregistrer'}) }}
+              <div style="display:none;">{{ form_rest(form) }}</div>
+          </div>
+          <!-- /.row -->
+ {{ form_end(form) }}
+

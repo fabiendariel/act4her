@@ -1,0 +1,94 @@
+@import "../../variables.scss";
+.patient-info {
+	.civilite {
+		background: $bg-sec;
+		padding: 25px 21px 30px 21px;
+		@include radius(12px);
+		margin-bottom: 38px;
+		@media #{$w768} {
+			padding: 17pt 21pt;
+			margin-bottom: 20pt;
+			background: rgba(40, 115, 128, 0.06);
+		}			
+		>div {
+			display: flex;
+			align-items: center;
+			margin-bottom: 29px;
+			font-weight: 700;
+			@media #{$w768} {
+				margin-bottom: 13pt;
+			}			
+			span {
+				display: block;
+				margin-left: 12px;
+				font-size: 18px;
+				line-height: 20px;
+				@media #{$w768} {
+					margin-left: 11px;
+					font-size: 16pt;
+					line-height: 20pt;
+				}				
+			}
+		}
+		ul {
+			li {
+				font-size: 13px;
+				line-height: 19px;
+				font-weight: 700;
+				@media #{$w768} {
+					font-size: 12pt;
+					line-height: 19pt;
+				}
+				.statut {
+					padding: 2px 8px;
+					background: $sec-c;
+					text-align: center;
+					text-transform: uppercase;
+					color: $white;
+					@include radius(3px);
+					font-size: 8px;
+					font-weight: 700;
+					letter-spacing: 0.24px;
+				}				
+			}
+		}
+	}
+	.patho {
+		.type-patho {
+			display: flex;
+			align-items: flex-start;
+			margin-bottom: 35px;
+			@media #{$w768} {
+				padding: 0 0 18pt 0;
+				border-bottom: 1px solid rgba(40, 115, 128, 0.06);
+			}				
+			figure {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				margin-right: 9px;
+				@include w-h-sim(24px);
+			}	
+		}
+		ul {			
+			li {
+				font-size: 12px;
+				line-height: 17px;	
+				@media #{$w768} {
+					font-size: 12pt;
+					line-height: 19pt;
+				}							
+				&:first-child {
+					font-size: 16px;
+					line-height: 19px;
+					font-weight: 700;
+					margin-bottom: 9px;
+					@media #{$w768} {
+						font-size: 16pt;
+						margin-bottom: 18pt;
+					}					
+				}
+			}
+		}
+	}
+}	

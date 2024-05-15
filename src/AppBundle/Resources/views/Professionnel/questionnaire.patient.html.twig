@@ -1,0 +1,528 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/crea-account.css') }}" type="text/css" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+{% block app_body %}
+  <div class="dash questionnaire">
+    <div class="dash-left">
+      <div class="dash-left-top">
+        <div class="dash-prez-accroche">
+          <img class="desktop" src="{{ asset('images/logo_application.png') }}" alt="Promed">
+          <img class="resp" src="{{ asset('images/logo-resp.png') }}" alt="Promed">
+        </div>
+      </div>
+      <div class="dash-left-bottom">
+        <div class="question">
+          <p>Pour toute question,<br/>contactez-nous au N° Vert :​</p>
+          <span>Une question ?</span><br/>
+          <img class="desktop" src="{{ asset('images/numero-vert.png') }}" width="200">
+          <img class="resp" src="{{ asset('images/numero-vert_short.png') }}" width="150">
+        </div>
+      </div>
+    </div>
+    <div class="dash-right">
+      <section class="title">
+        <div class="h1">
+          <a href="{{ path('homepage') }}">
+            <img src="{{ asset('images/picto/arrow-back.png') }}" alt="back">
+          </a>
+          <h1>Inscription de votre patient au programme</h1>
+        </div>
+      </section>
+      <section class="questionnaire-form">
+        <div class="h4">
+          <h4>Les champs signalés par * sont obligatoires</h4>
+        </div>
+        <form action="{{ path('patient_inscription') }}" class="needs-validation panel panel-info" novalidate role="form" method="post" id="questionnaire">
+          <div class="step step-1">
+            <div class="questionnaire-title">
+              <h2 class="panel-title text-primary">Médecin prescripteur</h2>
+            </div>
+            <div class="questionnaire-title"></div>
+            <div class="double-input">
+              <div class="input">
+                <label>Nom*</label>
+                <div>
+                  {{ form_errors(form.nom) }}
+                  {{ form_widget(form.nom, {'attr': {'class': 'form-control ','value' : prs.ps_nom}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Nom obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>Prénom*</label>
+                <div>
+                  {{ form_errors(form.prenom) }}
+                  {{ form_widget(form.prenom, {'attr': {'class': 'form-control ','value' : prs.ps_prenom}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Prénom obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            {#<div>
+              <div class="input">
+                <label>Spécialité*</label>
+                <div>
+                  {{ form_errors(form.specialite) }}
+                  {{ form_widget(form.specialite, {'attr': {'class': 'form-control ','value' : prs.specialite}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Spécialité obligatoire !</div>
+                </div>
+              </div>
+            </div>#}
+            <div>
+              <div class="input">
+                <label>Exerçant à</label>
+                <div>
+                  {{ form_errors(form.adresse) }}
+                  {{ form_widget(form.adresse, {'attr': {'class': 'form-control ','value' : prs.ps_adresse}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Adresse obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Code postal*</label>
+                <div>
+                  {{ form_errors(form.cp) }}
+                  {{ form_widget(form.cp, {'attr': {'class': 'form-control col-3','value' : prs.ps_cp}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Code postal obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>Ville*</label>
+                <div>
+                  {{ form_errors(form.ville) }}
+                  {{ form_widget(form.ville, {'attr': {'class': 'form-control ','value' : prs.ps_ville}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Ville obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Téléphone</label>
+                <div>
+                  {{ form_errors(form.tel) }}
+                  {{ form_widget(form.tel, {'attr': {'class': 'form-control col-5','value' : prs.ps_tel}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Téléphone valide obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>Fax</label>
+                <div>
+                  {{ form_errors(form.fax) }}
+                  {{ form_widget(form.fax, {'attr': {'class': 'form-control col-5','value' : prs.ps_fax}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Fax valide obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="form-check form-check-inline">
+                {{ form_widget(form.alerte3, {'attr': {'class': 'form-check-input' }}) }}
+                <label class="form-check-label" for="questionnaire_patient[courrier]">
+                  En cochant cette case, je souhaite être alerté uniquement en cas d’effet indésirable de grade ≥ 3<br/>
+                  <i>Par défaut, vous serez averti en cas d’alerte de grade ≥ 2</i>
+                </label>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="form-check form-check-inline" style="width: 100%;">
+                {{ form_widget(form.alerteEquipe, {'attr': {'class': 'form-check-input' }}) }}
+                <label class="form-check-label" for="questionnaire_patient[courrier]"> Uniquement à mon équipe médicale, à l’adresse mail suivante </label>
+              </div>
+            </div>
+            <div class="emailEquipe" style="display:none">
+              <div class="input">
+                <label>Email d'alerte équipe médicale</label>
+                <div>
+                  {{ form_errors(form.alerteMail) }}
+                  {{ form_widget(form.alerteMail, {'attr': {'class': 'form-control'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Adresse email obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            {% if prs.courrier is not defined or prs.courrier != -1 %}
+            <div style="display:none">
+              <div class="form-check form-check-inline">
+                {{ form_widget(form.courrier, {'attr': {'class': 'form-check-input' }}) }}
+                <label class="form-check-label" for="questionnaire_patient[courrier]">
+                  Je souhaite recevoir les données de suivi de mon patient par courrier.​<br/>
+                  <i>Par défaut, vous serez informé(e) par mail de la mise à disposition des comptes rendus sur la plateforme sécurisée.​</i>
+                </label>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+
+          <div class="step step-2" >
+            <div class="questionnaire-title">
+              <h2 class="panel-title text-primary">Patient</h2>
+            </div>
+            <div class="double-input">
+              <div class="input form-check form-check-inline col-xl-2 col-lg-5">
+                <input class="form-check-input" name="questionnaire_patient[civilite]" required type="radio" value="Monsieur" id="questionnaire_patient_civilite_1">
+                <label class="form-check-label" for="questionnaire_patient_civilite_1">
+                  Mr
+                </label>
+              </div>
+              <div class="input form-check form-check-inline col-xl-2 col-lg-5">
+                <input class="form-check-input" name="questionnaire_patient[civilite]" required type="radio" value="Madame" id="questionnaire_patient_civilite_2">
+                <label class="form-check-label" for="questionnaire_patient_civilite_2">
+                  Mme
+                </label>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Nom*</label>
+                <div>
+                  {{ form_errors(form.nom_patient) }}
+                  {{ form_widget(form.nom_patient, {'attr': {'class': 'form-control'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Nom obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>Prénom*</label>
+                <div>
+                  {{ form_errors(form.prenom_patient) }}
+                  {{ form_widget(form.prenom_patient, {'attr': {'class': 'form-control'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Prénom obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="input">
+                <label>Adresse*</label>
+                <div>
+                  {{ form_errors(form.adresse_patient) }}
+                  {{ form_widget(form.adresse_patient, {'attr': {'class': 'form-control'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Adresse obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Code Postal*</label>
+                <div>
+                  {{ form_errors(form.cp_patient) }}
+                  {{ form_widget(form.cp_patient, {'attr': {'class': 'form-control col-3'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Code postal obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>Ville*</label>
+                <div>
+                  {{ form_errors(form.ville_patient) }}
+                  {{ form_widget(form.ville_patient, {'attr': {'class': 'form-control'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Ville obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="input">
+                <label>Portable*</label>
+                <div>
+                  {{ form_errors(form.mobile_patient) }}
+                  {{ form_widget(form.mobile_patient, {'attr': {'class': 'form-control col-5'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Portable valide obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>E-mail*</label>
+                <div>
+                  {{ form_errors(form.email_patient) }}
+                  {{ form_widget(form.email_patient, {'attr': {'class': 'form-control','pattern':'[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Email valide obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>Date de naissance*</label>
+                <div>
+                  {{ form_errors(form.naissance_patient) }}
+                  {{ form_widget(form.naissance_patient, {'attr': {'class': 'form-control col-6'}}) }}
+                  <div class="invalid-feedback dateError">&nbsp;&nbsp;&nbsp;Date de naissance obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="input">
+                <label>Ma pharmacie</label>
+                <div>
+                  {{ form_errors(form.pharmacie) }}
+                  {{ form_widget(form.pharmacie, {'attr': {'class': 'form-control'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Champs obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Nom de l’infirmier/personnel médical coordinateur</label>
+                <div>
+                  {{ form_errors(form.nom_infirmier) }}
+                  {{ form_widget(form.nom_infirmier, {'attr': {'class': 'form-control'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Champs obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>N° de téléphone de l’infirmier/personnel médical coordinateur</label>
+                <div>
+                  {{ form_errors(form.tel_infirmier) }}
+                  {{ form_widget(form.tel_infirmier, {'attr': {'class': 'form-control col-6'}}) }}
+                  <div class="invalid-feedback dateError">&nbsp;&nbsp;&nbsp;Champs obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Début du traitement</label>
+                <div>
+                  {{ form_errors(form.date_traitement) }}
+                  {{ form_widget(form.date_traitement, {'attr': {'class': 'form-control'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Début traitement obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>Initiation de traitement</label>
+                <div>
+                  {{ form_errors(form.initiation) }}
+                  {{ form_widget(form.initiation, {'attr': {'class': 'form-control col-6'}}) }}
+                  <div class="invalid-feedback dateError">&nbsp;&nbsp;&nbsp;Initiation obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="input">
+                <label>Traitement oral prescrit :</label>
+                <div>
+                  {{ form_errors(form.traitement) }}
+                  {{ form_widget(form.traitement, {'attr': {'class': 'form-control'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Traitement obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="input">
+                <label>Traitements associés :</label>
+                <div>
+                  {{ form_errors(form.traitement_associe) }}
+                  {{ form_widget(form.traitement_associe, {'attr': {'class': 'form-control'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Champs obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="input">
+                <label>Dosage</label>
+                <div>
+                  {{ form_errors(form.dosage) }}
+                  {{ form_widget(form.dosage, {'attr': {'class': 'form-control'}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Dosage obligatoire !</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step traitant">
+            <div class="questionnaire-title">
+              <h2 class="panel-title text-primary">Médecin traitant</h2>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Nom</label>
+                <div>
+                  {{ form_errors(form.nom_traitant) }}
+                  {{ form_widget(form.nom_traitant, {'attr': {'class': 'form-control '}}) }}
+                </div>
+              </div>
+              <div class="input">
+                <label>Prénom</label>
+                <div>
+                  {{ form_errors(form.prenom_traitant) }}
+                  {{ form_widget(form.prenom_traitant, {'attr': {'class': 'form-control '}}) }}
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="input">
+                <label>Adresse</label>
+                <div>
+                  {{ form_errors(form.adresse_traitant) }}
+                  {{ form_widget(form.adresse_traitant, {'attr': {'class': 'form-control '}}) }}
+                </div>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Code postal</label>
+                <div>
+                  {{ form_errors(form.cp_traitant) }}
+                  {{ form_widget(form.cp_traitant, {'attr': {'class': 'form-control col-3'}}) }}
+                </div>
+              </div>
+              <div class="input">
+                <label>Ville</label>
+                <div>
+                  {{ form_errors(form.ville_traitant) }}
+                  {{ form_widget(form.ville_traitant, {'attr': {'class': 'form-control '}}) }}
+                </div>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Téléphone</label>
+                <div>
+                  {{ form_errors(form.tel_traitant) }}
+                  {{ form_widget(form.tel_traitant, {'attr': {'class': 'form-control '}}) }}
+                </div>
+              </div>
+              <div class="input">
+                <label>Fax</label>
+                <div>
+                  {{ form_errors(form.fax_traitant) }}
+                  {{ form_widget(form.fax_traitant, {'attr': {'class': 'form-control '}}) }}
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="input">
+                <label>Email</label>
+                <div>
+                  {{ form_errors(form.email_traitant) }}
+                  {{ form_widget(form.email_traitant, {'attr': {'class': 'form-control '}}) }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="step step-3">
+            <div class="questionnaire-title">
+              <h2 class="panel-title text-primary">A lire au patient : En signant ce consentement</h2>
+            </div>
+            <div>
+              <h4>
+                <b>J’accepte de bénéficier du dispositif d’accompagnement ACT4HER qui m’a été proposé par mon médecin prescripteur et je consens à la collecte et au
+                traitement de ses données de santé à caractère personnel dans le cadre de l’action d’accompagnement ainsi qu’à leur hébergement auprès d’un hébergeur agréé.</b>
+                <br/> <br/>
+                Les données me concernant seront collectées dans un fichier informatique pour la seule mise en œuvre de ce programme.
+                Ces informations ne seront conservées que pendant la durée de ma participation à ce programme.
+              </h4>
+            </div>
+            <br/><br/>
+            <div>
+              <div class="form-check form-check-inline">
+                {{ form_errors(form.collecte_informatique) }}
+                {{ form_widget(form.collecte_informatique, {'attr': {'class': 'form-check-input', 'style' : 'min-width: 26px;'}}) }}
+                <label class="form-check-label" for="questionnaire_patient[collecte_informatique]">
+                 Je consens à la collecte et au traitement de mes données de santé à caractère personnel dans le cadre du programme.
+                </label>
+                <br/><br/>
+              </div>
+              <p style="margin-left:50px">Vous pouvez à tout moment quitter le programme sur simple demande au N°Vert</p>
+              <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Réponse obligatoire !</div>
+            </div>
+            <div>
+              <div class="form-check form-check-inline">
+                {{ form_errors(form.cgv) }}
+                {{ form_widget(form.cgv, {'attr': {'class': 'form-check-input' }}) }}
+                <label class="form-check-label" for="questionnaire_patient[cgv]">
+                  J'ai lu et j'accepte les <a href="{{ path('app_mentions_legales_consent') }}" style="display: inline;" target="_blank"><u>mentions légales</u></a>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="table-content col-8 offset-2">
+            <div class="table-wrapper" >
+              <table class="table table-striped">
+                <tbody>
+                <tr>
+                  <td class="text-center">
+                    <div class="buttons">
+                      <button class="btn btn-primary generate_sms" type="button">Envoyer le code de validation par SMS</button>
+                    </div>
+                    <div class="alert alert-block" id="alert_sms" style="display:none"></div>
+                    <br/><span>Si code non reçu, <a href="#" class="renvoi_sms"><u>cliquez ici</u></a> pour en recevoir un de nouveau (SMS uniquement)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center">
+                    <div>
+                      <div class="input col-md-6 offset-3 text-center">
+                        <label>Code de vérification* :</label>
+                        <div>
+                          <input type="hidden" id="code_sms" value="" name="code_sms">
+                          {{ form_errors(form.code_validation) }}
+                          {{ form_widget(form.code_validation, {'attr': {'class': 'form-control '}}) }}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-center">
+                    <div>
+                      <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Vous devez renseigner un code valide !</div>
+                      <div class="alert alert-block alert-danger" id="alert_sms_diff" style="display:none">
+                        Le code généré et celui noté ici ne correspondent pas !
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="buttons" style="margin-top:50px;">
+            <div style="display: none;">{{ form_rest(form) }}</div>
+            <a href="{{ path('professionnel_index')}}">
+              <button type="button" class="btn textbtn1 btn-secondary">Retour à votre espace</button>
+            </a>
+            <button type="button" class="btn textbtn1 btn-primary">Enregistrer l'inscription</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    $(function()
+    {
+      $('#questionnaire_patient_alerteEquipe').change(function(ev){
+        if($('#questionnaire_patient_alerteEquipe').is(':checked')){
+          $('.emailEquipe').show();
+        }else{
+          $('.emailEquipe').hide();
+        }
+
+      });
+    });
+
+  </script>
+
+{% endblock %}
+
+{% block javascripts %}
+  <script src="https://www.google.com/recaptcha/api.js?hl=fr" async defer></script>
+  <script src="{{ asset('js/inscription_patient.js') }}"></script>
+  <script>
+  var url_envoi_code = '{{ path('envoi_code') }}';
+  var url_check_code = '{{ path('check_code') }}';
+  var url_test_doublon = '{{ path('test_doublon') }}';
+  </script>
+  {% if isOk %}
+    <script>
+      $(function()
+      {
+        $('#modal-validation-patient').modal('show');
+
+        $('#modal-validation-patient').on('hidden.bs.modal', function () {
+          document.location.href='{{ path('homepage') }}';
+        });
+      });
+    </script>
+  {% endif %}
+{% endblock %}
+

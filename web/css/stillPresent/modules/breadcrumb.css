@@ -1,0 +1,65 @@
+.breadcrumb {
+  background-color: transparent;
+  margin-bottom: 37px; }
+  @media only screen and (max-width: 650px) {
+    .breadcrumb {
+      margin-bottom: 32px; } }
+  .breadcrumb .etape {
+    display: none;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 15pt;
+    line-height: 20pt;
+    color: #b03661;
+    font-weight: 700; }
+    @media only screen and (max-width: 650px) {
+      .breadcrumb .etape {
+        display: block; } }
+  .breadcrumb ul {
+    display: flex;
+    padding: 0; }
+    @media only screen and (max-width: 650px) {
+      .breadcrumb ul {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%; } }
+    .breadcrumb ul li {
+      width: 65px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 20px;
+      position: relative;
+      margin-right: 11px;
+      padding-bottom: 10px;
+      text-transform: uppercase;
+      font-weight: 700;
+      opacity: 0.2; }
+      @media only screen and (max-width: 650px) {
+        .breadcrumb ul li {
+          width: 15px;
+          margin-left: 5px;
+          margin-right: 5px; } }
+      .breadcrumb ul li:before {
+        width: 100%;
+        height: 4px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: #485b5c;
+        content: '';
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        border-radius: 12px; }
+      .breadcrumb ul li.active {
+        opacity: 1;
+        color: #b03661;
+        font-size: 15px; }
+        .breadcrumb ul li.active:before {
+          background-color: #b03661; }
+      @media only screen and (max-width: 650px) {
+        .breadcrumb ul li span {
+          display: none; } }
+
+/*# sourceMappingURL=breadcrumb.css.map */

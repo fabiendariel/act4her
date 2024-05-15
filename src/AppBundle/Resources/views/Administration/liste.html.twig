@@ -1,0 +1,214 @@
+{% extends "AppBundle::layout_admin.html.twig" %}
+{% import 'AppBundle:_Macros:app_pagination.html.twig' as pagination %}
+
+{% block ocplatform_body %}
+
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            {% block title %}
+                Liste des professionnels
+            {% endblock %}
+        </h1>
+    </section>
+
+    <section class="content">
+
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+
+                Recherche
+
+            </h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                            class="fa fa-minus"></i></button>
+            </div>
+        </div>
+
+        <div class="box-body">
+            {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    {{ form_label(form.profil, "Profil", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.profil) }}
+                    {{ form_widget(form.profil, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm-2">
+                    {{ form_label(form.titreComplement, "Type Médecin", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.titreComplement) }}
+                    {{ form_widget(form.titreComplement, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm-2">
+                    {{ form_label(form.titreComplementAutres, "Type ITS", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.titreComplementAutres) }}
+                    {{ form_widget(form.titreComplementAutres, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm-2">
+                    {{ form_label(form.statutProfessionnel, "Salarié/Libéral", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.statutProfessionnel) }}
+                    {{ form_widget(form.statutProfessionnel, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm-2">
+                    {{ form_label(form.dateDebut, "Plage horaire: Début", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.dateDebut) }}
+                    {{ form_widget(form.dateDebut, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm-2">
+                    {{ form_label(form.dateFin, "Fin", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.dateFin) }}
+                    {{ form_widget(form.dateFin, {'attr': {'class': 'form-control'}}) }}
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="col-sm-2">
+                    {{ form_label(form.statut, "Statut volontaire", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.statut) }}
+                    {{ form_widget(form.statut, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm-2">
+                    {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.nom) }}
+                    {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm-2">
+                    {{ form_label(form.formationInitiale, "Date de formation", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.formationInitiale) }}
+                    {{ form_widget(form.formationInitiale, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm-2">
+                    {{ form_label(form.heure, "Heure de formation", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.heure) }}
+                    {{ form_widget(form.heure, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm-2">
+                    {{ form_label(form.disponibilite, "Disponibilité Médecin", {'label_attr': {'class': 'control-label'}}) }}
+                    {{ form_errors(form.disponibilite) }}
+                    {{ form_widget(form.disponibilite, {'attr': {'class': 'form-control'}}) }}
+                </div>
+                <div class="col-sm-1">
+                    <br/>
+                    {{ form_widget(form.save, {'attr': {'class': 'btn btn-success'},  'label': 'Rechercher'}) }}
+                </div>
+                <div class="col-sm-1">
+                    <br/>
+                    <a href="{{ path('app_administration_liste', {'reset': 1}) }}"><button type="button" class="btn btn-danger">Annuler</button></a>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+    <div class="box box-default">
+        <div class="box-header with-border" style="padding: 12px;">
+            <h3 class="box-title">
+                Recherche
+
+            </h3>
+
+            <div class="box-tools pull-right">
+                <a class="btn btn-info" href="{{ path('app_administration_excel') }}" >Exporter les résultats</a>
+            </div>
+        </div>
+
+        <div class="box-body">
+
+            <table class="operation-list table table-striped table-bordered jambo_table">
+                <tbody>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Salarié/Libéral</th>
+                    <th>Profil</th>
+                    <th>Titre</th>
+                    <th>Type médecin</th>
+                    <th>Type ITS</th>
+                    <th>Email</th>
+                    <th>Téléphone portable</th>
+                    <th>Lieux de travail possible</th>
+                    <th>Statut</th>
+                    <th>En cours de modification</th>
+                </tr>
+                {% for professionnel in professionnels %}
+                    <tr
+                            {% set flagAccess = 0 %}
+                            {% if professionnel.access|length == 0 %}
+                                onclick="document.location = '{{ path('app_administration_fiche', {'professionnel_id': professionnel.id}) }}';"
+                            {% else %}
+                                {% set flagAccess = 1 %}
+                                {% set access = professionnel.access|first %}
+                                {% if access.utilisateur.id == app.user.id %}
+                                    {% set flagAccess = 0 %}
+                                    onclick="document.location = '{{ path('app_administration_fiche', {'professionnel_id': professionnel.id}) }}';"
+                                {% endif %}
+                            {% endif %}
+                            style="{% if flagAccess == 1 %}color: red;{% else %}cursor:pointer;{% endif %}">
+                        <td>{{ professionnel.nom }}</td>
+                        <td>{{ professionnel.prenom }}</td>
+                        <td>{% if professionnel.statutProfessionnel.id is defined %}
+                                 {{ professionnel.statutProfessionnel.label }}
+                            {% endif %}</td>
+                        <td>
+                            {% if professionnel.profil.id is defined %}
+                                {{ professionnel.profil.label }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if professionnel.titre.id is defined %}
+                                {{ professionnel.titre.label }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if professionnel.titreComplement.autre == 0 %}
+                                {{ professionnel.titreComplement.label  }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if professionnel.titreComplement.autre == 1 %}
+                                {{ professionnel.titreComplement.label  }}
+                            {% endif %}
+                        </td>
+                        <td>{{ professionnel.email }}</td>
+                        <td>{{ professionnel.mobile }}</td>
+                        <td>
+                            <ul>
+                            {% if professionnel.picpus == 1 %}
+                               <li>Campus Picpus</li>
+                            {% endif %}
+                            {% if professionnel.distance == 1 %}
+                                <li>Distance</li>
+                            {% endif %}
+                            </ul>
+                        </td>
+                        <td>
+                            {% if professionnel.statut.id is defined %}
+                                {{ professionnel.statut.label }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if professionnel.access|length > 0 %}
+                                {% for acces in professionnel.access %}
+                                    <b>{{ acces.utilisateur.username }} - {{ acces.date|date('d/m/Y H:i:s') }}</b>
+                               {% endfor %}
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>{{ "Aucun professionnel n'est référencé"|trans }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        {{ pagination.paginate(professionnels, 10, nbPages, page, 'app_administration_liste') }}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,154 @@
+@import "../variables.scss";
+
+.path-frontpage {
+	.container {
+		.max-width {
+			.questionnaire {
+				.dash-right {
+					.title {
+						.options {
+							.search,
+							.message {
+								display: none;
+							}
+						}
+						.h1 {
+							a {
+								display: block;
+								@media #{$w768} {
+									display: none;
+								}								
+							}
+						}
+					}
+					.questionnaire-result {
+						padding-right: 112px;
+						padding-bottom: 34px;
+						@media #{$w1200} {
+							padding-right: 20px;
+						}
+						@media #{$w992} {
+							padding-right: 0;
+						}												
+						.card-result {
+							display: flex;
+							justify-content: space-between;
+							flex-direction: row-reverse;
+							background: $white;
+							padding: 46px 34px 55px 22px;
+							@include radius(22px);
+							box-shadow: 0 3px 28px 0 rgba(40, 115, 128, 0.12);
+							margin-bottom: 36px;
+							@media #{$w768} {
+								display: block;
+								padding: 0;
+								background: transparent;
+								box-shadow: inherit;
+							}											
+							.table-content {
+								@include w-100(300px);
+								@media #{$w650} {
+									display: none;
+								}								
+								.table-wrapper {
+									margin: 0;
+									box-shadow: inherit;
+
+								}
+								.table>:not(:last-child)>:last-child>* {
+									border: none;
+								}
+								.table > :not(caption) > * > * {
+									padding-top: 15px;
+									padding-bottom: 15px;
+								}
+								.table {
+									td {
+										text-align: center;
+										border: none;
+										&:first-child {
+											text-align: left;
+											font-weight: 700;
+										}
+									}									
+								}
+							}
+							.patient-info {
+								width: 260px;
+								min-width: 260px;
+								margin: 0 0 0 40px;
+								@media #{$w768} {
+									margin: 0;
+									width: 100%;
+								}																
+							}	
+							.evolution {
+								img {
+									display: none;
+									@include m-sim(auto);
+								}
+								&.positive {
+									img {
+										&.up {
+											display: block;
+										}
+									}
+								}
+								&.negative {
+									img {
+										&.down {
+											display: block;
+										}
+									}
+								}											
+							}							
+							.accordion {
+								.accordion-item {
+									margin-bottom: 9pt;
+									@include radius(12px);
+									&:nth-child(odd) {
+										background: $white;
+										.accordion-collapse {
+											background: $white;
+										}
+									}
+									.accordion-top {
+										.name {
+											font-size: 14pt;
+										}
+									}
+								}
+								.accordion-body {
+									ul {
+										width: 100%;
+										display: flex;
+										justify-content: space-between;
+										li {
+											p {
+												font-weight: 700;
+												margin-bottom: 3pt;
+											}
+											span {
+												display: block;
+												text-align: center;
+											}
+											img {
+												margin-top: 9px;
+											}
+											p,
+											span {
+												font-size: 12pt;
+												line-height: 22px;
+											}
+										}
+									}
+								}								
+							}						
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

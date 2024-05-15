@@ -1,0 +1,49 @@
+<style>
+
+    body {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        color: #676767;
+    }
+</style>
+<table width="650" cellpadding="0" cellspacing="0" style="font-size:16px;">
+    <tr>
+        <td width="23"></td>
+        <td width="606" valign="top" style="padding:10px 20px;">
+            <br/>
+
+            Bonjour,<br/><br/><br/><br/>
+            Une nouvelle patiente
+            ({{ data.prenom_patient|capitalize ~ '. ' ~ data.nom_patient ~ '.' }})
+            vient d'être validée par son médecin pour être suivie dans l’action d’accompagnement ACT4HER.<br/><br/>
+            Merci de prendre contact avec elle afin de finaliser son inscription (numéro de fiche : {{ data.num_fiche }})<br/><br/>
+            
+            Voici les informations de la patiente :<br/><br/>
+            {{ '- Nom : ' ~ data.nom_patient|upper }}<br/>
+            {{ '- Prénom : ' ~ data.prenom_patient|upper }}<br/>
+            {{ '- Adresse : ' ~ data.adresse_patient|upper }}<br/>
+            {{ '- Code postal : ' ~ data.cp_patient }}<br/>
+            {{ '- Ville : ' ~ data.ville_patient|upper }}<br/>
+            {{ '- Portable : ' ~ data.mobile_patient }}<br/>
+            <br/><br/>
+
+            Voici les informations du médecin prescripteur :<br/><br/>
+            {{ '- Nom : ' ~ data.nom|upper }}<br/>
+            {{ '- Prénom : ' ~ data.prenom|upper }}<br/>
+            {{ '- Adresse : ' ~ data.adresse|upper }}<br/>
+            {{ '- Code postal : ' ~ data.cp }}<br/>
+            {{ '- Ville : ' ~ data.ville|upper }}<br/>
+            {{ '- Téléphone : ' ~ data.tel }}<br/>
+            {{ '- Fax : ' ~ data.fax }}<br/>
+            <br/><br/>
+            
+            Cordialement.</div>
+
+        </td>
+        <td width="21"></td>
+    </tr>
+</table>

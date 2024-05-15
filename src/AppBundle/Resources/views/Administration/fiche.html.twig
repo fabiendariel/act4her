@@ -1,0 +1,103 @@
+{% extends "AppBundle::layout_admin.html.twig" %}
+
+{% block ocplatform_body %}
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+          {% block title %}
+              Fiche
+          {% endblock %}
+      </h1>
+    </section>
+    <section class="content">
+
+        <div class="box box-default">
+            <div class="box-header with-border">
+              <h3 class="box-title">
+                  Professionnel
+              </h3>
+    
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
+              </div>
+            </div>
+            
+            <div class="box-body" id="fiche_professionnel" data-professionnel_id="{{ professionnel.id }}">
+                {% if block == false %}
+                    {{ include("AppBundle:Administration:form_professionnel.html.twig") }}
+                {% else %}
+                    <p>Un autre utilisateur s'occupe déjà de ce professionnel.</p>
+                    <p>Le questionnaire sera disponible lorsque l'utilisateur quittera la page ou 10 minutes après sa déconnexion.</p>
+                {% endif %}
+            </div>
+           </div>
+        
+    </section>
+
+<!-- REQUIRED JS SCRIPTS -->
+{% block javascripts %}
+ 
+    {# Js pour les DataTables #}
+    <script src="{{ asset('bundles/plugins/datatables/jquery.dataTables.js') }}"></script>
+    <script src="{{ asset('bundles/plugins/datatables/dataTables.bootstrap.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/plug-ins/1.10.12/sorting/date-dd-MMM-yyyy.js"></script>
+    <script src="{{ asset('bundles/custom/operation.js') }}"></script>
+    {% if block == false %}
+        <script type="text/javascript">
+
+            function myFunction () {
+                var base_href = (1 < document.location.href.split('_dev.php').length ? '/app_dev.php' : '');
+
+                $.ajax({
+                    url: base_href + '/admin/access',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        'professionnel_id': $('#fiche_professionnel').data('professionnel_id'),
+                    }
+                });
+            }
+
+            window.onbeforeunload = function(){
+                var base_href = (1 < document.location.href.split('_dev.php').length ? '/app_dev.php' : '');
+
+                if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1){
+                    $.ajax({
+                        url: base_href + '/admin/deleteAccess',
+                        type: 'post',
+                        async: false,
+                        dataType: 'json',
+                        data: {
+                            'professionnel_id': $('#fiche_professionnel').data('professionnel_id'),
+                        },
+                        success: function (result) {
+
+                        }
+                    });
+                }else{
+                    $.ajax({
+                        url: base_href + '/admin/deleteAccess',
+                        type: 'post',
+                        dataType: 'json',
+                        data: {
+                            'professionnel_id': $('#fiche_professionnel').data('professionnel_id'),
+                        },
+                        success: function (result) {
+
+                        }
+                    });
+                }
+
+            }
+
+            var interval = setInterval(function () { myFunction(); }, 300000);
+        </script>
+    {% endif %}
+
+{% endblock %}
+
+{% endblock %}
+
+

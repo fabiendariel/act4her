@@ -1,0 +1,97 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block app_body %}
+<div class="dash login">
+  <div class="login-prez">
+    <div class="login-prez-accroche">
+      <img src="{{ asset('images/logo.png') }}" class="logo" alt="Promed">
+      <div>
+        <span>Une solution</span>
+        <img src="{{ asset('images/patientys.png') }}" alt="Patientys">
+      </div>
+    </div>
+    <div class="login-prez-welcome">
+      <h1>Bienvenue,</h1>
+      <p>Sur la plateforme de suivi des patients inscrits au programme D�mo.<br /><br />
+        En vous connectez à votre compte, vous pouvez suivre l’apprentissage de chacun de vos patients.</p>
+    </div>
+    <div class="dash-left">
+      <div class="question">
+        <p>Pour toute question,<br/>contactez-nous au N° Vert :​</p>
+        <span>Une question ?</span><br/>
+        <img class="desktop" src="{{ asset('images/numero-vert.png') }}" width="200">
+        <img class="resp" src="{{ asset('images/numero-vert_short.png') }}" width="150">
+      </div>
+    </div>
+  </div>
+  <div class="dash-right">
+    <section class="title">
+      <div class="h1">
+        <a href="{{ path('homepage') }}">
+          <img src="{{ asset('images/picto/arrow-back.png') }}" alt="back">
+        </a>
+        <h1>{{ is_token_false ? 'Problème de lien d\'activation' : 'Mot de passe oublié ?' }}{{ is_expirated ? ' (délai d\'expiration du lien dépassé)': '' }}</h1>
+      </div>
+    </section>
+    <section class="questionnaire-form">
+      <form action="{{ path('fos_user_resetting_send_email') }}" method="post" class="fos_user_resetting_request">
+        <div class="h3">
+          {% if is_expirated %}
+          <h3>Le lien que nous vous avons transmis est expiré !</h3>
+          <h3>Veuillez remplir à nouveau le formulaire ci dessous avec votre adresse e-mail d'inscription et vous recevrez un e-mail comportant des instructions pour retrouver votre mot de passe.</h3>
+          {% elseif is_token_false %}
+          <h3>Un problème a été détecté dans le lien auquel vous tentez d'accéder. Saisissez votre adresse email d'inscription dans le formulaire ci-dessous afin de réinitialiser la procédure.</h3>
+          <h3>Vous recevrez un email contenant un lien de redirection vers la page de modification de mot de passe.</h3>
+          {% else %}
+          <h3>Si vous avez oublié votre mot de passe ou si vous souhaitez le modifier, veuillez indiquer votre adresse email (identifiant de connexion).</h3>
+          <h3>Vous recevrez un email contenant un lien de redirection vers la page de modification de mot de passe.</h3>
+          {% endif %}
+        </div>
+        <br/>
+        <br/>
+        <div class="input">
+          <label>Adresse e-mail</label>
+          <div>
+            <input type="email" name="username" class="form-control connexion"
+                   id="username" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required
+                   placeholder="Saisissez votre email" autofocus/>
+            <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Veuillez saisir un email valide</div>
+          </div>
+        </div>
+        <br/><br/>
+        <div class="buttons">
+          <button type="button" class="btn btn-secondary btn-type-disabled" onclick="document.location.href='{{ path('homepage') }}';"
+                  id="btn_return" name="return">Retour</button>
+          <button type="submit" class="btn btn-secondary" id="btn_send_request" name="change">Envoyer la demande</button>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+
+{% endblock %}
+{% block javascripts %}
+<script>
+    $(function(){
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+            $(".btn_connx").click(function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            });
+        });
+    });
+</script>
+{% endblock %}

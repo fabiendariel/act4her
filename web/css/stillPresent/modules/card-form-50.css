@@ -1,0 +1,88 @@
+.questionnaire-form {
+  padding-right: 112px; }
+  @media only screen and (max-width: 1200px) {
+    .questionnaire-form {
+      padding-right: 20px; } }
+  @media only screen and (max-width: 991px) {
+    .questionnaire-form {
+      padding-right: 0; } }
+  .questionnaire-form form .step {
+    background: #fff;
+    padding: 35px 30px 105px 30px;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px;
+    box-shadow: 0 3px 28px 0 rgba(40, 115, 128, 0.12);
+    margin-bottom: 59px; }
+    @media only screen and (max-width: 650px) {
+      .questionnaire-form form .step {
+        padding: 30px 20px 35px 20px;
+        margin-bottom: 50px; } }
+    @media only screen and (max-width: 380px) {
+      .questionnaire-form form .step {
+        padding-left: 10px;
+        padding-right: 10px; } }
+    .questionnaire-form form .step .questionnaire-title {
+      margin-bottom: 28px; }
+      @media only screen and (max-width: 650px) {
+        .questionnaire-form form .step .questionnaire-title {
+          margin-bottom: 10px; } }
+      .questionnaire-form form .step .questionnaire-title h2 {
+        margin-bottom: 0;
+        line-height: 19px; }
+        @media only screen and (max-width: 650px) {
+          .questionnaire-form form .step .questionnaire-title h2 {
+            font-size: 14pt;
+            margin-bottom: 6px; } }
+      .questionnaire-form form .step .questionnaire-title p {
+        font-size: 12px;
+        line-height: 19px;
+        font-weight: 500; }
+        @media only screen and (max-width: 650px) {
+          .questionnaire-form form .step .questionnaire-title p {
+            font-size: 12pt;
+            line-height: 19pt;
+            margin-bottom: 20pt; } }
+    .questionnaire-form form .step .input {
+      margin-bottom: 20px; }
+      @media only screen and (max-width: 650px) {
+        .questionnaire-form form .step .input {
+          margin-bottom: 23pt; } }
+    @media only screen and (max-width: 650px) {
+      .questionnaire-form form .step .dropdown {
+        height: 46pt;
+        font-size: 13pt; } }
+    @media only screen and (max-width: 650px) {
+      .questionnaire-form form .step .dropdown .dropdown-toggle {
+        height: 46pt;
+        padding-left: 11pt;
+        padding-right: 11pt;
+        font-size: 13pt; } }
+    .questionnaire-form form .step .double-input {
+      display: flex;
+      flex-wrap: wrap; }
+      .questionnaire-form form .step .double-input > div {
+        width: calc(50% - 7.5px);
+        width: -moz-calc(50% - 7.5px);
+        width: -webkit-calc(50% - 7.5px);
+        width: calc(50% - 7.5px);
+        width: -moz-calc(50% - 7.5px);
+        width: -webkit-calc(50% - 7.5px); }
+        @media only screen and (max-width: 650px) {
+          .questionnaire-form form .step .double-input > div {
+            width: 100%; } }
+        .questionnaire-form form .step .double-input > div:first-child {
+          margin-right: 15px; }
+          @media only screen and (max-width: 650px) {
+            .questionnaire-form form .step .double-input > div:first-child {
+              margin-right: 0; } }
+      .questionnaire-form form .step .double-input textarea {
+        display: block;
+        width: 100%;
+        height: 118px;
+        background: rgba(40, 115, 128, 0.06); }
+        @media only screen and (max-width: 650px) {
+          .questionnaire-form form .step .double-input textarea {
+            height: 118pt; } }
+
+/*# sourceMappingURL=card-form-50.css.map */

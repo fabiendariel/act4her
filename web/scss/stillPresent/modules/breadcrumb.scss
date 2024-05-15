@@ -1,0 +1,67 @@
+@import "../../variables.scss";
+.breadcrumb {
+	background-color: transparent;
+	margin-bottom: 37px;
+	@media #{$w650} {
+		margin-bottom: 32px;
+	}	
+	.etape {
+		display: none;
+		width: 100%;
+		text-align: center;
+		margin-bottom: 10px;
+		text-transform: uppercase;
+		font-size: 15pt;
+		line-height: 20pt;
+		color: $ter-c;
+		font-weight: 700;
+		@media #{$w650} {
+			display: block;
+		}		
+	}
+	ul {
+		display: flex;
+		padding: 0;
+		@media #{$w650} {
+			justify-content: center;
+			flex-wrap: wrap;
+			width: 100%;
+		}		
+		li {
+			width: 65px;
+			text-align: center;
+			font-size: 12px;
+			line-height: 20px;
+			position: relative;
+			margin-right: 11px;
+			padding-bottom: 10px;
+			text-transform: uppercase;
+			font-weight: 700;
+			opacity: 0.2;
+			@media #{$w650} {
+				width: 15px;
+				@include m-sim(5px);
+			}			
+			&:before {
+				@include w-h(100%,4px);
+				@include ab-bl(0,0);
+				background: $main-c;
+				content:'';
+				@include radius(12px);
+			}
+			&.active {
+				opacity: 1;
+				color: $ter-c;
+				font-size: 15px;
+				&:before {
+					background-color: $ter-c;
+				}
+			}
+			span {
+				@media #{$w650} {
+					display: none;
+				}					
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <g id="icone-messagerie" transform="translate(-65 -267)">
+    <rect id="Rectangle_2051" data-name="Rectangle 2051" width="44" height="44" transform="translate(65 267)" fill="#fff"/>
+    <g id="messagerie" transform="translate(-2 0.638)">
+      <g id="Icon_feather-mail" data-name="Icon feather-mail" transform="translate(78 281.362)">
+        <path id="Tracé_40" data-name="Tracé 40" d="M5.138,6H22.244a2.007,2.007,0,0,1,2.138,1.827V18.787a2.007,2.007,0,0,1-2.138,1.827H5.138A2.007,2.007,0,0,1,3,18.787V7.827A2.007,2.007,0,0,1,5.138,6Z" transform="translate(-3 -6)" fill="none" stroke="#287380" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        <path id="Tracé_41" data-name="Tracé 41" d="M20.59,9l-8.8,6.56L3,9" transform="translate(-1.104 -6.883)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,120 @@
+imports:
+    - { resource: security.yml }
+    - { resource: services.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+
+framework:
+    #esi: ~
+    translator: { fallbacks: ['%locale%'] }
+    secret: '%secret%'
+    router:
+        strict_requirements: ~
+    form: ~
+    csrf_protection: ~
+    validation: { enable_annotations: true }
+    #serializer: { enable_annotations: true }
+    templating:
+        engines: ['twig']
+    default_locale: '%locale%'
+    trusted_hosts: ~
+    trusted_proxies: ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+        cookie_lifetime: 86400
+        cookie_secure: true
+        cookie_httponly: true
+    fragments: ~
+    http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+# Twig Configuration
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: '%kernel.debug%'
+    globals:
+        site: '%site%'
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        default_connection: default
+        connections:
+          default:
+            driver_class: Lsw\DoctrinePdoDblib\Doctrine\DBAL\Driver\PDODblib\Driver
+            host:     "%database_host%"
+            port:     "%database_port%"
+            dbname:   "%database_name%"
+            user:     "%database_user%"
+            password: "%database_password%"
+            charset:  UTF8
+
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: '%mailer_transport%'
+    host: '%mailer_host%'
+    username: '%mailer_user%'
+    password: '%mailer_password%'
+    spool: { type: memory }
+
+gregwar_captcha: ~
+
+fos_user:
+    from_email:
+        address:     noreply@test.com
+        sender_name: Extranet Démo
+    db_driver:     orm
+    firewall_name: main
+    user_class:    AppBundle\Entity\User
+    service:
+        mailer: fos_user.mailer.twig_swift
+    registration:
+        confirmation:
+            enabled:  true
+            template: FOSUserBundle:Registration:email.html.twig
+    resetting:
+        email:
+            template: FOSUserBundle:Resetting:email.txt.twig
+
+monolog:
+    handlers:
+        main:
+            type:  rotating_file
+            path:  "%kernel.logs_dir%/%kernel.environment%.log"
+            level: debug
+            # max number of log files to keep
+            # defaults to zero, which means infinite files
+            max_files: 10
+        console:
+            type:   console
+            bubble: false
+            verbosity_levels:
+                VERBOSITY_VERBOSE:      INFO
+                VERBOSITY_VERY_VERBOSE: DEBUG
+            channels: ["!doctrine"]
+        console_very_verbose:
+            type:   console
+            bubble: false
+            verbosity_levels:
+                VERBOSITY_VERBOSE:      NOTICE
+                VERBOSITY_VERY_VERBOSE: NOTICE
+                VERBOSITY_DEBUG:        DEBUG
+            channels: ["doctrine"]
+
+# KnpSnappyBundle Configuration
+knp_snappy:
+    temporary_folder: /var/www/tmp
+    pdf:
+        enabled: true
+        binary:  /usr/local/bin/wkhtmltopdf.sh
+        options: []

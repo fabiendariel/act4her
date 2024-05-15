@@ -1,0 +1,93 @@
+@import "../../variables.scss";
+.questionnaire-form {
+	padding-right: 112px;
+	@media #{$w1200} {
+		padding-right: 20px;
+	}
+	@media #{$w992} {
+		padding-right: 0;
+	}		
+	form {
+		.step {
+			background: $white;
+			padding: 35px 30px 105px 30px;
+			@include radius(22px);
+			box-shadow: 0 3px 28px 0 rgba(40, 115, 128, 0.12);
+			margin-bottom: 59px;
+			@media #{$w650} {
+				padding: 30px 20px 35px 20px;
+				margin-bottom: 50px;
+			}
+			@media #{$w380} {
+				@include p-sim(10px);
+			}									
+			.questionnaire-title {
+				margin-bottom: 28px;
+				@media #{$w650} {
+					margin-bottom: 10px;
+				}				
+				h2 {
+					margin-bottom: 0;
+					line-height: 19px;
+					@media #{$w650} {
+						font-size: 14pt;
+						margin-bottom: 6px;
+					}					
+				}
+				p {
+					font-size: 12px;
+					line-height: 19px;
+					font-weight: 500;
+					@media #{$w650} {
+						font-size: 12pt;
+						line-height: 19pt;
+						margin-bottom: 20pt;
+					}					
+				}
+			}
+			.input {
+				margin-bottom: 20px;
+				@media #{$w650} {
+					margin-bottom: 23pt;
+				}				
+			}
+			.dropdown {
+				@media #{$w650} {
+					height: 46pt;
+					font-size: 13pt;
+				}
+				.dropdown-toggle {
+					@media #{$w650} {
+						height: 46pt;
+						@include p-sim(11pt);
+						font-size: 13pt;
+					}					
+				}				
+			}			
+			.double-input {
+				display: flex;
+				flex-wrap: wrap;
+				>div {
+					@include w-50(7.5px);
+					@media #{$w650} {
+						width: 100%;
+					}					
+					&:first-child {
+						margin-right: 15px;
+						@media #{$w650} {
+							margin-right: 0;
+						}						
+					}
+				}
+				textarea {
+					display: block;
+					@include w-h(100%,118px);
+					background: rgba(40, 115, 128, 0.06);
+					@media #{$w650} {
+						height: 118pt;
+					}					
+				}
+			}								
+		}
+	}
+}

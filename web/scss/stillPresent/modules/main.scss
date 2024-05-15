@@ -1,0 +1,210 @@
+@import "../../variables.scss";
+
+* {
+	margin: 0;
+	border: 0;
+	padding: 0;
+}
+html {
+	height: 100%;
+	padding: 0;
+}
+body {
+	overflow: scroll;
+	overflow-x: hidden;
+	line-height: 15px;
+	height: 100%;
+	padding: 0;
+	max-height: 999999px;
+	font-size: 10px;
+	font-weight: 400;
+	color: $main-c;
+	background-color: $bg-main;
+	font-family: 'Quicksand', sans-serif;	
+}
+.container {
+	width:100%;
+	height: 100vh;
+	max-width: 100%;
+	position: relative;
+	overflow: hidden;
+	padding: 45px 0;
+	overflow: scroll;
+	@media only screen and (min-width:991px) and (max-width:1299px) {
+		width:inherit;
+		max-width: inherit;
+	}
+	@media only screen and (max-width:991px) {
+		width:100%;
+		max-width:100%;
+	}
+	@media #{$w992} {
+		height: 100%;
+		overflow: visible;
+		padding-bottom: 0
+	}				
+}
+.max-width {
+	position: relative;
+	max-width: 1304px;
+	width: 100%;
+	margin:0 auto;
+	@media #{$wmax} {
+		@include p-sim(30px);
+	}
+	@media #{$w992} {
+		@include p-sim(0);
+	}						
+}
+
+// BUTTONS
+button,
+.button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	border: none;
+	font-weight: 700;
+	text-align: center;
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;	
+	@include transition(all, 0.5s, ease);
+	box-shadow: inherit;
+	text-shadow: none;
+	overflow: hidden;
+	font-family: 'Quicksand', sans-serif;
+	&:focus,
+	&:active,
+	&:hover {
+		cursor: pointer;
+		outline: none;
+		@include transition(all, 0.5s, ease);		
+	}					
+}
+.btn {
+	@media #{$w768} {
+		font-size: 15pt;
+	}	
+}
+.buttons {
+	display: flex;
+	justify-content: center;
+	>* {
+		@include m-sim(5px);
+		.btn {
+			margin: 0;
+		}
+	}
+}
+a {
+	position: relative;
+	text-decoration: none;
+	display: block;
+	cursor: pointer;
+	@include transition(color, 0.5s, ease);	
+	color: $main-c;
+	&:hover,
+	&:focus { 
+		text-decoration:none;
+		color: $main-c;
+	}	
+}
+ul,
+li {
+	margin: 0;
+	list-style-type: none;
+}
+ul {
+	padding: 0;
+}
+img,
+svg {
+	border: 0;
+	display: block;
+}
+label {
+	margin: 0;
+}
+p,
+figure {
+	margin: 0;
+	padding: 0;
+}
+form {
+	width: 100%;
+	height: 100%;
+}
+input,
+.form-control {
+	color: $main-c;
+	font-size: 12px;
+	&:not([type]) {
+		border-bottom: none;
+		height: inherit;
+		font-size: inherit;
+		margin: 0;
+		box-sizing: inherit;
+		&:focus {
+			&:not([readonly]) {
+				border-bottom: none;
+				box-shadow: none;
+			}
+		}
+	}
+	&::-ms-clear {
+		@include w-h (0, 0);
+	}
+	&:focus {
+		outline: none;
+		outline: none;
+	}
+	&::-webkit-input-placeholder {
+		color: $main-c !important;
+		font-weight: 700;
+	}
+	&:-moz-placeholder {
+		color: $main-c !important;
+		font-weight: 700;
+	}
+	&:placeholder {
+		color: $main-c !important;
+		font-weight: 700;
+	}	
+}
+label,
+input {
+	&:focus {
+		outline: none;
+	}
+}
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=tel],
+input[type=number],
+input[type=search],
+textarea.materialize-textarea {
+	height: inherit;
+	font-size: inherit;
+	margin: 0;
+	box-sizing: inherit;
+	&:focus {
+		&:not([readonly]) {
+			box-shadow: none;
+		}
+	}
+}
+textarea::-webkit-input-placeholder,
+input::-webkit-input-placeholder {
+	color: $grey-light !important; 
+}
+textarea:-moz-placeholder,
+input:-moz-placeholder {
+	color: $grey-light !important; 
+}
+textarea:placeholder,
+input:placeholder {
+	color: $grey-light !important; 
+}

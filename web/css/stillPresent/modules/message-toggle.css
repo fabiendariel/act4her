@@ -1,0 +1,85 @@
+.message-info {
+  position: absolute;
+  top: 0;
+  right: -3000px;
+  background-color: #fff;
+  width: 336px;
+  height: 100%;
+  padding: 34px 24px 0 22px;
+  box-shadow: -4px 0 9px 0 rgba(40, 115, 128, 0.07);
+  z-index: 777;
+  -webkit-border-radius: 0 1.5rem 1.5rem 0;
+  -moz-border-radius: 0 1.5rem 1.5rem 0;
+  border-radius: 0 1.5rem 1.5rem 0;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+  .message-info.open {
+    right: 0;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+  .message-info .user .user-info {
+    margin-bottom: 44px; }
+    .message-info .user .user-info .name {
+      font-size: 20px;
+      line-height: 23px;
+      font-weight: 700;
+      margin-bottom: 3px; }
+      .message-info .user .user-info .name span {
+        display: block;
+        text-transform: uppercase; }
+    .message-info .user .user-info .job {
+      font-size: 14px;
+      line-height: 19px; }
+  .message-info .user .messages .messages-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px; }
+    .message-info .user .messages .messages-title h2 {
+      margin: 0; }
+  .message-info .user .messages .messages-extended .date {
+    font-size: 12px;
+    line-height: 17px;
+    text-transform: uppercase;
+    margin-bottom: 20px; }
+  .message-info .user .messages .messages-extended ul {
+    padding: 0; }
+    .message-info .user .messages .messages-extended ul li {
+      margin-bottom: 22px; }
+      .message-info .user .messages .messages-extended ul li a {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%; }
+        .message-info .user .messages .messages-extended ul li a > div {
+          width: calc(100% - 57px);
+          width: -moz-calc(100% - 57px);
+          width: -webkit-calc(100% - 57px);
+          width: calc(100% - 57px);
+          width: -moz-calc(100% - 57px);
+          width: -webkit-calc(100% - 57px);
+          display: flex;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          line-height: 17px;
+          margin-left: 13px; }
+          .message-info .user .messages .messages-extended ul li a > div strong {
+            display: block;
+            margin-right: 10px;
+            font-weight: 700;
+            font-size: 14px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; }
+          .message-info .user .messages .messages-extended ul li a > div span {
+            text-transform: uppercase;
+            letter-spacing: 0.3px; }
+        .message-info .user .messages .messages-extended ul li a .subject {
+          width: 100%;
+          line-height: 12px;
+          letter-spacing: 0.3px; }
+
+/*# sourceMappingURL=message-toggle.css.map */

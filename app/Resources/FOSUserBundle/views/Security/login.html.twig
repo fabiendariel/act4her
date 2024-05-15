@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Extranet | Connexion</title>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="format-detection" content="telephone=yes" />
+
+    {% block stylesheets %}
+        <link href="{{ asset('css/Promed.f6fac706.css') }}" type="text/css" rel="stylesheet"/>
+
+        <link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    {% endblock %}
+    <script src="{{ asset('css/Promed.49ec57cc.js') }}"></script>
+
+{#
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  {% block stylesheets %}
+      <!-- Bootstrap 3.3.6 -->
+      <link rel="stylesheet" href="{{ asset('bundles/admin_lte/css/bootstrap.min.css') }}"/>
+      <!-- Font Awesome -->
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+      <!-- Ionicons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+      <!-- Theme style -->
+      <link rel="stylesheet" href="{{ asset('bundles/admin_lte/css/AdminLTE.min.css') }}"/>
+      <!-- iCheck -->
+      <link rel="stylesheet" href="{{ asset('bundles/plugins/iCheck/all.css') }}"/>
+      <!-- Skin -->
+      <link rel="stylesheet" href="{{ asset('bundles/admin_lte/css/skin-blue.min.css') }}"/>
+
+      <link rel="stylesheet" href="{{ asset('bundles/plugins/datatables/dataTables.bootstrap.css') }}">
+
+      <link rel="stylesheet" href="{{ asset('bundles/plugins/datepicker/datepicker3.css') }}"/>
+  {% endblock %}
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  #}
+</head>
+<body class="hold-transition login-page">
+<main role="main">
+    <div class="path-frontpage">
+        <div class="container">
+            <div class="max-width">
+                <section class="login">
+                    <div class="login-prez">
+                        <div class="login-prez-accroche">
+                            <img src="image/logo_application.png" class="logo" alt="Promed">
+                            <div>
+                                <span>Une solution</span>
+                                <img src="image/patientys.png" alt="Patientys">
+                            </div>
+                        </div>
+                        <div class="login-prez-welcome">
+                            <h1>Bienvenue,</h1>
+                            <p>Sur la plateforme de l’action d’accompagnement {{ site.name }}.<br /><br />
+                             En vous connectez à votre compte, vous pouvez suivre l’apprentissage de chacun de vos patients.</p>
+                        </div>
+                    </div>
+                    <div class="login-form">
+                        <form>
+                            <div class="input">
+                                <label>Identifiant</label>
+                                <div>
+                                    <input type="text" class="form-control" id="id" placeholder="">
+                                </div>
+                            </div>
+                            <div class="input">
+                                <label>Mot de passe</label>
+                                <div>
+                                    <input type="password" class="form-control" id="password" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                                <label class="form-check-label" for="flexCheckDefault1">Mémoriser les informations</label>
+                            </div>
+                            <a href="" class="a-word">
+                                <span>Mot de passe oublié</span>
+                                <img src="image/picto/arrow-down.svg" alt="" />
+                            </a>
+                            <button type="submit" class="btn btn-secondary">Connexion</button>
+                            <button type="submit" class="btn btn-secondary btn-type-disabled">Créer un compte</button>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</main>
+<!--------------------------------------------------   END container PRINCIPAL    -------------------------------------------------->
+<script src="{{ asset('js/jquery.3.6.min.js') }}"></script>
+<script src="{{ asset('js/popper.2019.min.js') }}"></script>
+<script src="{{ asset('js/boostrap-4.3.min.js') }}"></script>
+{#
+<div class="container body">
+  <div class="main_container">
+      <div class="col-md-12 col-sm-12 col-xs-12" style="background-color:#9a589b;">
+          <div class="logoprogramme"></div>
+          <div class="logologin"></div>
+      </div>
+      <div class="" role="main">
+          <div style="margin: 0 5%; width: 90%;">
+              <div class="row rowloginlogo">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div class="col-md-3 col-sm-3 col-xs-0">
+                      </div>
+                      <div class="col-md-6 col-sm-6 col-xs-12 loginlignebas">
+                          <h1><center><b>Bienvenue sur l’extranet du programme En Cours</b></center></h1>
+                      </div>
+                      <div class="col-md-3 col-sm-3 col-xs-0">
+                      </div>
+                  </div>
+              </div>
+              <div class="login_col login-box" role="main">
+                  <div class="">
+                      <div class="row rowlogin">
+                          <div class="col-md-12 col-sm-12 col-xs-12">
+                              <div class="col-md-2 col-sm-2 col-xs-0"></div>
+                              <div class="col-md-8 col-sm-8 col-xs-12">
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                      <form class="login-form form-signin needs-validation"
+                                            action="{{ path("fos_user_security_check") }}" method="post" novalidate>
+
+                                          <div class="bloc bloc_blanc bloc_login2">
+                                              <div class="form-row bloc_title_login">
+                                                  <div class="bloc_title_profil_containerimage fondviolet">
+                                                      <div class="bloc_title-image imageprofil"></div>
+                                                  </div>
+                                                  <div class="bloc_text" style="width:100%">
+                                                      <p align="justify">
+                                                          <b>Bienvenue sur la plateforme de suivi des patients inscrits au programme d'apprentissage En Cours</b><br/><br/>
+                                                          En vous connectant à votre compte, vous pouvez ainsi accéder au suivi de vos patients.
+                                                      </p><br/>
+                                                  </div>
+                                                  {% if error %}
+                                                      <div class="alert alert-danger">
+                                                          {{ error.messageKey|trans(error.messageData) }}
+                                                      </div>
+                                                  {% endif %}
+
+                                                  <div class="col-md-6 col-sm-6 col-xs-12">
+                                                      <label for="nom">Identifiant
+                                                      </label><br>
+                                                      <div>
+                                                          <input type="text" id="username" name="_username"
+                                                                 value="{{ last_username }}" class="form-control"
+                                                                 placeholder="Adresse email" required="required"
+                                                                 autofocus/>
+                                                          <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Veuillez saisir votre identifiant</div>
+                                                      </div><br/>
+                                                  </div>
+                                                  <div class="col-md-6 col-sm-6 col-xs-12">
+                                                      <label for="prenom">Mot de passe
+                                                      </label><br>
+                                                      <div>
+                                                          <input type="password" id="password" name="_password"
+                                                                 class="form-control" placeholder="Mot de passe"
+                                                                 required="required"/>
+                                                          <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Veuillez saisir votre mot de passe</div>
+                                                      </div>
+                                                  </div>
+
+                                                  <div class="clearfix"></div>
+                                              </div>
+
+                                              <div class="">
+                                                  <div class="col-md-12 col-sm-12 col-xs-12" style="padding:1% 2%;text-align:center;">
+                                                      <input type="checkbox" id="remember_me" name="_remember_me" value="on" /> Mémoriser les informations<br>
+                                                  </div>
+                                                  <div class="col-md-12 col-sm-12 col-xs-12" style="padding:1% 2%;text-align:center;">
+                                                      <a class="texteviolet"
+                                                         href="{{ path('fos_user_resetting_request') }}">Mot de passe oublié ?</a>
+                                                  </div>
+                                                  <div class="col-sm-6 col-xs-12" style="padding:2%;">
+                                                      <input type="submit" class="btn btn100 textbtn1 fondviolet"
+                                                             id="_submit_connexion" name="_submit_connexion"
+                                                             value="Se connecter"/>
+                                                  </div>
+                                                  <div class="col-sm-6 col-xs-12" style="padding:2%;">
+                                                      <button class="btn btn100 textbtn1 fondorange"
+                                                              id="_submit_inscription_professionnel" name="_submit_inscription_professionnel">
+                                                          <a href="{{ path('professionnel_inscription') }}">Je n'ai pas de compte</a></button>
+                                                  </div>
+
+                                              </div>
+                                          </div>
+                                      </form>
+                                  </div>
+                              </div>
+                          </div>
+
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-2 col-sm-2 col-xs-2">
+                      &nbsp;
+                  </div>
+                  <div class="col-md-8 col-sm-8 col-xs-8" style="font-size: 18px;text-align:center;">
+                      Pour toutes informations complémentaires, n'hésitez pas à nous contacter au<br/>
+                      <img src="{{ asset('images/numero_vert.png') }}" width="380" height="57">
+                  </div>
+                  <div class="col-md-2 col-sm-2 col-xs-2">
+                      &nbsp;
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br/>
+
+
+  <br/>
+  <div class="footer_fixed">
+      <center><a style="color:#FFF;" href="{{ path('app_mentions_legales') }}" target="_blank">Mentions légales</a> - PP-HG- FR-0035<center>
+  </div>
+</div>
+<!-- jQuery 2.2.3 -->
+<script src="../../plugins/jQuery/jquery-2.2.3.min.js"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="../../bootstrap/js/bootstrap.min.js"></script>
+<!-- iCheck -->
+<script src="../../plugins/iCheck/icheck.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+#}
+<script>
+  $(function () {
+      window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+
+          var validation = Array.prototype.filter.call(forms, function(form) {
+              $("#_submit_connexion").click(function(event) {
+                  $('#signin_redirect').val('professionnel_accueil');
+                  $('.alert').remove();
+                  if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+              });
+              $("#_submit_inscription_patient").click(function(event) {
+                  $('#signin_redirect').val('patient_inscription');
+                  $('.alert').remove();
+                  if (form.checkValidity() === false) {
+                      event.preventDefault();
+                      event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+              });
+          });
+      }, false);
+  });
+</script>
+</body>
+</html>

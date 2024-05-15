@@ -1,0 +1,31 @@
+{% macro paginate(list, nb_per_page, nb_pages, current_page, route) %}
+
+    {% if nb_per_page < list.count %}
+        <ul class="pagination">
+
+            {% if current_page > 1 %}
+                <li>
+                    <a href="{{ path(route, {'page':  1}) }}">
+                        <span>&laquo;</span>
+                    </a>
+                </li>
+            {% endif %}
+
+            {# NB: La fonction range(a, b) crée un tableau de valeurs entre a et b #}
+            {% for p in range( max(current_page-4, 1), min(current_page+4, nb_pages)) %}
+                <li class="{% if p == current_page %}active{% endif %}">
+                    <a href="{{ path(route, {'page': p}) }}">{{ p }}</a>
+                </li>
+            {% endfor %}
+
+            {% if current_page < nb_pages %}
+                <li>
+                    <a href="{{ path(route, {'page': nb_pages}) }}">
+                        <span>&raquo;</span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    {% endif %}
+
+{% endmacro %}

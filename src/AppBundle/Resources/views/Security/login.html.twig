@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Extranet | Connexion</title>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+    <meta name="format-detection" content="telephone=yes"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ asset('css/Promed.f6fac706.css') }}" type="text/css" rel="stylesheet"/>
+    <script src="{{ asset('css/Promed.49ec57cc.js') }}"></script>
+    {% block stylesheets %}
+        <link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    {% endblock %}
+
+    {#
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    {% block stylesheets %}
+      <!-- Bootstrap 3.3.6 -->
+      <link rel="stylesheet" href="{{ asset('bundles/admin_lte/css/bootstrap.min.css') }}"/>
+      <!-- Font Awesome -->
+      <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+      <!-- Ionicons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+      <!-- Theme style -->
+      <link rel="stylesheet" href="{{ asset('bundles/admin_lte/css/AdminLTE.min.css') }}"/>
+      <!-- iCheck -->
+      <link rel="stylesheet" href="{{ asset('bundles/plugins/iCheck/all.css') }}"/>
+      <!-- Skin -->
+      <link rel="stylesheet" href="{{ asset('bundles/admin_lte/css/skin-blue.min.css') }}"/>
+
+      <link rel="stylesheet" href="{{ asset('bundles/plugins/datatables/dataTables.bootstrap.css') }}">
+
+      <link rel="stylesheet" href="{{ asset('bundles/plugins/datepicker/datepicker3.css') }}"/>
+
+      <link rel="stylesheet" href="{{ asset('bundles/plugins/bootstrap/bootstrap.min.css') }}"/>
+
+      <link rel="stylesheet" href="{{ asset('bundles/plugins/bootstrap/bootstrap.css') }}"/>
+
+      <link rel="stylesheet" href="{{ asset('css/promed.css') }}"/>
+    {% endblock %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    #}
+</head>
+<body class="hold-transition">
+<main role="main">
+    <div class="path-frontpage">
+        <div class="container">
+            <div class="max-width">
+                <section class="login">
+                    <div class="login-prez">
+                        <div class="login-prez-accroche">
+                            <img src="{{ asset('images/logo_application.png') }}" class="logo" alt="Promed"
+                                 style="width: 300px;">
+                        </div>
+                        <div class="login-prez-welcome">
+                            <h1>Bienvenue,</h1>
+                            <p>Sur la plateforme de l’action d’accompagnement  {{ site.name }}</p>
+                        </div>
+                        <div class="dash-left">
+                            <div class="question">
+                                <p>Pour toute question,<br/>contactez-nous au N° Vert :​</p>
+                                <span >Une question ?</span><br/>
+                                <img class="desktop" src="{{ asset('images/numero-vert.png') }}" width="200">
+                                <img class="resp" src="{{ asset('images/numero-vert_short.png') }}" width="150">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="login-form">
+                        <form class="needs-validation"
+                              action="{{ path("fos_user_security_check") }}" method="post" novalidate>
+                            {% if error %}
+                                <div class="mb-3">
+                                    <label for="errorLogin" class="d-block">
+                                        <textarea type="text" class="form-control is-invalid" id="errorLogin" style=" resize: none;">{{ error.messageKey|trans(error.messageData) }}</textarea>
+                                    </label>
+                                    <div class="invalid-feedback">{{ error.messageKey|trans(error.messageData) }}</div>
+                                </div>
+                            {% endif %}
+                            <div class="input">
+                                <label>Identifiant</label>
+                                <div>
+                                    <input type="text" id="username" name="_username"
+                                           value="{{ last_username }}" class="form-control"
+                                           placeholder="Adresse email" required="required"
+                                           autofocus/>
+                                    <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Veuillez saisir votre identifiant
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input">
+                                <label>Mot de passe</label>
+                                <div>
+                                    <input type="password" id="password" name="_password"
+                                           class="form-control" placeholder="Mot de passe"
+                                           required="required"/>
+                                    <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Veuillez saisir votre mot de passe
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="remember_me" name="_remember_me"
+                                       value="on">
+                                <label class="form-check-label" for="flexCheckDefault1">Mémoriser les
+                                    informations</label>
+                            </div>
+                            <a href="{{ path('fos_user_resetting_request') }}" class="a-word">
+                                <span>Mot de passe oublié</span>
+                                <img src="{{ asset('images/picto/arrow-down.svg') }}" alt=""/>
+                            </a>
+                            <button type="submit" class="btn btn-secondary" id="_submit_connexion"
+                                    name="_submit_connexion">Connexion
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-type-disabled"
+                                    onclick="document.location.href='{{ path('professionnel_inscription') }}';return false;"
+                                    id="_submit_inscription_professionnel" name="_submit_inscription_professionnel">
+                                Créer un compte
+                            </button>
+
+                        </form>
+                    </div>
+
+                </section>
+                <div class="" style="padding:0 10%;">
+                    <center>
+                        ​<br/>​<br/>
+                        <p style="color:#FFF;text-align: justify;">
+                            PATIENTYS est responsable du traitement de vos données dans le cadre du programme
+                            d’{{ site.type }} {{ site.name }}.
+                            Vos données d’identification et relatives à votre vie professionnelle sont collectées et
+                            traitées afin de gérer votre participation au programme d’{{ site.type }} opéré par PATIENTYS,
+                            de satisfaire aux obligations légales de Patientys (notamment au regard de son obligation de
+                            transparence des liens d’intérêt) et de vous adresser des communications en lien avec votre
+                            activité professionnelle. Vos informations sont strictement destinées: aux patients
+                            participants, aux membres du personnel de Patientys, spécifiquement habilités, dans le
+                            strict respect de leurs missions ; aux personnes habilitées au titre des tiers autorisés
+                            (les juridictions concernées, les arbitres, les médiateurs, les ministères concernés…). Vos
+                            données à caractère personnel sont stockées et sont conservées pendant toute la durée de la
+                            participation du patient au programme d’{{ site.type }} auprès d’un hébergeur de données de
+                            santé certifié Cis Valley. A l’issue de cette période, et sauf opposition de votre part, vos
+                            données seront utilisées afin de vous proposer des informations en lien avec votre activité
+                            professionnelle et/ ou aux services opérés par Patientys. Conformément au Règlement UE
+                            2016/679 du parlement européen, relatif à la protection des personnes physiques à l’égard du
+                            traitement des données à caractère personnel et à la libre circulation de ces données, vous
+                            pouvez à tout moment nous demander l’accès à vos données à caractère personnel, leur
+                            rectification, leur effacement, leur portabilité. Vous pouvez aussi limiter ou vous opposer
+                            à leur traitement et introduire une réclamation auprès de la CNIL. Pour plus d’information
+                            ou pour exercer vos droits, vous pouvez nous contacter par courriel: <a style="display: inline;color:#FFF;"
+                                                                                                    href="mailto:Privacy@test.com">Privacy@test.com</a>​
+                            ou par courrier à Patientys, Data Protection Officer– Délégué à la Protection des Données,
+                            31 rue des longs prés 92100 Boulogne Billancourt.
+                        </p>
+                        ​<br/>
+                        <a href="{{ path('app_mentions_legales') }}" target="_blank">
+                            <button type="button" class="btn btn-primary-light">Mentions légales</button>
+                        </a>
+                        ​<br/>
+                    </center>
+                </div>
+                <!--
+                <div class="card card-primary-light mb-3 fixed-bottom">
+                  <div class="row">
+
+                    <div class="col-8 col-md-9">
+                      <div class="card-body">
+                        <h5 class="card-title mb-2 h3">14 MAI 2021</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</main>
+<!--------------------------------------------------   END container PRINCIPAL    -------------------------------------------------->
+<script src="{{ asset('js/jquery.3.6.min.js') }}"></script>
+<script src="{{ asset('js/popper.2019.min.js') }}"></script>
+<script src="{{ asset('js/boostrap-4.3.min.js') }}"></script>
+
+<script>
+    $(function () {
+        /*window.addEventListener('load', function() {
+         // Fetch all the forms we want to apply custom Bootstrap validation styles to
+         var forms = document.getElementsByClassName('needs-validation');
+         // Loop over them and prevent submission
+         if (form.checkValidity() === false) {
+         event.preventDefault();
+         event.stopPropagation();
+         }else{
+         forms.submit();
+         }
+         form.classList.add('was-validated');
+         }, false);*/
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function (form) {
+            $("#_submit_connexion").click(function (event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    $('#form_questionnaire').submit();
+                }
+                form.classList.add('was-validated');
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<link rel="stylesheet" href="{{ asset('bundles/plugins/iCheck/all.css') }}" />
+{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+          <div class="row">
+            <div class="col-md-12">
+                <table class="table table-striped table-condensed" style="border: 1px solid;">
+                    <tbody>
+                    <tr>
+                        <td align="center" colspan="2"><b>Données initiales</b></td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Nom :
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            {{ form_errors(form.nom) }}
+                            {{ form_widget(form.nom, {'attr': {'class': 'form-control '}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Prénom :
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            {{ form_errors(form.prenom) }}
+                            {{ form_widget(form.prenom, {'attr': {'class': 'form-control '}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Date de naissance :
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            {{ form_errors(form.dateNaissance) }}
+                            {{ form_widget(form.dateNaissance, {'attr': {'class': 'form-control '}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Salarié ou libéral :
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            {{ form_errors(form.statutProfessionnel) }}
+                            {{ form_widget(form.statutProfessionnel, {'attr': {'class': 'form-control '}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Titre :
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            {{ form_errors(form.titre) }}
+                            {{ form_widget(form.titre, {'attr': {'class': 'form-control '}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Précisez :
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            {{ form_errors(form.titreComplement) }}
+                            {{ form_widget(form.titreComplement, {'attr': {'class': 'form-control '}}) }}
+                        </td>
+                    </tr>
+                    <tr id="membre" class="">
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Membre actuel de l’APHP :
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            {{ form_errors(form.membre) }}
+                            {{ form_widget(form.membre, {'attr': {'class': 'form-control '}}) }}
+                        </td>
+                    </tr>
+                    <tr id="rpps" class="">
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            N° RPPS
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            {{ form_errors(form.rpps) }}
+                            {{ form_widget(form.rpps, {'attr': {'class': 'form-control '}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Adresse email :
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            {{ form_errors(form.email) }}
+                            {{ form_widget(form.email, {'attr': {'class': 'form-control '}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Téléphone portable :
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            {{ form_errors(form.mobile) }}
+                            {{ form_widget(form.mobile, {'attr': {'class': 'form-control '}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Code postal :
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            {{ form_errors(form.codePostal) }}
+                            {{ form_widget(form.codePostal, {'attr': {'class': 'form-control '}}) }}
+                        </td>
+                    </tr>
+                    <tr id="indispo" class="">
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Veuillez indiquer vos indisponibilités majeures :
+                            <br/>
+                            <b>Cocher uniquement les créneaux sur lesquels vous ne serez JAMAIS disponibles</b>
+                        </td>
+                        <td align="center" class="col-lg-8">
+                            <table class="table table-striped table-condensed" style="border: 1px solid;">
+                                <thead>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td  align="center">Lundi</td>
+                                    <td align="center">Mardi</td></td>
+                                    <td align="center">Mercredi</td>
+                                    <td align="center">Jeudi</td>
+                                    <td align="center">Vendredi</td>
+                                    <td align="center">Samedi</td>
+                                    <td align="center">Dimanche</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr  align="center">
+                                    <td>Matin</td>
+                                    <td>{{ form_widget(form.lundiMatin, {'attr': {'class': ''}}) }}</td>
+                                    <td>{{ form_widget(form.mardiMatin, {'attr': {'class': ' '}}) }}</td>
+                                    <td>{{ form_widget(form.mercrediMatin, {'attr': {'class': ' '}}) }}</td>
+                                    <td>{{ form_widget(form.jeudiMatin, {'attr': {'class': ' '}}) }}</td>
+                                    <td>{{ form_widget(form.vendrediMatin, {'attr': {'class': ' '}}) }}</td>
+                                    <td>{{ form_widget(form.samediMatin, {'attr': {'class': ' '}}) }}</td>
+                                    <td>{{ form_widget(form.dimancheMatin, {'attr': {'class': ' '}}) }}</td>
+                                </tr>
+                                <tr align="center">
+                                    <td>Après-midi</td>
+                                    <td>{{ form_widget(form.lundiAprem, {'attr': {'class': ' '}}) }}</td>
+                                    <td>{{ form_widget(form.mardiAprem, {'attr': {'class': ' '}}) }}</td>
+                                    <td>{{ form_widget(form.mercrediAprem, {'attr': {'class': ' '}}) }}</td>
+                                    <td>{{ form_widget(form.jeudiAprem, {'attr': {'class': ' '}}) }}</td>
+                                    <td>{{ form_widget(form.vendrediAprem, {'attr': {'class': ' '}}) }}</td>
+                                    <td>{{ form_widget(form.samediAprem, {'attr': {'class': ' '}}) }}</td>
+                                    <td>{{ form_widget(form.dimancheAprem, {'attr': {'class': ' '}}) }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr id="dispo"  class="">
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Disponibilité minimum
+                        </td>
+                        <td align="center" class="col-lg-8" style="padding:15px 0 10px;">
+                            <p>Pour des soucis d'organisation, les vacations se prennent par ½ journée ou par journée. Etes vous disponibles à minima ½ journée par semaine ?​</p>
+                            {{ form_errors(form.disponibilite) }}
+                            {{ form_widget(form.disponibilite, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Lieu de travail possible (plusieurs choix possible)
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            <table class="table">
+                                <tr style="border-bottom: 0px !important">
+                                    <td style="text-align: center">
+                                        Campus Picpus (préférence)​ {{ form_widget(form.picpus, {'attr': {'class': ' '}}) }}
+                                    </td>
+                                    <td style="text-align: center">
+                                        A distance (si ouverture du télétravail dans les semaines à venir) ​ {{ form_widget(form.distance, {'attr': {'class': ' '}}) }}
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Je dispose d’un ordinateur, d’une connexion internet haut débit et d’un micro-casque pour travailler à distance
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.prerequis) }}
+                            {{ form_widget(form.prerequis, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" colspan="2"><b>Qualification</b></td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Date formation initiale
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.formationInitiale) }}
+                            {{ form_widget(form.formationInitiale, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Heure de formation
+                        </td>
+                        <td  class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.heure) }}
+                            {{ form_widget(form.heure, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Formation effectuée
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.formationEffectue) }}
+                            {{ form_widget(form.formationEffectue, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Compétence
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.competence) }}
+                            {{ form_widget(form.competence, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Spécialité médecine
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.specialite) }}
+                            {{ form_widget(form.specialite, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Rôle
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.role) }}
+                            {{ form_widget(form.role, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Statut
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.statut) }}
+                            {{ form_widget(form.statut, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Convocation à la formation
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.convocation) }}
+                            {{ form_widget(form.convocation, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Confirmation participation formation
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.participation) }}
+                            {{ form_widget(form.participation, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Habilitation COVIDOM
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.habilitation) }}
+                            {{ form_widget(form.habilitation, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="col-lg-4" style="padding:15px 0 10px;">
+                            Badge d’accès
+                        </td>
+                        <td align="center" class="col-lg-8 form-check form-check-inline">
+                            {{ form_errors(form.badge) }}
+                            {{ form_widget(form.badge, {'attr': {'class': 'form-control'}}) }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+          </div>
+          <div class="box-footer">
+              {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary operation_save'},  'label': 'Enregistrer'}) }}
+              <div style="display:none;">{{ form_rest(form) }}</div>
+          </div>
+          <!-- /.row -->
+ {{ form_end(form) }}
+

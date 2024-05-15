@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: 10.9.10.23
+    database_port: 1433
+    database_name: ACT4HER_SuiviPatients
+    database_user: extranet_act4her
+    database_password: m6SSDTA9VfgDz8wv
+    mailer_transport: smtp
+    mailer_host: smtp.test.com
+    mailer_user: cisv@test.com
+    mailer_password: 4W4Urb@CTkL
+    secret: ThisTokenIsSecretNotChangeIt

@@ -1,0 +1,104 @@
+.path-frontpage .container .max-width .questionnaire .dash-right .title .options .search,
+.path-frontpage .container .max-width .questionnaire .dash-right .title .options .message {
+  display: none; }
+.path-frontpage .container .max-width .questionnaire .dash-right .title .h1 a {
+  display: block; }
+.path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result {
+  padding-right: 25px; }
+  @media only screen and (max-width: 991px) {
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result {
+      padding-right: 0; } }
+  .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result {
+    display: flex;
+    justify-content: space-between; }
+    @media only screen and (max-width: 1200px) {
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result {
+        display: block; } }
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .patient-info {
+      width: 290px;
+      min-width: 290px;
+      margin: 0 40px 0 0; }
+      @media only screen and (max-width: 1200px) {
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .patient-info {
+          margin: 0;
+          width: 100%;
+          min-width: 100%; } }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .patient-info .civilite {
+        background: rgba(40, 115, 128, 0.06); }
+        @media only screen and (max-width: 767px) {
+          .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .patient-info .civilite {
+            width: 100%;
+            min-width: 100%;
+            margin: 0; } }
+      @media only screen and (max-width: 1200px) {
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .patient-info .patho {
+          display: flex;
+          justify-content: space-between; } }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .patient-info .patho {
+          display: block;
+          margin-top: 20pt; } }
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content {
+      width: calc(100% - 330px);
+      width: -moz-calc(100% - 330px);
+      width: -webkit-calc(100% - 330px);
+      width: calc(100% - 330px);
+      width: -moz-calc(100% - 330px);
+      width: -webkit-calc(100% - 330px); }
+      @media only screen and (max-width: 1200px) {
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content {
+          width: 100%; } }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .title {
+        padding: 40px 20px 30px 33px;
+        margin-bottom: 0; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table-wrapper {
+        margin: 0 0 21px 0; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table > :not(caption) > * > * {
+        padding-top: 15px;
+        padding-bottom: 15px; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table td {
+        border: none;
+        font-weight: 500;
+        font-size: 12px; }
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table td .btn {
+          padding: 0; }
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table td button {
+          margin: 0 auto; }
+          .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table td button svg {
+            display: block;
+            width: 30px;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table th {
+        font-size: 11px; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table td,
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table th {
+        line-height: 15px; }
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table td.action,
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table th.action {
+          width: 100px; }
+.path-frontpage .container .max-width .questionnaire .dash-right .accordion {
+  margin-bottom: 18pt; }
+  .path-frontpage .container .max-width .questionnaire .dash-right .accordion .title {
+    margin-bottom: 0; }
+  .path-frontpage .container .max-width .questionnaire .dash-right .accordion .accordion-item .accordion-collapse .accordion-body {
+    display: block; }
+    .path-frontpage .container .max-width .questionnaire .dash-right .accordion .accordion-item .accordion-collapse .accordion-body a {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-bottom: 30pt; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .accordion .accordion-item .accordion-collapse .accordion-body a img {
+        width: 14pt;
+        height: auto;
+        margin-right: 7pt; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .accordion .accordion-item .accordion-collapse .accordion-body a span {
+        display: block;
+        font-size: 12pt;
+        letter-spacing: 0.36pt;
+        color: #b03661;
+        text-transform: uppercase;
+        font-weight: 700; }
+
+/*# sourceMappingURL=styles.css.map */

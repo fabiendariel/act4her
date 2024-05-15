@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <g id="icone-info-utiles" transform="translate(-65 -267)">
+    <rect id="Rectangle_2051" data-name="Rectangle 2051" width="44" height="44" transform="translate(65 267)" fill="#fff"/>
+    <g id="info_utiles" data-name="info utiles" transform="translate(-1.5 -0.21)">
+      <path id="Tracé_237" data-name="Tracé 237" d="M85.812,281.224v4.4h3.127v-4.4" transform="translate(1.688 -1.83)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Icon_awesome-bookmark" data-name="Icon awesome-bookmark" d="M0,20V1.875A1.875,1.875,0,0,1,1.875,0H13.124A1.875,1.875,0,0,1,15,1.875V20L7.5,15.624Z" transform="translate(81.5 279.21)" fill="none" stroke="#287380" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

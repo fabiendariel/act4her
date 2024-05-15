@@ -1,0 +1,530 @@
+{% extends "AppBundle::layout.html.twig" %}
+{% block stylesheets %}
+  <link href="{{ asset('css/patient.css') }}" type="text/css" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+{% block app_body %}
+  <div class="dash questionnaire">
+    <div class="dash-left">
+      <div class="dash-left-top">
+        <div class="dash-prez-accroche">
+          <img class="desktop" src="{{ asset('images/logo.png') }}" alt="Promed">
+          <img class="resp" src="{{ asset('images/logo-resp.png') }}" alt="Promed">
+          <div>
+            <span>Une solution</span>
+            <img class="desktop" src="{{ asset('images/patientys.png') }}" alt="Patientys">
+            <img class="resp" src="{{ asset('images/patientys-resp.png') }}" alt="Patientys">
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="{{ path('professionnel_index')}}">
+                <img src="{{ asset('images/picto/dashboard.png') }}" alt="">
+                <span>Mon Tableau de bord</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ path('patient_inscription_preambule')}}">
+                <img src="{{ asset('images/picto/coach.png') }}" alt="">
+                <span>Inscrire un patient</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="burger-menu">
+        <div class="burger-icon">
+          <input type="checkbox" id="sidebartoggler">
+          <div class="page-wrap">
+            <label for="sidebartoggler" class="toggle">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </label>
+            <div class="sidebar">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="{{ path('professionnel_index')}}">
+                      <img src="{{ asset('image/picto/dashboard.png') }}" alt="">
+                      <span>Mon Tableau de bord</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path('patient_inscription_preambule')}}">
+                      <img src="{{ asset('image/picto/coach.png') }}" alt="">
+                      <span>Inscrire un patient</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dash-right">
+      <section class="title">
+        <div class="h1">
+          <a href="{{ path('professionnel_index') }}">
+            <img src="{{ asset('images/picto/arrow-back.png') }}" alt="back">
+          </a>
+          <h1>Fiche patient</h1>
+        </div>
+        <div class="options">
+          <ul>
+            <li class="account">
+              <a href="{{ path('fos_user_security_logout')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Me déconnecter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41">
+                  <g id="icones-compte" transform="translate(0)">
+                    <g id="Rectangle_2053" data-name="Rectangle 2053" transform="translate(0)" fill="" stroke="" stroke-width="2">
+                      <rect width="41" height="41" rx="12" stroke="none"/>
+                      <rect x="1" y="1" width="39" height="39" rx="11" fill="none"/>
+                    </g>
+                    <g id="Icon_feather-user-check" data-name="Icon feather-user-check" transform="translate(10.5 5.5)">
+                      <path id="Tracé_172" data-name="Tracé 172" d="M18.562,29.325V27.05a4.55,4.55,0,0,0-4.55-4.55H6.05A4.55,4.55,0,0,0,1.5,27.05v2.275" transform="translate(0 -4.35)" fill="none" stroke="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                      <path id="Tracé_173" data-name="Tracé 173" d="M15.85,9.05A4.55,4.55,0,1,1,11.3,4.5a4.55,4.55,0,0,1,4.55,4.55Z" transform="translate(-1.269 0)" fill="none" stroke="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="questionnaire-result">
+
+        <div class="card-result">
+          <div class="patient-info col-lg-5 col-md-12" style="">
+            <div class="civilite">
+              <div>
+                <p class="acronym tiny-acronym main-c">{{ patient.prenom|first|capitalize ~ '' ~ patient.nom|first|capitalize }}</p>
+                <span>{{ patient.civilite }}<br/>{{ patient.prenom ~ ' ' ~ patient.nom }}</span>
+              </div>
+              <ul>
+                <li>Date de naissance : {{ patient.date_naissance|date('d/m/Y') }}</li>
+                <li>Réception du formulaire d'inscription : {{ patient.date_reception_consentement ? patient.date_reception_consentement|date('d/m/Y') : '' }}</li>
+                <li>Finalisation de l’inscription : {{ patient.date_validation_inscription ? patient.date_validation_inscription|date('d/m/Y') : '' }}</li>
+                <li>Statut :
+                  <span class="statut">{{ patient.statut | trans }}</span>
+                </li>
+              </ul>
+            </div>
+            <div class="patho">
+              {% if pha.etablissement is defined %}
+              <div class="type-patho">
+                <figure>
+                  <img src="{{ asset('images/picto/pages/icone-pathologie.svg') }}" alt="" />
+                </figure>
+                <ul>
+                  <li>Pharmacie</li>
+                  <li>
+                    <strong>{{ "Nom : " }}</strong>{{ pha.etablissement | trans }}
+                  </li>
+                  <li>
+                    <strong>{{ "Adresse : " }}</strong>{{ pha.adresse | trans }}
+                  </li>
+                  <li>
+                    <strong>{{ "Code postal : " }}</strong>{{ pha.cp | trans }}
+                  </li>
+                  <li>
+                    <strong>{{ "Ville : " }}</strong>{{ pha.ville | trans }}
+                  </li>
+                  <li>
+                    <strong>{{ "N° Tel : " }}</strong>{{ pha.tel | trans }}
+                  </li>
+                </ul>
+              </div>
+
+              {% endif %}
+              <div class="type-patho">
+                <figure>
+                  <img src="{{ asset('images/picto/pages/icone-traitement.svg') }}" alt="" />
+                </figure>
+                <ul>
+                  <li>Traitement</li>
+                  <li>
+                    <strong>Date de début de traitement : </strong> {{ patient.date_debut_traitement ? patient.date_debut_traitement|date('d/m/Y') : '' }}
+                  </li>
+                </ul>
+              </div>
+              {% if patient.id_doc_log != null %}
+              <div class="type-patho">
+                  <a href="{{ path('download_questionnaire',{'doc_id':patient.id_doc_log}) }}">
+                    <button type="button" class="btn btn-secondary">Formulaire d’inscription complet</button>
+                  </a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="table-content col-md-12">
+            <div class="table-wrapper">
+              <div class="title">
+                <h2 class="text-primary">Compte rendu de visite</h2>
+              </div>
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th scope="col">Action</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Compte rendu</th>
+                  <th scope="col">Alerte(s)</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for action in actions %}
+                <tr ref_appel="{{ action.ref_appel is defined ? action.ref_appel : '' }}">
+                  <td>{{ "Suivi "~ action.type_suivi | trans }}</td>
+                  <td>{{ action.date_realisation is not null ? action.date_realisation|date('d/m/Y') : '' }}&nbsp;</td>
+                  <td>
+                    {% if action.id_doc_log != null %}
+                      <center><a id="analyse_document" class="" href="{{ path('download_questionnaire',{'doc_id':action.id_doc_log}) }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+                          <g id="icone-carte-questionnaire" transform="translate(7.001 4.768)">
+                            <rect id="Rectangle_2169" data-name="Rectangle 2169" width="44" height="44" transform="translate(-7.001 -4.768)" fill="none"/>
+                            <g id="icone" transform="translate(2.999 2.231)">
+                              <g id="Rectangle_2070" data-name="Rectangle 2070" fill="none" stroke="#b03661" stroke-width="2">
+                                <rect width="20.406" height="25.742" rx="4" stroke="none"/>
+                                <rect x="1" y="1" width="18.406" height="23.742" rx="3" fill="none"/>
+                              </g>
+                              <g id="Rectangle_2071" data-name="Rectangle 2071" transform="translate(5.279 4.399)" fill="#fff" stroke="#b03661" stroke-width="2">
+                                <rect width="20.406" height="25.742" rx="4" stroke="none"/>
+                                <rect x="1" y="1" width="18.406" height="23.742" rx="3" fill="none"/>
+                              </g>
+                              <g id="Groupe_217" data-name="Groupe 217" transform="translate(10.451 11.859)">
+                                <g id="Groupe_214" data-name="Groupe 214" transform="translate(0)">
+                                  <path id="Tracé_67" data-name="Tracé 67" d="M0,0H5.89" transform="translate(5.032 1.416)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                  <path id="Tracé_70" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                </g>
+                                <g id="Groupe_219" data-name="Groupe 219" transform="translate(0 8.799)">
+                                  <path id="Tracé_67-2" data-name="Tracé 67" d="M0,0H5.89" transform="translate(5.032 1.416)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                  <path id="Tracé_70-2" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                </g>
+                                <g id="Groupe_218" data-name="Groupe 218" transform="translate(0 4.399)">
+                                  <path id="Tracé_67-3" data-name="Tracé 67" d="M0,0H4.306" transform="translate(5.032 1.416)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                  <path id="Tracé_70-3" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </a></center>
+                    {% else %}
+                      &nbsp;
+                    {% endif %}
+                  </td>
+                  <td style="text-align:center;">
+                    {% if action.date_realisation is not null %}
+                      {% if action.alerte_1 == 1 or action.alerte_2 == 1 or action.alerte_3 == 1 %}
+                        {% if action.consult == 0 %}
+                          <i class="bi bi-exclamation-circle text-secondary" style="float:left;font-size: 1.5rem;"></i>
+                          <ul class="text-secondary" style="float:left;list-style:none; margin:0;padding-left:20px;">
+                        {% else %}
+                          <i class="bi bi-exclamation-circle text-primary-light" style="float:left;font-size: 1.5rem;"></i>
+                          <ul class="text-primary-light" style="float:left;list-style:none; margin:0;padding-left:20px;">
+                        {% endif %}
+
+                      {% endif %}
+                      {% if action.alerte_1 == 1 %}
+                        {% if action.consult == 1 %}
+                          <li style="text-align:left;">Non observance</li>
+                        {% else %}
+                          <li style="text-align:left;"><b>Non observance</b></li>
+                        {% endif %}
+                      {% endif %}
+                      {% if action.alerte_2 == 1 %}
+                        {% if action.consult == 1 %}
+                          <li style="text-align:left;">Symptômes sévères</li>
+                        {% else %}
+                          <li style="text-align:left;;"><b>Symptômes sévères</b></li>
+                        {% endif %}
+                      {% endif %}
+                      {% if action.alerte_3 == 1 %}
+                        {% if action.consult == 1 %}
+                          <li style="text-align:left;">Patiente vulnérable</li>
+                        {% else %}
+                          <li style="text-align:left;;"><b>Patiente vulnérable</b></li>
+                        {% endif %}
+                      {% endif %}
+                      {% if action.alerte_4 == 1 %}
+                        {% if action.consult == 1 %}
+                          <li style="text-align:left;">Qualité de vie</li>
+                        {% else %}
+                          <li style="text-align:left;;"><b>Qualité de vie</b></li>
+                        {% endif %}
+                      {% endif %}
+                      {% if action.alerte_1 == 1 or action.alerte_2 == 1 or action.alerte_3 == 1 or action.alerte_4 == 1 %}
+                        </ul>
+                      {% else %}
+                        &nbsp;
+                      {% endif %}
+                    {% else %}
+                      &nbsp;
+                    {% endif %}
+                  </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="row col-md-12" style="padding: 0;margin: 0;">
+          <div class="col-lg-6 col-md-12">
+            <div class="table-content">
+              <div class="table-wrapper">
+                <div class="title">
+                  <h2 class="text-primary">{{ "Résultats d’analyse biologiques" | trans }}</h2>
+                </div>
+                <table class="table table-striped">
+                  <tbody>
+                  <tr>
+                    <th scope="row">Date de réalisation de l’analyse</th>
+                    {% set a = 0 %}
+                    {% for analyse in analyses %}
+                      <td style="border-top: 1px solid #dee2e6;">
+                        {{ analyse.date_realisation is not null ? analyse.date_realisation|date('d/m/Y') : '' }}&nbsp;
+                      </td>
+                      {% set a = a+1 %}
+                    {% endfor %}
+                  </tr>
+                  <tr>
+                    <th scope="row">Tx neutrophile</th>
+                    {% set a = 0 %}
+                    {% for analyse in analyses %}
+                      <td style="border-top: 1px solid #dee2e6;">
+                        {{ analyse.taux_neutrophile is not null ? analyse.taux_neutrophile : '' }}&nbsp;
+                      </td>
+                      {% set a = a+1 %}
+                    {% endfor %}
+                  </tr>
+                  <tr>
+                    <th scope="row">Tx plaquette</th>
+                    {% set a = 0 %}
+                    {% for analyse in analyses %}
+                      <td style="border-top: 1px solid #dee2e6;">
+                        {{ analyse.taux_plaquette is not null ? analyse.taux_plaquette : '' }}&nbsp;
+                      </td>
+                      {% set a = a+1 %}
+                    {% endfor %}
+                  </tr>
+                  <tr>
+                    <th scope="row">Fonction rénale</th>
+                    {% set a = 0 %}
+                    {% for analyse in analyses %}
+                      <td style="border-top: 1px solid #dee2e6;">
+                        {{ analyse.fonction_renale is not null ? analyse.fonction_renale : '' }}&nbsp;
+                      </td>
+                      {% set a = a+1 %}
+                    {% endfor %}
+                  </tr>
+                  <tr>
+                    <th scope="row">Volume globulaire moyen (VGM)</th>
+                    {% set a = 0 %}
+                    {% for analyse in analyses %}
+                      <td style="border-top: 1px solid #dee2e6;">
+                        {{ analyse.volume_globulaire_moyen is not null ? analyse.volume_globulaire_moyen : '' }}&nbsp;
+                      </td>
+                      {% set a = a+1 %}
+                    {% endfor %}
+                  </tr>
+                  <tr>
+                    <th scope="row">&nbsp;</th>
+                    {% set a = 0 %}
+                    {% for analyse in analyses %}
+                      <td style="border-top: 1px solid #dee2e6;">
+                        {% if analyse.id_doc_log != null %}
+                          <a id="analyse_document" class="a_link " href="{{ path('download_questionnaire',{'doc_id':analyse.id_doc_log}) }}">
+                            <svg style="float:left;" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+                              <g id="icone-carte-questionnaire" transform="translate(7.001 4.768)">
+                                <rect id="Rectangle_2169" data-name="Rectangle 2169" width="44" height="44" transform="translate(-7.001 -4.768)" fill="none"/>
+                                <g id="icone" transform="translate(2.999 2.231)">
+                                  <g id="Rectangle_2070" data-name="Rectangle 2070" fill="none" stroke="#b03661" stroke-width="2">
+                                    <rect width="20.406" height="25.742" rx="4" stroke="none"/>
+                                    <rect x="1" y="1" width="18.406" height="23.742" rx="3" fill="none"/>
+                                  </g>
+                                  <g id="Rectangle_2071" data-name="Rectangle 2071" transform="translate(5.279 4.399)" fill="#fff" stroke="#b03661" stroke-width="2">
+                                    <rect width="20.406" height="25.742" rx="4" stroke="none"/>
+                                    <rect x="1" y="1" width="18.406" height="23.742" rx="3" fill="none"/>
+                                  </g>
+                                  <g id="Groupe_217" data-name="Groupe 217" transform="translate(10.451 11.859)">
+                                    <g id="Groupe_214" data-name="Groupe 214" transform="translate(0)">
+                                      <path id="Tracé_67" data-name="Tracé 67" d="M0,0H5.89" transform="translate(5.032 1.416)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                      <path id="Tracé_70" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                    </g>
+                                    <g id="Groupe_219" data-name="Groupe 219" transform="translate(0 8.799)">
+                                      <path id="Tracé_67-2" data-name="Tracé 67" d="M0,0H5.89" transform="translate(5.032 1.416)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                      <path id="Tracé_70-2" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                    </g>
+                                    <g id="Groupe_218" data-name="Groupe 218" transform="translate(0 4.399)">
+                                      <path id="Tracé_67-3" data-name="Tracé 67" d="M0,0H4.306" transform="translate(5.032 1.416)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                      <path id="Tracé_70-3" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                    </g>
+                                  </g>
+                                </g>
+                              </g>
+                            </svg>
+                            <div style="font-weight:bold;float:left;padding-left: 10px;padding-top: 15px;">Analyse</div>
+                          </a>
+                          &nbsp;
+                        {% else %}
+                          &nbsp;
+                        {% endif %}
+                      </td>
+                    {% endfor %}
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <div class="table-content">
+              <div class="table-wrapper">
+                <div class="title">
+                  <h2 class="text-primary">{{ "Bilans diététique" | trans }}</h2>
+                </div>
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Accéder au bilan</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% set a = 0 %}
+                  {% for diet in liste_diet %}
+                    <tr>
+                      <td>{{ diet.date_creation is not null ? diet.date_creation|date('d/m/Y') : '' }}&nbsp;</td>
+                      <td>
+                        {% if diet.id_doc_log != null %}
+                          <a id="analyse_document" class="a_link " href="{{ path('download_questionnaire',{'doc_id':diet.id_doc_log}) }}">
+                            <svg style="float:left;" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+                              <g id="icone-carte-questionnaire" transform="translate(7.001 4.768)">
+                                <rect id="Rectangle_2169" data-name="Rectangle 2169" width="44" height="44" transform="translate(-7.001 -4.768)" fill="none"/>
+                                <g id="icone" transform="translate(2.999 2.231)">
+                                  <g id="Rectangle_2070" data-name="Rectangle 2070" fill="none" stroke="#b03661" stroke-width="2">
+                                    <rect width="20.406" height="25.742" rx="4" stroke="none"/>
+                                    <rect x="1" y="1" width="18.406" height="23.742" rx="3" fill="none"/>
+                                  </g>
+                                  <g id="Rectangle_2071" data-name="Rectangle 2071" transform="translate(5.279 4.399)" fill="#fff" stroke="#b03661" stroke-width="2">
+                                    <rect width="20.406" height="25.742" rx="4" stroke="none"/>
+                                    <rect x="1" y="1" width="18.406" height="23.742" rx="3" fill="none"/>
+                                  </g>
+                                  <g id="Groupe_217" data-name="Groupe 217" transform="translate(10.451 11.859)">
+                                    <g id="Groupe_214" data-name="Groupe 214" transform="translate(0)">
+                                      <path id="Tracé_67" data-name="Tracé 67" d="M0,0H5.89" transform="translate(5.032 1.416)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                      <path id="Tracé_70" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                    </g>
+                                    <g id="Groupe_219" data-name="Groupe 219" transform="translate(0 8.799)">
+                                      <path id="Tracé_67-2" data-name="Tracé 67" d="M0,0H5.89" transform="translate(5.032 1.416)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                      <path id="Tracé_70-2" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                    </g>
+                                    <g id="Groupe_218" data-name="Groupe 218" transform="translate(0 4.399)">
+                                      <path id="Tracé_67-3" data-name="Tracé 67" d="M0,0H4.306" transform="translate(5.032 1.416)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                      <path id="Tracé_70-3" data-name="Tracé 70" d="M1.6.607l.893.808L4.194,0" transform="translate(-1.599)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-width="1.5"/>
+                                    </g>
+                                  </g>
+                                </g>
+                              </g>
+                            </svg>
+                            <div style="font-weight:bold;float:left;padding-left: 10px;padding-top: 15px;">Bilan</div>
+                          </a>
+                          &nbsp;
+                        {% else %}
+                          &nbsp;
+                        {% endif %}
+                      </td>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="padding: 0;margin: 0 12px;">
+          <div class="card-body">
+            <form method="post" action="" enctype="multipart/form-data" id="new_doc_form">
+              <h2 class="card-title text-primary">Demandes médecin</h2>
+              <p class="card-text">
+                {{ 'Si vous souhaitez transmettre un document aux infirmères du programme, merci de le déposer ici et de cliquer sur Envoyer avec son éventuel commentaire :' | trans }}
+              </p>
+              <table class="table">
+                <tbody>
+                <tr>
+                  <td class="col-4">
+                      <input type="file" id="new_doc_doc" name="new_doc_doc">
+                  </td>
+                  <td class="col-8">
+                    <textarea placeholder="Commentaire (optionnel)" style="width:100%"  class="form-control" id="new_doc_comm" name="new_doc_comm"></textarea>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+              <div class="text-end">
+                <button href="#" data-id="{{ id_patient }}" class="btn textbtn1 btn-secondary-text" id="new_doc_submit" name="new_doc_submit">Envoyer</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <br/><br/>
+        <div class="row col-md-12" style="padding: 0;margin: 0;">
+          <div class="col">
+            <div class="table-content">
+              <div class="table-wrapper">
+                <div class="title">
+                  <h2 class="text-primary">{{ "Historique" | trans }}</h2>
+                </div>
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th scope="col">&nbsp;</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Document</th>
+                    <th scope="col">Commentaire</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  {% set a = 1 %}
+                  {% for echange in echanges %}
+                    <tr>
+                      <th class="col-2" scope="row">{{ "Echange "~ a | trans }}</td>
+                      <td class="col-1" style="border-top: 1px solid #dee2e6;">{{ echange.date_creation is not null ? echange.date_creation|date('d/m/Y') : '' }}&nbsp;</td>
+                      <td class="col-4" style="border-top: 1px solid #dee2e6;">
+                        {% if echange.id_doc_log != null %}
+                          <a id="echange_document" class="a_link " href="{{ path('download_document',{'doc_id':echange.id_doc_log}) }}">
+                            <div style="float:left;" class="image_btn imagedocumentviolet"></div>
+                            <div style="float:left;padding-left: 10px;">{{ echange.nom_fichier }}</div>
+                          </a>
+                          &nbsp;
+                        {% else %}
+                          &nbsp;
+                        {% endif %}
+                      </td>
+                      <td class="col-5" style="border-top: 1px solid #dee2e6;">
+                        {{ echange.commentaire }}&nbsp;
+                      </td>
+                    </tr>
+                    {% set a = a+1 %}
+                  {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+<script type="text/javascript" src="{{ asset('js/patient.js') }}"></script>
+{% endblock %}

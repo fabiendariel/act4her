@@ -1,0 +1,112 @@
+@import "../variables.scss";
+
+.path-frontpage {
+	.container {
+		.max-width {
+			.questionnaire {
+				.dash-right {
+					.title {
+						.options {
+							.search,
+							.message {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+			.questionnaire-form {
+				padding-bottom: 25px;
+				form {
+					.step {
+						.questionnaire-title {
+							h2 {
+								margin-top: 15px;
+								@media #{$w768} {
+									font-size: 15pt;
+									margin-bottom: 25px;
+								}								
+							}
+						}
+						.double-input {
+							&.special-input {
+								>div {
+									&:first-child {
+										width: 150px;
+										@media #{$w650} {
+											width: 100%;
+										}										
+									}
+									&:last-child {
+										@include w-100(165px);
+										@media #{$w650} {
+											width: 100%;
+										}										
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.modal {
+	.modal-dialog {
+		max-width: 858px;
+		@include radius(22px);
+		box-shadow: 0 3px 28px 0 rgba(47, 99, 198, 0.12);
+	}
+	.modal-content {
+		@include radius(22px);
+		@media #{$w992} {
+			@include m-sim(20px);
+			@include w-100(40px);
+		}
+		@media #{$w768} {
+			@include m-sim(20px);
+			@include w-100(40px);
+		}
+		@media #{$w380} {
+			@include m-sim(10px);
+			@include w-100(20px);
+		}						
+	}
+	.modal-header {
+		border: none;
+		.close {
+			font-size: 40px;
+			color: $ter-c;
+			opacity: 1;
+		}
+	}
+	.modal-body {
+		background: url(../images/modal/validation-bg.png) center -15px no-repeat;
+		padding-top: 135px;
+		text-align: center;
+		padding-bottom: 65px;
+		h3 {
+			font-size: 16px;
+			line-height: 19px;
+			@media #{$w768} {
+				font-size: 14pt;
+				line-height: 19pt;
+			}				
+		}
+		p {
+			width: 595px;
+			@include m-sim(auto);
+			margin-top: 32px;
+			font-size: 14px;
+			line-height: 24px;
+			@media #{$w768} {
+				width: 100%;
+				@include p-sim(20px);
+				font-size: 12pt;
+				line-height: 22pt;
+			}			
+		}
+	}
+}

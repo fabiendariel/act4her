@@ -1,0 +1,21 @@
+@import "../variables.scss";
+
+.path-frontpage {
+	.container {
+		.max-width {
+			.questionnaire {
+				.dash-right {
+					.title {
+						.options {
+							.search,
+							.account {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

@@ -1,0 +1,158 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block app_body %}
+
+  <div class="login">
+    <div class="login-prez">
+      <div class="login-prez-accroche">
+        <img src="{{ asset('images/logo.png') }}" class="logo" alt="Promed">
+        <div>
+          <span>Une solution</span>
+          <img src="{{ asset('images/patientys.png') }}" alt="Patientys">
+        </div>
+      </div>
+      <div class="login-prez-welcome">
+        <h1>Bienvenue,</h1>
+        <p>Sur la plateforme de suivi des patients inscrits au programme D�mo.<br /><br />
+          En vous connectez à votre compte, vous pouvez suivre l’apprentissage de chacun de vos patients.</p>
+      </div>
+      <div class="dash-left">
+        <div class="question">
+          <p>Pour toute question,<br/>contactez-nous au N° Vert :​</p>
+          <span>Une question ?</span><br/>
+          <img class="desktop" src="{{ asset('images/numero-vert.png') }}" width="200">
+          <img class="resp" src="{{ asset('images/numero-vert_short.png') }}" width="150">
+        </div>
+      </div>
+    </div>
+    <div class="login-form">
+      <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" method="post" class="fos_user_resetting_request needs-validation" id="fos_user_resetting_request" style="width: 550px;">
+        <div class="h2">
+            <h2>En vous connectant à votre compte, vous pourrez suivre l'apprentissage de chacun de vos patients.</h2><br/>
+            <h2>Pour commencer nous vous invitons à choisir des identifiants qui vous permettront d'accéder à votre espace personnel</h2>
+        </div>
+        <br/><br/><br/><br/>
+        <div class="h3">
+          <h3>Choisissez un mot de passe :</h3>
+        </div>
+
+        <div class="input">
+          {{ form_label(form.plainPassword.first, 'Saisissez votre mot de passe', { 'attr': {'class': 'form-label col-md-3'} }) }}
+          {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
+          <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Veuillez saisir votre mot de passe (6 caractères minimum)</div>
+        </div>
+        <div class="input">
+          {{ form_label(form.plainPassword.second, 'Veuillez confirmer votre mot de passe', { 'attr': {'class': 'form-label col-md-3'} }) }}
+          {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control'} }) }}
+          <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Veuillez confirmer votre mot de passe</div>
+        </div>
+        {{ form_rest(form) }}
+
+        <button type="submit" class="btn btn-secondary" id="btn_send_request" name="btn_send_request">Valider mes identifiants</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+
+  $(function(){
+
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      $("#btn_send_request").click(function(event) {
+        form.classList.add('was-validated');
+        var validatePassword = false;
+        var value = $("#fos_user_resetting_form_plainPassword_first").val();
+        var password = $("#fos_user_resetting_form_plainPassword_second").val();
+
+        $("#fos_user_resetting_form_plainPassword_first").removeClass("is-invalid");
+        $("#fos_user_resetting_form_plainPassword_second").removeClass("is-invalid");
+
+        $("#fos_user_resetting_form_plainPassword_second").removeClass("is-valid");
+
+        if (value != password) {
+          $('#fos_user_resetting_request').removeClass("was-validated");
+          $("#fos_user_resetting_form_plainPassword_second").removeClass("is-invalid");
+          $("#fos_user_resetting_form_plainPassword_second").addClass("is-invalid");
+        } else {
+          $("#fos_user_resetting_form_plainPassword_first").removeClass("is-invalid");
+          $("#fos_user_resetting_form_plainPassword_second").addClass("is-valid");
+          $("#fos_user_resetting_form_plainPassword_second").removeClass("is-invalid");
+          validatePassword = true;
+        }
+
+        if (form.checkValidity() === false || validatePassword == false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }else{
+          $('#fos_user_resetting_request').submit();
+        }
+
+
+      });
+    });
+
+    $("#fos_user_resetting_form_plainPassword_first").keyup(function() {
+      var value = $(this).val();
+      var password = $("#fos_user_resetting_form_plainPassword_second").val();
+
+      $("#fos_user_resetting_form_plainPassword_first").removeClass("is-invalid");
+      $("#fos_user_resetting_form_plainPassword_second").removeClass("is-invalid");
+      $("#fos_user_resetting_form_plainPassword_first").removeClass("is-valid");
+      $("#fos_user_resetting_form_plainPassword_second").removeClass("is-valid");
+
+      if (value.length < 6) {
+        $('#fos_user_resetting_request').removeClass("was-validated");
+        $("#fos_user_resetting_form_plainPassword_first").addClass("is-invalid");
+      } else if (value != password) {
+        $('#fos_user_resetting_request').removeClass("was-validated");
+        $("#fos_user_resetting_form_plainPassword_first").removeClass("is-invalid");
+        $("#fos_user_resetting_form_plainPassword_first").addClass("is-valid");
+        $("#fos_user_resetting_form_plainPassword_second").addClass("is-invalid");
+      } else {
+        $("#fos_user_resetting_form_plainPassword_first").removeClass("is-invalid");
+        $("#fos_user_resetting_form_plainPassword_second").removeClass("is-invalid");
+      }
+    });
+
+    $("#fos_user_resetting_form_plainPassword_second").keyup(function() {
+      var value = $(this).val();
+      var password = $("#fos_user_resetting_form_plainPassword_first").val();
+
+      $("#fos_user_resetting_form_plainPassword_first").removeClass("is-invalid");
+      $("#fos_user_resetting_form_plainPassword_second").removeClass("is-invalid");
+
+      $("#fos_user_resetting_form_plainPassword_second").removeClass("is-valid");
+      if (value != password) {
+        $('#fos_user_resetting_request').removeClass("was-validated");
+        $("#fos_user_resetting_form_plainPassword_second").addClass("is-invalid");
+      } else {
+        $("#fos_user_resetting_form_plainPassword_first").removeClass("is-invalid");
+        $("#fos_user_resetting_form_plainPassword_second").addClass("is-valid");
+        $("#fos_user_resetting_form_plainPassword_second").removeClass("is-invalid");
+      }
+    });
+
+    log_errors = '';
+    $('input').each(function(){
+      if($(this).data('tooltip') != undefined)
+        log_errors += '<span style="color:red;">'+$(this).data('tooltip')+'</span><br/>';
+    });
+    if(log_errors != ''){
+      $('.form_error').html(log_errors);
+    }
+  });
+</script>
+{% endblock %}

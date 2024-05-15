@@ -1,0 +1,83 @@
+.patient-info .civilite {
+  background: #f2f8f7;
+  padding: 25px 21px 30px 21px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  margin-bottom: 38px; }
+  @media only screen and (max-width: 767px) {
+    .patient-info .civilite {
+      padding: 17pt 21pt;
+      margin-bottom: 20pt;
+      background: rgba(40, 115, 128, 0.06); } }
+  .patient-info .civilite > div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 29px;
+    font-weight: 700; }
+    @media only screen and (max-width: 767px) {
+      .patient-info .civilite > div {
+        margin-bottom: 13pt; } }
+    .patient-info .civilite > div span {
+      display: block;
+      margin-left: 12px;
+      font-size: 18px;
+      line-height: 20px; }
+      @media only screen and (max-width: 767px) {
+        .patient-info .civilite > div span {
+          margin-left: 11px;
+          font-size: 16pt;
+          line-height: 20pt; } }
+  .patient-info .civilite ul li {
+    font-size: 13px;
+    line-height: 19px;
+    font-weight: 700; }
+    @media only screen and (max-width: 767px) {
+      .patient-info .civilite ul li {
+        font-size: 12pt;
+        line-height: 19pt; } }
+    .patient-info .civilite ul li .statut {
+      padding: 2px 8px;
+      background: #7ed7c2;
+      text-align: center;
+      text-transform: uppercase;
+      color: #fff;
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.24px; }
+.patient-info .patho .type-patho {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 35px; }
+  @media only screen and (max-width: 767px) {
+    .patient-info .patho .type-patho {
+      padding: 0 0 18pt 0;
+      border-bottom: 1px solid rgba(40, 115, 128, 0.06); } }
+  .patient-info .patho .type-patho figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 9px;
+    width: 24px;
+    height: 24px; }
+.patient-info .patho ul li {
+  font-size: 12px;
+  line-height: 17px; }
+  @media only screen and (max-width: 767px) {
+    .patient-info .patho ul li {
+      font-size: 12pt;
+      line-height: 19pt; } }
+  .patient-info .patho ul li:first-child {
+    font-size: 16px;
+    line-height: 19px;
+    font-weight: 700;
+    margin-bottom: 9px; }
+    @media only screen and (max-width: 767px) {
+      .patient-info .patho ul li:first-child {
+        font-size: 16pt;
+        margin-bottom: 18pt; } }
+
+/*# sourceMappingURL=patient-info.css.map */

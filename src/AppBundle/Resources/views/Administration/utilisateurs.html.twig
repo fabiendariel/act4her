@@ -1,0 +1,65 @@
+{% extends "AppBundle::layout.html.twig" %}
+{% import 'AppBundle:_Macros:app_pagination.html.twig' as pagination %}
+
+{% block ocplatform_body %}
+
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            {% block title %}
+                Liste
+            {% endblock %}
+        </h1>
+    </section>
+
+    <section class="content">
+
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <h3 class="box-title">
+                Recherche
+            </h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
+                            class="fa fa-minus"></i></button>
+            </div>
+        </div>
+
+        <div class="box-body">
+
+            <table class="user-list table table-striped table-bordered jambo_table">
+                <tbody>
+                {% for user in users %}
+                    <tr class="{% if user.enabled == false %}alert-danger{% endif %}">
+                        <td class="col-md-11">{{ user.firstname }} {{ user.lastname }} - (<a
+                                    href="mailto:{{ user.email }}">{{ user.email }}</a>)
+                        </td>
+                        <td class="col-md-1 text-right">
+                            <a href="{{ path('app_administration_utilisateur_update', {user_id: user.id}) }}"
+                               class="btn btn_taille1 btn100 fondorange" role="button">
+                                <i class="fa fa-pencil"></i> {{ 'Éditer'|trans }}
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td>{{ "Aucun utilisateur n'est référencé"|trans }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <br/>
+            <a class="add-user btn btn-sm btn-success" style="margin-right: 30px" href="{{ path('app_administration_utilisateur_add') }}"
+               role="button">
+                <i class="fa fa-plus"></i> {{ 'Ajouter'|trans }}
+            </a>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        {{ pagination.paginate(users, 20, nbPages, page, 'app_administration_utilisateurs') }}
+    </div>
+
+{% endblock %}

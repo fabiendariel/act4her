@@ -1,0 +1,192 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/crea-account.css') }}" type="text/css" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+{% block app_body %}
+  <div class="dash questionnaire">
+    <div class="dash-left">
+      <div class="dash-left-top">
+        <div class="dash-prez-accroche">
+          <img class="desktop" src="{{ asset('images/logo_application.png') }}" alt="Promed">
+          <img class="resp" src="{{ asset('images/logo-resp.png') }}" alt="Promed">
+          <div>
+            <span>Une solution</span>
+            <img class="desktop" src="{{ asset('images/patientys.png') }}" alt="Patientys">
+            <img class="resp" src="{{ asset('images/patientys-resp.png') }}" alt="Patientys">
+          </div>
+        </div>
+      </div>
+      <div class="dash-left-bottom">
+        <div class="question">
+          <p>Pour toute question,<br/>contactez-nous au N° Vert :​</p>
+          <span>Une question ?</span><br/>
+          <img class="desktop" src="{{ asset('images/numero-vert.png') }}" width="200">
+          <img class="resp" src="{{ asset('images/numero-vert_short.png') }}" width="150">
+        </div>
+      </div>
+    </div>
+    <div class="dash-right">
+      <section class="title">
+        <div class="h1">
+          <a href="{{ path('homepage') }}">
+            <img src="{{ asset('images/picto/arrow-back.png') }}" alt="back">
+          </a>
+          <h1>Votre création de compte</h1>
+        </div>
+      </section>
+      <section class="questionnaire-form">
+        <div class="h4">
+          <h4>Afin de créer votre compte médecin, merci de compléter les informations
+            suivantes (les champs signalés par * sont obligatoires) :</h4>
+        </div>
+        {{ form_start(form, {'attr': {'id': 'form_questionnaire', 'autocomplete': 'nope', 'class': 'form-horizontal needs-validation panel panel-info'}}) }}
+          <div class="step step-1">
+            <div class="questionnaire-title">
+              <h2>Vos identifiants</h2>
+            </div>
+            <div class="double-input special-input">
+              <div class="input">
+                <label>Code RPPS*</label>
+                <div>
+                  {{ form_errors(form.rpps) }}
+                  {{ form_widget(form.rpps, {'attr': {'class': 'form-control '}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Code RPPS obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>Email*</label>
+                <div>
+                  {{ form_errors(form.email) }}
+                  {{ form_widget(form.email, {'attr': {'class': 'form-control '}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Email valide obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div class="questionnaire-title">
+              <p>Par la suite votre identifiant sera votre adresse e-mail</p>
+            </div>
+            <div class="questionnaire-title">
+              <h2>Vos informations</h2>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Nom*</label>
+                <div>
+                  {{ form_errors(form.nom) }}
+                  {{ form_widget(form.nom, {'attr': {'class': 'form-control '}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Nom obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>Prénom*</label>
+                <div>
+                  {{ form_errors(form.prenom) }}
+                  {{ form_widget(form.prenom, {'attr': {'class': 'form-control '}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Prénom obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="input">
+                <label>Spécialité</label>
+                <div>
+                  {{ form_errors(form.specialite) }}
+                  {{ form_widget(form.specialite, {'attr': {'class': 'form-control '}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Spécialité obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="input">
+                <label>Exerçant à</label>
+                <div>
+                  {{ form_errors(form.adresse) }}
+                  {{ form_widget(form.adresse, {'attr': {'class': 'form-control '}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Adresse obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Code postal</label>
+                <div>
+                  {{ form_errors(form.cp) }}
+                  {{ form_widget(form.cp, {'attr': {'class': 'form-control '}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Code postal obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>Ville</label>
+                <div>
+                  {{ form_errors(form.ville) }}
+                  {{ form_widget(form.ville, {'attr': {'class': 'form-control '}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Ville obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div class="double-input">
+              <div class="input">
+                <label>Téléphone*</label>
+                <div>
+                  {{ form_errors(form.tel) }}
+                  {{ form_widget(form.tel, {'attr': {'class': 'form-control '}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Téléphone valide obligatoire !</div>
+                </div>
+              </div>
+              <div class="input">
+                <label>Fax</label>
+                <div>
+                  {{ form_errors(form.fax) }}
+                  {{ form_widget(form.fax, {'attr': {'class': 'form-control '}}) }}
+                  <div class="invalid-feedback">&nbsp;&nbsp;&nbsp;Fax valide obligatoire !</div>
+                </div>
+              </div>
+            </div>
+            <div class="questionnaire-title">
+              <p>Le médecin prescripteur pourra être contacté dans le cadre de
+                remontées d'évènements de pharmacovigilance des patientes qu'il
+                a inscrit à ce programme.</p>
+            </div>
+            <div class="alert alert-block alert-danger" style="display:none">
+              Vous devez donner une réponse à cette question
+            </div>
+            <br/>
+            <div align="center" class="form-group">
+              <!-- PROD 6LctOv0UAAAAAAgWyySVdsj_FtFsDZIYKVrzUw7p -->
+              <!-- RECETTE 6LfIPrIUAAAAADZSW9Wc-OYa43iuVNysE7rRbOIJ -->
+              <div class="g-recaptcha"
+                   data-sitekey="{{ app_cle_captcha }}"></div>
+              <div class="alert alert-block alert-danger" id="alert_captcha" style="display:none">
+                Vous devez prouvez que vous n'êtes pas un robot
+              </div>
+            </div>
+          </div>
+          <div class="buttons">
+            <button type="button" {#data-toggle="modal" data-target="#modal-validation"#} class="btn textbtn1 btn-secondary">Valider</button>
+          </div>
+        {{ form_rest(form) }}
+      </section>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block javascripts %}
+  <script src="https://www.google.com/recaptcha/api.js?hl=fr" async defer></script>
+  <script src="{{ asset('js/inscription.js') }}"></script>
+  {% if isOk %}
+    <script>
+      $(function()
+      {
+        $('#modal-validation').modal('show');
+        $('#modal-validation').on('hidden.bs.modal', function () {
+          document.location.href='{{ path('homepage') }}';
+        });
+      });
+    </script>
+  {% endif %}
+{% endblock %}
+

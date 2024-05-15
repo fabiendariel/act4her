@@ -1,0 +1,89 @@
+@import "../../variables.scss";
+.message-info {
+	@include ab-tr(0,-3000px);
+	background-color: $white;
+	@include w-h(336px, 100%);
+	padding: 34px 24px 0 22px;
+	box-shadow: -4px 0 9px 0 rgba(40, 115, 128, 0.07);
+	z-index: 777;
+	@include radius-x4(0,1.5rem,1.5rem,0);
+	@include transition(all, 0.5s, ease);	
+	&.open {
+		right: 0;
+		@include transition(all, 0.5s, ease);	
+	}
+	.user {
+		.user-info {
+			margin-bottom: 44px;
+			.name {
+				font-size: 20px;
+				line-height: 23px;
+				font-weight: 700;
+				margin-bottom: 3px;
+				span {
+					display: block;
+					text-transform: uppercase;
+				}
+			}
+			.job {
+				font-size: 14px;
+				line-height: 19px;
+			}
+		}
+		.messages {
+			.messages-title {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 16px;
+				h2 {
+					margin: 0;
+				}
+			}
+			.messages-extended {
+				.date {
+					font-size: 12px;
+					line-height: 17px;
+					text-transform: uppercase;
+					margin-bottom: 20px;
+				}
+				ul {
+					padding: 0;
+					li {
+
+						margin-bottom: 22px;
+						a {
+							display: flex;
+							flex-wrap: wrap;
+							width: 100%;												
+							>div {
+								@include w-100(57px);
+								display: flex;
+								justify-content: space-between;
+								flex-wrap: wrap;
+								line-height: 17px;
+								margin-left: 13px;
+								strong {
+									display: block;
+									margin-right: 10px;
+									font-weight: 700;
+									font-size: 14px;
+									@include ellipsis();
+								}
+								span {
+									text-transform: uppercase;
+									letter-spacing: 0.3px;
+								}
+							}
+							.subject {
+								width: 100%;
+								line-height: 12px;
+								letter-spacing: 0.3px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

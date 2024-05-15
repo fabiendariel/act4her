@@ -1,0 +1,64 @@
+@media only screen and (max-width: 767px) {
+  form {
+    padding-bottom: 48px; } }
+form .input label {
+  display: block;
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 8px; }
+  @media only screen and (max-width: 767px) {
+    form .input label {
+      font-size: 12pt;
+      margin-bottom: 8pt; } }
+form .input input {
+  background: rgba(40, 115, 128, 0.06);
+  height: 46px;
+  font-size: 13px; }
+  @media only screen and (max-width: 767px) {
+    form .input input {
+      height: 46pt;
+      padding-left: 11pt;
+      padding-right: 11pt;
+      font-size: 13pt; } }
+form .form-check-inline {
+  display: flex;
+  margin-bottom: 97px; }
+  @media only screen and (max-width: 767px) {
+    form .form-check-inline {
+      margin-top: 35px;
+      margin-bottom: 65px; } }
+  form .form-check-inline .form-check-input {
+    width: 26px;
+    height: 24px;
+    margin-right: 7px;
+    border-color: #b03661;
+    background: #BBB; }
+    @media only screen and (max-width: 767px) {
+      form .form-check-inline .form-check-input {
+        width: 26pt;
+        height: 24pt; } }
+  form .form-check-inline .form-check-label {
+    font-size: 11px;
+    color: #b03661;
+    font-weight: 700; }
+    @media only screen and (max-width: 767px) {
+      form .form-check-inline .form-check-label {
+        font-size: 12pt; } }
+form .btn-type-disabled {
+  border: 2px solid #b03661;
+  background: transparent;
+  color: #b03661; }
+form button,
+form .btn {
+  width: 150px;
+  display: block;
+  margin-bottom: 9px;
+  text-transform: inherit;
+  font-size: 12px; }
+  @media only screen and (max-width: 767px) {
+    form button,
+    form .btn {
+      width: 170pt;
+      font-size: 15pt; } }
+
+/*# sourceMappingURL=form.css.map */

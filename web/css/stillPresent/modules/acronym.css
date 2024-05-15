@@ -1,0 +1,47 @@
+.acronym {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 75px;
+  height: 75px;
+  min-width: 75px;
+  min-height: 75px;
+  font-size: 26px;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  margin-bottom: 10px; }
+  .acronym.tiny-acronym {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    margin-bottom: 0;
+    color: #253773;
+    font-size: 20px; }
+    @media only screen and (max-width: 767px) {
+      .acronym.tiny-acronym {
+        width: 38pt;
+        height: 38pt;
+        min-width: 38pt;
+        min-height: 38pt;
+        font-size: 17pt; } }
+  .acronym.green {
+    background: #7ed7c2; }
+  .acronym.pink {
+    background: #f8aab5; }
+  .acronym.yellow {
+    background: #f8da96; }
+  .acronym.ter {
+    background: #b03661;
+    color: #fff; }
+  .acronym.main-c {
+    background: #485b5c;
+    color: #fff; }
+
+/*# sourceMappingURL=acronym.css.map */

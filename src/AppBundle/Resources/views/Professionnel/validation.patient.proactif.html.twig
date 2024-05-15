@@ -1,0 +1,7 @@
+<h3>L’inscription de votre patient(e) {{ datas.civilite }} {{ datas.nom_patient|capitalize  }} a bien été enregistrée dans nos systèmes.</h3><br/>
+<h3>L’infirmière Patientys appellera votre patient(e) dans les 48h ouvrées (ou selon ses disponibilités renseignées précédemment) pour initier sa prise en charge.</h3><br/><br/>
+<div class="buttons" >
+    <button class="btn btn-primary" type="button" onclick="document.location.href='{{ path('download_questionnaire',{'doc_id':consentement_id_doc}) }}';">Imprimer le formulaire</button>
+    <button class="btn btn-secondary" type="button" onclick="document.location.href='{{ path('default') }}';">Retour à votre espace</button>
+</div>
+<br/><br/>

@@ -1,0 +1,11 @@
+parameters:
+    database_host: 10.3.1.11
+    database_port: 1433
+    database_name: copie_act4her
+    database_user: extranet_dupixent
+    database_password: EH8WWwMmdsgsmYY8P56K
+    mailer_transport: smtp
+    mailer_host: boitealettre.test.lan
+    mailer_user: null
+    mailer_password: null
+    secret: ThisTokenIsSecretNotChangeIt

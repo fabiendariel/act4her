@@ -1,0 +1,191 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+  <link href="{{ asset('css/dash.css') }}" type="text/css" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block app_body %}
+  <div class="dash dashboard">
+    <div class="dash-left">
+      <div class="dash-left-top">
+        <div class="dash-prez-accroche">
+          <img class="desktop" src="{{ asset('images/logo_application.png') }}" alt="Promed">
+          <img class="resp" src="{{ asset('images/logo-resp.png') }}" alt="Promed">
+        </div>
+        <nav>
+          <ul>
+            <li class="active">
+              <a href="{{ path('professionnel_index')}}">
+                <img src="{{ asset('images/picto/dashboard.png') }}" alt="">
+                <span>Mon Tableau de bord</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ path('patient_inscription_preambule')}}">
+                <img src="{{ asset('images/picto/coach.png') }}" alt="">
+                <span>Inscrire un patient</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="dash-left-bottom">
+        <div class="question">
+          <p>Pour toute question,<br/>contactez-nous au N° Vert :​</p>
+          <span>Une question ?</span><br/>
+          <img class="desktop" src="{{ asset('images/numero-vert.png') }}" width="200">
+          <img class="resp" src="{{ asset('images/numero-vert_short.png') }}" width="150">
+        </div>
+      </div>
+      <div class="burger-menu">
+        <div class="burger-icon">
+          <input type="checkbox" id="sidebartoggler">
+          <div class="page-wrap">
+            <label for="sidebartoggler" class="toggle">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </label>
+            <div class="sidebar">
+              <nav>
+                <ul>
+                  <li>
+                    <a href="{{ path('professionnel_index')}}">
+                      <img src="{{ asset('image/picto/dashboard.png') }}" alt="">
+                      <span>Mon Tableau de bord</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{{ path('patient_inscription_preambule')}}">
+                      <img src="{{ asset('image/picto/coach.png') }}" alt="">
+                      <span>Inscrire un patient</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dash-right">
+      <section class="message-info">
+
+      </section>
+      <section class="title">
+        <div class="h1">
+          <a href="">
+            <img src="{{ asset('images/picto/arrow-back.png') }}" alt="back">
+          </a>
+          <h1>Programme {{ site.name }}</h1>
+        </div>
+        <div class="options">
+          <div class="search d-none">
+            <input type="text" class="form-control" id="search" placeholder="Rechercher un patient">
+            <img src="{{ asset('images/picto/loupe.png') }}" alt="">
+          </div>
+          <ul>
+            <li class="account">
+              <a href="{{ path('fos_user_security_logout')}}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Me déconnecter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41">
+                  <g id="icones-compte" transform="translate(0)">
+                    <g id="Rectangle_2053" data-name="Rectangle 2053" transform="translate(0)" fill="" stroke="" stroke-width="2">
+                      <rect width="41" height="41" rx="12" stroke="none"></rect>
+                      <rect x="1" y="1" width="39" height="39" rx="11" fill="none"></rect>
+                    </g>
+                    <g id="Icon_feather-user-check" data-name="Icon feather-user-check" transform="translate(10.5 5.5)">
+                      <path id="Tracé_172" data-name="Tracé 172" d="M18.562,29.325V27.05a4.55,4.55,0,0,0-4.55-4.55H6.05A4.55,4.55,0,0,0,1.5,27.05v2.275" transform="translate(0 -4.35)" fill="none" stroke="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                      <path id="Tracé_173" data-name="Tracé 173" d="M15.85,9.05A4.55,4.55,0,1,1,11.3,4.5a4.55,4.55,0,0,1,4.55,4.55Z" transform="translate(-1.269 0)" fill="none" stroke="" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                    </g>
+                  </g>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="table-content">
+        <div class="table-wrapper">
+          <div class="title">
+            <h2 class="text-primary">Mes patients</h2>
+            <h4>Nombre de patients affiliés : {{ liste_patients|length }}</h4>
+          </div>
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Prénom</th>
+              <th scope="col">Date de<br/>Naissance</th>
+              <th scope="col">Dernière action réalisée</th>
+              <th scope="col">Alertes</th>
+              <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for patient in liste_patients %}
+              <tr>
+                <td>{{ patient.nom }}</td>
+                <td>{{ patient.prenom }}</td>
+                <td>{{ patient.date_naissance?patient.date_naissance|date('d/m/Y'):' ' }}</td>
+                <td>
+                  {% set action = '' %}
+                  {% if patient.date_m12_r is not null %}
+                    Suivi M12  {% set action = 'M12' %}
+                  {% elseif patient.date_m11_r is not null %}
+                    Suivi M11  {% set action = 'M11' %}
+                  {% elseif patient.date_m10_r is not null %}
+                    Suivi M10  {% set action = 'M10' %}
+                  {% elseif patient.date_m9_r is not null %}
+                    Suivi M9  {% set action = 'M9' %}
+                  {% elseif patient.date_m8_r is not null %}
+                    Suivi M8  {% set action = 'M8' %}
+                  {% elseif patient.date_m7_r is not null %}
+                    Suivi M7  {% set action = 'M7' %}
+                  {% elseif patient.date_m6_r is not null %}
+                    Suivi M6  {% set action = 'M6' %}
+                  {% elseif patient.date_m5_r is not null %}
+                    Suivi M5  {% set action = 'M5' %}
+                  {% elseif patient.date_m4_r is not null %}
+                    Suivi M4  {% set action = 'M4' %}
+                  {% elseif patient.date_m3_r is not null %}
+                    Suivi M3  {% set action = 'M3' %}
+                  {% elseif patient.date_m2_r is not null %}
+                    Suivi M2  {% set action = 'M2' %}
+                  {% elseif patient.date_m1_r is not null %}
+                    Suivi M1  {% set action = 'M1' %}
+                  {% elseif patient.date_J15_r is not null %}
+                    Suivi J15  {% set action = 'J15' %}
+                  {% elseif patient.date_j0_r is not null %}
+                    Validation d'inscription  {% set action = 'J0' %}
+                  {% endif %}
+                </td>
+                <td>
+                  {% if action == 'J0' and vip_obs_alerte is defined %}
+                    <span style="color:red;{% if patient.date_visite is null %}font-weight: bold;{% endif %}">
+                      {{ patient.vip_obs_alerte == 1 ? 'Observance' : '' }} {{ patient.vip_tolerance_alerte  == 1 ? 'Tolerance' : '' }}
+                    </span>
+                  {% elseif patient.suivi_nom is defined and patient.suivi_nom == action %}
+                    <span style="color:red;{% if patient.date_visite is null or patient.date_visite < patient.suivi_date %}font-weight: bold;{% endif %}">
+                    {{ patient.suivi_obs_alerte == 1 ? 'Observance' : '' }} {{ patient.suivi_tolerance_alerte  == 1 ? 'Tolerance' : '' }}
+                    </span>
+                  {% endif %}
+                </td>
+                <td></td>
+                <td>
+                  <a href="{{ path('app_patient_fiche', {'patient_id': patient.num_fiche}) }}">
+                    <i class="bi bi-file-earmark text-secondary"></i>
+                  </a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+    </div>
+  </div>
+{% endblock %}

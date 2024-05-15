@@ -1,0 +1,35 @@
+<?php use_helper('I18N') ?>
+<style>
+
+    body {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+        color: #676767;
+    }
+</style>
+<table width="650" cellpadding="0" cellspacing="0" style="font-size:12px;">
+    <tr>
+        <td width="23"></td>
+        <td width="606" valign="top" style="padding:10px 20px;">
+            <br/>
+
+            <p>Bonjour,<br/></p>
+            <p>Le prescripteur N° <?php echo $data; ?> a modifié ses informations durant l'inscription
+                d'un patient.</p>
+            <p>Voici la liste des modifications:
+            <ul>
+                <?php foreach($changes as $key => $value){ ?>
+                    <li><b><?php echo $key; ?>:</b> <?php echo $value; ?></li>
+                <?php } ?>
+            </ul>
+            </p>
+            Cordialement.</div>
+
+        </td>
+        <td width="21"></td>
+    </tr>
+</table>

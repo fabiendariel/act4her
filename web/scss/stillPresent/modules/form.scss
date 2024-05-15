@@ -1,0 +1,72 @@
+@import "../../variables.scss";
+form {
+	@media #{$w768} {
+		padding-bottom: 48px;
+	}	
+	.input {
+		label {
+			display: block;
+			font-weight: 700;
+			font-size: 12px;
+			margin-bottom: 8px;
+			@media #{$w768} {
+				font-size: 12pt;
+				margin-bottom: 8pt;
+			}			
+		}
+		input {
+			background: rgba(40, 115, 128, 0.06);
+			height: 46px;
+			font-size: 13px;
+			@media #{$w768} {
+				height: 46pt;
+				@include p-sim(11pt);
+				font-size: 13pt;
+			}			
+		}
+	}
+	.form-check-inline {
+		display: flex;
+		margin-bottom: 97px;
+		@media #{$w768} {
+			margin-top: 35px;
+			margin-bottom: 65px;
+		}							
+		.form-check-input {
+			width: 26px;
+			height: 24px;
+			margin-right: 7px;
+			border-color: $ter-c;
+			background: #DDD;
+			@media #{$w768} {
+				width: 26pt;
+				height: 24pt;
+			}			
+		}
+		.form-check-label {
+			font-size: 11px;
+			color: $ter-c;
+			font-weight: 700;
+			@media #{$w768} {
+				font-size: 12pt;
+			}			
+		}
+	}
+	.btn-type-disabled {
+		border: 2px solid $ter-c;
+		background: transparent;
+		color: $ter-c;
+	}
+	button,
+	.btn {
+		width: 150px;
+		display: block;
+		margin-bottom: 9px;
+		text-transform: inherit;
+		font-size: 12px;
+		@media #{$w768} {
+			width: 170pt;		
+			font-size: 15pt;
+		}		
+	}							
+}

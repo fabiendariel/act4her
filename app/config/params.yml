@@ -1,0 +1,16 @@
+# Parameters
+parameters:
+
+    locale: fr
+    cle_captcha: 6LdYwq4fAAAAAAl7kZEr0XFwlD6hDZZ9m4Sj7kgX
+
+    mailer_from_name: Extranet ACT4HER
+    mailer_from: act4her@test.com
+    mailer_inscription: demo@test.com
+    mailer_cc: demo@test.com
+
+    directory: "%kernel.root_dir%/../src/AppBundle/Resources/documents/"
+
+    site:
+        name: ACT4HER
+        type: accompagnement

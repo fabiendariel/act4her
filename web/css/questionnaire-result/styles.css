@@ -1,0 +1,103 @@
+.path-frontpage .container .max-width .questionnaire .dash-right .title .options .search,
+.path-frontpage .container .max-width .questionnaire .dash-right .title .options .message {
+  display: none; }
+.path-frontpage .container .max-width .questionnaire .dash-right .title .h1 a {
+  display: block; }
+  @media only screen and (max-width: 767px) {
+    .path-frontpage .container .max-width .questionnaire .dash-right .title .h1 a {
+      display: none; } }
+.path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result {
+  padding-right: 112px;
+  padding-bottom: 34px; }
+  @media only screen and (max-width: 1200px) {
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result {
+      padding-right: 20px; } }
+  @media only screen and (max-width: 991px) {
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result {
+      padding-right: 0; } }
+  .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    background: #fff;
+    padding: 46px 34px 55px 22px;
+    -webkit-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px;
+    box-shadow: 0 3px 28px 0 rgba(40, 115, 128, 0.12);
+    margin-bottom: 36px; }
+    @media only screen and (max-width: 767px) {
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result {
+        display: block;
+        padding: 0;
+        background: transparent;
+        box-shadow: inherit; } }
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content {
+      width: calc(100% - 300px);
+      width: -moz-calc(100% - 300px);
+      width: -webkit-calc(100% - 300px);
+      width: calc(100% - 300px);
+      width: -moz-calc(100% - 300px);
+      width: -webkit-calc(100% - 300px); }
+      @media only screen and (max-width: 650px) {
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content {
+          display: none; } }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table-wrapper {
+        margin: 0;
+        box-shadow: inherit; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table > :not(:last-child) > :last-child > * {
+        border: none; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table > :not(caption) > * > * {
+        padding-top: 15px;
+        padding-bottom: 15px; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table td {
+        text-align: center;
+        border: none; }
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .table-content .table td:first-child {
+          text-align: left;
+          font-weight: 700; }
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .patient-info {
+      width: 260px;
+      min-width: 260px;
+      margin: 0 0 0 40px; }
+      @media only screen and (max-width: 767px) {
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .patient-info {
+          margin: 0;
+          width: 100%; } }
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .evolution img {
+      display: none;
+      margin-left: auto;
+      margin-right: auto; }
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .evolution.positive img.up {
+      display: block; }
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .evolution.negative img.down {
+      display: block; }
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .accordion .accordion-item {
+      margin-bottom: 9pt;
+      -webkit-border-radius: 12px;
+      -moz-border-radius: 12px;
+      border-radius: 12px; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .accordion .accordion-item:nth-child(odd) {
+        background: #fff; }
+        .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .accordion .accordion-item:nth-child(odd) .accordion-collapse {
+          background: #fff; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .accordion .accordion-item .accordion-top .name {
+        font-size: 14pt; }
+    .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .accordion .accordion-body ul {
+      width: 100%;
+      display: flex;
+      justify-content: space-between; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .accordion .accordion-body ul li p {
+        font-weight: 700;
+        margin-bottom: 3pt; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .accordion .accordion-body ul li span {
+        display: block;
+        text-align: center; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .accordion .accordion-body ul li img {
+        margin-top: 9px; }
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .accordion .accordion-body ul li p,
+      .path-frontpage .container .max-width .questionnaire .dash-right .questionnaire-result .card-result .accordion .accordion-body ul li span {
+        font-size: 12pt;
+        line-height: 22px; }
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,16 @@
+imports:
+    - { resource: config.yml }
+    - { resource: parameters_recette.yml }
+    - { resource: params_recette.yml }
+
+framework:
+    router:
+        resource: '%kernel.root_dir%/config/routing_recette.yml'
+        strict_requirements: true
+    session:
+        cookie_secure: false
+        cookie_httponly: false
+    profiler: false
+
+swiftmailer:
+    delivery_addresses: ['test@test.com']

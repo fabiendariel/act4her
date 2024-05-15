@@ -1,0 +1,107 @@
+@import "../../variables.scss";
+.dash {
+	display: flex;
+	background: $bg-sec;
+	@include radius(1.5rem);
+	@media #{$w992} {
+		display: block;
+		@include radius(0);
+	}		
+	.dash-right {
+		@include w-100(256px);
+		padding: 27px 0 0 75px;
+		@media #{$w1200} {
+			padding-left: 20px;
+		}		
+		@media #{$w992} {
+			width: 100%;
+			padding: 20px 30px 0 30px;
+			@include radius-x4(25px,25px,0,0);
+			background: $bg-sec;
+			margin-top: -20px;
+		}
+		@media #{$w380} {
+			@include p-sim(20px);
+		}				
+		.title {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 45px;
+			padding-right: 24px;
+			@media #{$w768} {
+				margin-bottom: 25pt;
+			}			
+			.h1 {
+				display: flex;
+				align-items: center;
+				h1 {
+					font-size: 20px;
+					line-height: 19px;
+					margin: 0;
+					padding: 0;
+					@media #{$w768} {
+						font-size: 18pt;
+						line-height: 19pt;
+					}					
+				}
+				a {
+					display: none;
+					margin-right: 12px;
+				}
+			}
+			.options {
+				display: flex;
+				justify-content: flex-end;
+				.search {
+					position: relative;
+					@include w-h(337px,48px);
+					margin-right: 55px;
+					img {
+						@include w-h-sim(16px);
+						@include ab-t50r(8px,20px);
+					}
+					input {
+						background-color: $white;
+						box-shadow: 0 3px 28px 0 rgba(40, 115, 128, 0.12);
+						@include radius(22px);
+					}
+				}
+			}
+			ul {
+				display: flex;
+				justify-content: flex-end;
+				@media #{$w768} {
+					display: none;
+				}				
+				li {
+					position: relative;
+					cursor: pointer;
+					z-index: 888;
+					#Rectangle_2053 {
+						fill: transparent;
+					}
+					#Icon_feather-mail,
+					#Rectangle_2053,
+					#Icon_feather-user-check {
+						stroke: $ter-c;
+					}
+					&:last-child {
+						margin-left: 10px;
+					}	
+					&:hover,
+					&:focus,
+					&.open {
+						#Icon_feather-mail,
+						#Icon_feather-user-check {
+							stroke: $white;
+						}
+						#Rectangle_2053 {
+							fill: $ter-c;
+						}																		
+					}							
+				}
+			}
+		}
+	}
+}

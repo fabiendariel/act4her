@@ -1,0 +1,56 @@
+{# app/Resources/views/layout.html.twig #}
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Base{% endblock %}</title>
+    <!-- Tell the browser to be responsive to screen width -->
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="format-detection" content="telephone=yes" />
+
+    {% block stylesheets %}
+        <link href="{{ asset('css/Promed.f6fac706.css') }}" type="text/css" rel="stylesheet"/>
+
+        <link href="{{ asset('css/login.css') }}" type="text/css" rel="stylesheet"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    {% endblock %}
+    <script src="{{ asset('css/Promed.49ec57cc.js') }}"></script>
+    <!-- Min Js
+    <script src="{{ asset('bundles/plugins/jQuery/jquery-2.2.3.min.js') }}"></script>
+    <script src="{{ asset('bundles/admin_lte/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/admin_lte/js/app.min.js') }}"></script>
+    <script src="{{ asset('bundles/plugins/iCheck/icheck.min.js') }}"></script>-->
+</head>
+<body class="skin-blue layout-top-nav">
+<div class="wrapper">
+
+    <!-- Header -->
+    {{ include("header.html.twig") }}
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        {% block body %}
+        {% endblock %}
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Main Footer -->
+    {{ include("footer.html.twig") }}
+
+    <!-- Control Sidebar -->
+    {{ include("right_sidebar.html.twig") }}
+
+</div>
+</body>
+</html>
+
+

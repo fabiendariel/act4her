@@ -1,0 +1,265 @@
+.dash-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 256px;
+  -webkit-border-radius: 1.5rem 0 0 1.5rem;
+  -moz-border-radius: 1.5rem 0 0 1.5rem;
+  border-radius: 1.5rem 0 0 1.5rem;
+  background-color: #fff;
+  padding: 34px 19px 14px 17px; }
+  @media only screen and (max-width: 991px) {
+    .dash-left {
+      flex-direction: inherit;
+      padding: 0 20px 14px 20px;
+      width: 100%;
+      background: #287380;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      margin-top: -3px; } }
+  @media only screen and (max-width: 320px) {
+    .dash-left {
+      padding-left: 20px;
+      padding-right: 20px; } }
+  @media only screen and (max-width: 991px) {
+    .dash-left img.desktop {
+      display: none; } }
+  .dash-left img.resp {
+    display: none; }
+    @media only screen and (max-width: 991px) {
+      .dash-left img.resp {
+        display: block; } }
+  .dash-left .dash-prez-accroche {
+    margin-bottom: 100px;
+    margin-left: 26px; }
+    @media only screen and (max-width: 991px) {
+      .dash-left .dash-prez-accroche {
+        margin-bottom: 33px; } }
+    @media only screen and (max-width: 380px) {
+      .dash-left .dash-prez-accroche {
+        margin-left: 0; } }
+    .dash-left .dash-prez-accroche > img {
+      width: auto;
+      height: 30px; }
+      @media only screen and (max-width: 991px) {
+        .dash-left .dash-prez-accroche > img {
+          width: 107px;
+          height: auto; } }
+    .dash-left .dash-prez-accroche div {
+      display: flex;
+      align-items: center;
+      margin-top: 5px;
+      font-weight: 500;
+      color: #7ed7c2;
+      font-size: 12px; }
+      .dash-left .dash-prez-accroche div span {
+        padding-right: 3px; }
+        @media only screen and (max-width: 991px) {
+          .dash-left .dash-prez-accroche div span {
+            font-size: 9px;
+            font-weight: 500;
+            padding-right: 12px; } }
+      .dash-left .dash-prez-accroche div img {
+        width: 59px;
+        height: auto; }
+        @media only screen and (max-width: 991px) {
+          .dash-left .dash-prez-accroche div img {
+            width: 52px; } }
+  .dash-left .question {
+    padding: 31px 34px;
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    border-radius: 1.5rem;
+    background: #f2f8f7;
+    text-align: center; }
+    @media only screen and (max-width: 991px) {
+      .dash-left .question {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -6px;
+        right: 95px;
+        width: 57px;
+        height: 57px;
+        background: #b03661;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        padding: 0; } }
+    @media only screen and (max-width: 380px) {
+      .dash-left .question {
+        right: 70px; } }
+    .dash-left .question p {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      letter-spacing: 0.36px; }
+      @media only screen and (max-width: 991px) {
+        .dash-left .question p {
+          display: none; } }
+    .dash-left .question img {
+      margin: 0 auto 20px auto; }
+      @media only screen and (max-width: 991px) {
+        .dash-left .question img {
+          margin: 0; } }
+    .dash-left .question span {
+      display: block;
+      margin-top: 20px; }
+      @media only screen and (max-width: 991px) {
+        .dash-left .question span {
+          display: none; } }
+  .dash-left nav {
+    width: 100%; }
+    @media only screen and (max-width: 991px) {
+      .dash-left nav {
+        display: none; } }
+    .dash-left nav ul {
+      width: 100%;
+      padding: 0 36px 0 0; }
+      @media only screen and (max-width: 650px) {
+        .dash-left nav ul {
+          padding: 0; } }
+      .dash-left nav ul li {
+        padding: 13px 11px 13px 16px;
+        margin-bottom: 19px;
+        -webkit-border-radius: 37px;
+        -moz-border-radius: 37px;
+        border-radius: 37px;
+        background: #fff;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease; }
+        .dash-left nav ul li:hover, .dash-left nav ul li.active {
+          -moz-transition: all 0.5s ease;
+          -o-transition: all 0.5s ease;
+          -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+          background: #fbeced; }
+        .dash-left nav ul li a {
+          display: flex;
+          align-items: center;
+          color: #b03661; }
+          .dash-left nav ul li a span {
+            display: block;
+            margin-left: 6px;
+            font-size: 14px;
+            line-height: 17px;
+            letter-spacing: 0.42px;
+            font-weight: 700; }
+  .dash-left .burger-menu {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    margin-left: 0;
+    margin-right: 0; }
+    @media only screen and (max-width: 991px) {
+      .dash-left .burger-menu {
+        display: flex; } }
+    @media only screen and (max-width: 991px) {
+      .dash-left .burger-menu nav {
+        display: block; } }
+  .dash-left .toggle {
+    position: absolute;
+    top: -8px;
+    right: 25px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    z-index: 998;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -moz-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    -webkit-transition: all 0.1s ease;
+    transition: all 0.1s ease; }
+    @media only screen and (max-width: 380px) {
+      .dash-left .toggle {
+        right: 15px; } }
+    .dash-left .toggle.open {
+      top: 25px; }
+    .dash-left .toggle span.icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      opacity: 1;
+      -moz-transform: rotate(0);
+      -o-transform: rotate(0);
+      -webkit-transform: rotate(0);
+      transform: rotate(0);
+      -moz-transition: all 0.25s ease-in-out;
+      -o-transition: all 0.25s ease-in-out;
+      -webkit-transition: all 0.25s ease-in-out;
+      transition: all 0.25s ease-in-out;
+      background-color: #fff;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px; }
+      .dash-left .toggle span.icon-bar:first-child {
+        top: 20px; }
+      .dash-left .toggle span.icon-bar:nth-child(2), .dash-left .toggle span.icon-bar:nth-child(3) {
+        width: 27px;
+        top: 28px; }
+      .dash-left .toggle span.icon-bar:last-child {
+        width: 18px;
+        top: 36px; }
+    .dash-left .toggle.open span.icon-bar:first-child, .dash-left .toggle.open span.icon-bar:last-child {
+      display: none; }
+    .dash-left .toggle.open span.icon-bar:nth-child(2), .dash-left .toggle.open span.icon-bar:nth-child(3) {
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg); }
+    .dash-left .toggle.open span.icon-bar:nth-child(3) {
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg); }
+  .dash-left .sidebar {
+    position: fixed;
+    top: 0;
+    right: -1300px;
+    width: 413px;
+    height: 100vh;
+    background: #7ed7c2;
+    transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    z-index: 0;
+    left: inherit;
+    bottom: 0px;
+    z-index: 995;
+    padding: 160px 15px 0 15px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0; }
+    @media only screen and (max-width: 480px) {
+      .dash-left .sidebar {
+        width: 100%; } }
+  .dash-left #sidebartoggler {
+    display: none; }
+    .dash-left #sidebartoggler:checked + .page-wrap .sidebar {
+      top: -8px;
+      right: 0; }
+    .dash-left #sidebartoggler:checked + .page-wrap .toggle {
+      position: fixed;
+      padding-top: 0;
+      z-index: 996;
+      -moz-transition: all 0.1s ease;
+      -o-transition: all 0.1s ease;
+      -webkit-transition: all 0.1s ease;
+      transition: all 0.1s ease; }
+
+/*# sourceMappingURL=nav.css.map */

@@ -1,0 +1,112 @@
+.dash {
+  display: flex;
+  background: #f2f8f7;
+  -webkit-border-radius: 1.5rem;
+  -moz-border-radius: 1.5rem;
+  border-radius: 1.5rem; }
+  @media only screen and (max-width: 991px) {
+    .dash {
+      display: block;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0; } }
+  .dash .dash-right {
+    width: calc(100% - 256px);
+    width: -moz-calc(100% - 256px);
+    width: -webkit-calc(100% - 256px);
+    width: calc(100% - 256px);
+    width: -moz-calc(100% - 256px);
+    width: -webkit-calc(100% - 256px);
+    padding: 27px 0 0 75px; }
+    @media only screen and (max-width: 1200px) {
+      .dash .dash-right {
+        padding-left: 20px; } }
+    @media only screen and (max-width: 991px) {
+      .dash .dash-right {
+        width: 100%;
+        padding: 20px 30px 0 30px;
+        -webkit-border-radius: 25px 25px 0 0;
+        -moz-border-radius: 25px 25px 0 0;
+        border-radius: 25px 25px 0 0;
+        background: #f2f8f7;
+        margin-top: -20px; } }
+    @media only screen and (max-width: 380px) {
+      .dash .dash-right {
+        padding-left: 20px;
+        padding-right: 20px; } }
+    .dash .dash-right .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 45px;
+      padding-right: 24px; }
+      @media only screen and (max-width: 767px) {
+        .dash .dash-right .title {
+          margin-bottom: 25pt; } }
+      .dash .dash-right .title .h1 {
+        display: flex;
+        align-items: center; }
+        .dash .dash-right .title .h1 h1 {
+          font-size: 20px;
+          line-height: 19px;
+          margin: 0;
+          padding: 0; }
+          @media only screen and (max-width: 767px) {
+            .dash .dash-right .title .h1 h1 {
+              font-size: 18pt;
+              line-height: 19pt; } }
+        .dash .dash-right .title .h1 a {
+          display: none;
+          margin-right: 12px; }
+      .dash .dash-right .title .options {
+        display: flex;
+        justify-content: flex-end; }
+        .dash .dash-right .title .options .search {
+          position: relative;
+          width: 337px;
+          height: 48px;
+          margin-right: 55px; }
+          .dash .dash-right .title .options .search img {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            top: calc(50% - 8px);
+            top: -moz-calc(50% - 8px);
+            top: -webkit-calc(50% - 8px);
+            top: calc(50% - 8px);
+            top: -moz-calc(50% - 8px);
+            top: -webkit-calc(50% - 8px);
+            right: 20px; }
+          .dash .dash-right .title .options .search input {
+            background-color: #fff;
+            box-shadow: 0 3px 28px 0 rgba(40, 115, 128, 0.12);
+            -webkit-border-radius: 22px;
+            -moz-border-radius: 22px;
+            border-radius: 22px; }
+      .dash .dash-right .title ul {
+        display: flex;
+        justify-content: flex-end; }
+        @media only screen and (max-width: 767px) {
+          .dash .dash-right .title ul {
+            display: none; } }
+        .dash .dash-right .title ul li {
+          position: relative;
+          cursor: pointer;
+          z-index: 888; }
+          .dash .dash-right .title ul li #Rectangle_2053 {
+            fill: transparent; }
+          .dash .dash-right .title ul li #Icon_feather-mail,
+          .dash .dash-right .title ul li #Rectangle_2053,
+          .dash .dash-right .title ul li #Icon_feather-user-check {
+            stroke: #b03661; }
+          .dash .dash-right .title ul li:last-child {
+            margin-left: 10px; }
+          .dash .dash-right .title ul li:hover #Icon_feather-mail,
+          .dash .dash-right .title ul li:hover #Icon_feather-user-check, .dash .dash-right .title ul li:focus #Icon_feather-mail,
+          .dash .dash-right .title ul li:focus #Icon_feather-user-check, .dash .dash-right .title ul li.open #Icon_feather-mail,
+          .dash .dash-right .title ul li.open #Icon_feather-user-check {
+            stroke: #fff; }
+          .dash .dash-right .title ul li:hover #Rectangle_2053, .dash .dash-right .title ul li:focus #Rectangle_2053, .dash .dash-right .title ul li.open #Rectangle_2053 {
+            fill: #b03661; }
+
+/*# sourceMappingURL=dash-part-right.css.map */

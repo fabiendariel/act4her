@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <g id="icone-dashboard" transform="translate(-66 -268.194)">
+    <rect id="Rectangle_2159" data-name="Rectangle 2159" width="44" height="44" transform="translate(66 268.194)" fill="#fff"/>
+    <g id="Groupe_212" data-name="Groupe 212" transform="translate(1 2.194)">
+      <g id="Rectangle_2055" data-name="Rectangle 2055" transform="translate(76 277)" fill="none" stroke="#287380" stroke-width="2">
+        <rect width="10" height="10" rx="2" stroke="none"/>
+        <rect x="1" y="1" width="8" height="8" rx="1" fill="none"/>
+      </g>
+      <g id="Rectangle_2058" data-name="Rectangle 2058" transform="translate(76 289)" fill="none" stroke="#287380" stroke-width="2">
+        <rect width="10" height="10" rx="2" stroke="none"/>
+        <rect x="1" y="1" width="8" height="8" rx="1" fill="none"/>
+      </g>
+      <g id="Rectangle_2056" data-name="Rectangle 2056" transform="translate(88 277)" fill="none" stroke="#b03661" stroke-width="2">
+        <rect width="10" height="10" rx="2" stroke="none"/>
+        <rect x="1" y="1" width="8" height="8" rx="1" fill="none"/>
+      </g>
+      <g id="Rectangle_2057" data-name="Rectangle 2057" transform="translate(88 289)" fill="none" stroke="#287380" stroke-width="2">
+        <rect width="10" height="10" rx="2" stroke="none"/>
+        <rect x="1" y="1" width="8" height="8" rx="1" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

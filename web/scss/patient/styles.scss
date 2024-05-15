@@ -1,0 +1,145 @@
+@import "../variables.scss";
+
+.path-frontpage {
+	.container {
+		.max-width {
+			.questionnaire {
+				.dash-right {
+					.title {
+						.options {
+							.search,
+							.message {
+								display: none;
+							}
+						}
+						.h1 {
+							a {
+								display: block;
+							}
+						}
+					}
+					.questionnaire-result {
+						padding-right: 25px;
+						@media #{$w992} {
+							padding-right: 0;
+						}						
+						.card-result {
+							display: flex;
+							justify-content: space-between;
+							@media #{$w1200} {
+								display: block;
+							}							
+							.patient-info {
+								width: 290px;
+								min-width: 290px;
+								margin: 0 40px 0 0;
+								@media #{$w1200} {
+									margin: 0;
+									width: 100%;
+									min-width: 100%;
+								}									
+								.civilite {
+									background: rgba(40, 115, 128, 0.06);
+									@media #{$w768} {
+										width: 100%;
+										min-width: 100%;
+										margin: 0;
+									}									
+								}
+								.patho {
+									@media #{$w1200} {
+										display: flex;
+										justify-content: space-between;
+									}
+									@media #{$w768} {
+										display: block;
+										margin-top: 20pt;
+									}																		
+								}
+							}							
+							.table-content {
+								@include w-100(330px);
+								@media #{$w1200} {
+									width: 100%;
+								}								
+								.title {
+									padding: 40px 20px 30px 33px;
+									margin-bottom: 0;
+								}
+								.table-wrapper {
+									margin: 0 0 21px 0;
+								}
+								.table > :not(caption) > * > * {
+									padding-top: 15px;
+									padding-bottom: 15px;
+								}
+								.table {
+									td {
+										border: none;
+										font-weight: 500;
+										font-size: 12px;
+										.btn {
+											padding: 0;
+										}
+										button {
+											margin: 0 auto;	
+											svg {
+												display: block;
+												@include w-h(30px,auto);
+												@include m-sim(auto);
+											}
+										}									
+									}
+									th {
+										font-size: 11px;
+									}				
+									td,
+									th {
+										line-height: 15px;
+										&.action {
+											width: 100px;
+										}
+									}
+					
+								}
+							}						
+						}
+					}
+					.accordion {
+						margin-bottom: 18pt;
+						.title {
+							margin-bottom: 0;
+						}
+						.accordion-item {
+							.accordion-collapse {
+								.accordion-body {
+									display: block;
+									a {
+										display: flex;
+										justify-content: flex-end;
+										align-items: center;
+										margin-bottom: 30pt;
+										img {
+											@include w-h(14pt,auto);
+											margin-right: 7pt
+										}
+										span {
+											display: block;
+											font-size: 12pt;
+											letter-spacing: 0.36pt;
+											color: $ter-c;
+											text-transform: uppercase;
+											font-weight: 700;
+										}
+
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+

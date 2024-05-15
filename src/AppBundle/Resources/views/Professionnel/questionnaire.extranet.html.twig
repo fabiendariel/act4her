@@ -1,0 +1,614 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block app_body %}
+
+    <div class="container body">
+        <div class="main_container">
+          <form name="form" method="post" enctype="multipart/form-data" >
+            <!-- page content -->
+            <div class="login_col" role="main">
+                <div class="">
+                  <div class="row rowlogin">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <div class="col-md-1 col-sm-1 col-xs-0"></div>
+                      <div class="col-md-10 col-sm-10 col-xs-12">
+                        <div class="col-md-12">
+                          <div class="page-title">
+                            <div class="texteviolet">
+                                AUTO-QUESTIONNAIRE PATIENT
+                            </div>
+                          </div>
+
+                          <div class="clearfix"></div>
+                          <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <div class="bloc bloc_blanc">
+                                <div class="bloc_title texteviolet">
+                                    Dossier médical
+                                </div>
+                                <table class="table cellulecentrer"><tbody>
+                                  <tr id="tr_q1">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q1">
+                                        <label class="control-label">Quel est votre poids (kg) actuel ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q1">
+                                          <input type="text" id="form_question_q1" required="required" name="form[question_q1]" value="{{ reponses.poids is defined ? reponses.poids : '' }}" class="form-control">
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q2">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q2">
+                                        <label class="control-label">Quelle est votre taille (cm) actuelle ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q2">
+                                          <input type="text" id="form_question_q2" required="required" name="form[question_q2]" value="{{ reponses.taille is defined ? reponses.taille : '' }}" class="form-control">
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q3">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q3">
+                                        <label class="control-label">Date de la prochaine analyse biologique prévue ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q3">
+                                          <input type="date" id="form_question_q3" name="form[question_q3]" class="form-control col-md-2" value="{{ reponses.bilan_bio_date_prochain is defined ? reponses.bilan_bio_date_prochain|date('d/m/Y') : '' }}">
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q4">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q4">
+                                        <label class="control-label">Un traitement a-t-il été mis en place depuis le dernier appel de l’équipe {{ site.name }} par votre médecin
+                                          traitant, l’équipe hospitalière ou tout autre spécialiste (antibiotique, etc.)?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q4">
+                                          <input type="text" id="form_question_q4" name="form[question_q4]" value="{{ reponses.traitement_depuis_dern_appel is defined ? reponses.traitement_depuis_dern_appel : '' }}" class="form-control">
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody></table>
+                              </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <div class="bloc bloc_blanc">
+                                <div class="bloc_title texteviolet">
+                                  Adhérence au traitement
+                                </div>
+                                <table class="table cellulecentrer"><tbody>
+                                  <tr id="tr_q5">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q5">
+                                        <label class="control-label">Quelles sont les conditions d'usage pendant la semaine passée ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q5" class="case">
+                                          <input type="radio" id="form_question_q5_0" name="form[question_q5]" value="Application tous les jours à heure fixe" data-score="0" {{ reponses.condition_usage_semaine_passee is defined ? reponses.condition_usage_semaine_passee == 'Application tous les jours à heure fixe' ? 'checked':'':'' }}>
+                                          <label style="width:290px;" for="form_question_q5_0"><span title="Application tous les jours à heure fixe"><b>Application tous les jours à heure fixe</b></span></label>
+                                          <input type="radio" id="form_question_q5_1" name="form[question_q5]" value="Application après une tâche" data-score="1" {{ reponses.condition_usage_semaine_passee is defined ? reponses.condition_usage_semaine_passee == 'Application après une tâche' ? 'checked':'':'' }}>
+                                          <label style="width:290px;" for="form_question_q5_1"><span title="Application après une tâche"><b>Application après une tâche</b></span></label>
+                                          <input type="radio" id="form_question_q5_2" name="form[question_q5]" value="Application quand j'y pense" data-score="2" {{ reponses.condition_usage_semaine_passee is defined ? reponses.condition_usage_semaine_passee == 'Application quand j\'y pense' ? 'checked':'':'' }}>
+                                          <label style="width:290px;" for="form_question_q5_2"><span title="Application quand j'y pense"><b>Application quand j'y pense</b></span></label>
+                                          <input type="radio" id="form_question_q5_3" name="form[question_q5]" value="Autre" data-score="3" {{ reponses.condition_usage_semaine_passee is defined and reponses.condition_usage_semaine_passee != 'Application tous les jours à heure fixe' and reponses.condition_usage_semaine_passee != 'Application après une tâche' and reponses.condition_usage_semaine_passee != 'Application quand j\'y pense' ? 'checked':'' }}>
+                                          <label style="width:290px;" for="form_question_q5_3"><span title="Autre"><b>Autre</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q5_autre">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q5_autre">
+                                        <label class="control-label">Si Autre, à détailler : </label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q5_autre">
+                                          <input type="text" id="form_question_q5_autre" name="form[question_q5_autre]" value="{{ reponses.condition_usage_semaine_passee is defined and reponses.condition_usage_semaine_passee != 'Application tous les jours à heure fixe' and reponses.condition_usage_semaine_passee != 'Application après une tâche' and reponses.condition_usage_semaine_passee != 'Application quand j\'y pense' ? reponses.condition_usage_semaine_passee : '' }}" class="form-control">
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody></table>
+                              </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <div class="bloc bloc_blanc">
+                                <div class="bloc_title texteviolet">
+                                  Observance
+                                </div>
+                                <table class="table cellulecentrer"><tbody>
+                                  <tr id="tr_q6">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q6">
+                                        <label class="control-label">Vous arrive-t-il parfois d'oublier de prendre vos
+                                          inhibiteurs de CDK4/6 contre le cancer du sein ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q6" class="case">
+                                          <input type="radio" id="form_question_q6_0" name="form[question_q6]" value="Oui" data-score="0" {{ reponses.obs_tttnonpris_oubli is defined ? reponses.obs_tttnonpris_oubli == 'Oui' ? 'checked':'':'' }}>
+                                          <label for="form_question_q6_0"><span title="Oui"><b>Oui</b></span></label>
+                                          <input type="radio" id="form_question_q6_1" name="form[question_q6]" value="Non" data-score="1" {{ reponses.obs_tttnonpris_oubli is defined ? reponses.obs_tttnonpris_oubli == 'Non' ? 'checked':'':'' }}>
+                                          <label for="form_question_q6_1"><span title="Non"><b>Non</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q7">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q7">
+                                        <label class="control-label">Parfois, certaines personnes ne prennent pas leurs médicaments pour d'autres raisons qu'un oubli. En pensant aux deux dernières semaines, y a-t-il eu des jours où vous n'avez pas pris votre médicament contre le cancer du sein ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q7" class="case">
+                                          <input type="radio" id="form_question_q7_0" name="form[question_q7]" value="Oui" data-score="0" {{ reponses.obs_tttnonpris_autrecause is defined ? reponses.obs_tttnonpris_autrecause == 'Oui' ? 'checked':'':'' }}>
+                                          <label for="form_question_q7_0"><span title="Oui"><b>Oui</b></span></label>
+                                          <input type="radio" id="form_question_q7_1" name="form[question_q7]" value="Non" data-score="1" {{ reponses.obs_tttnonpris_autrecause is defined ? reponses.obs_tttnonpris_autrecause == 'Non' ? 'checked':'':'' }}>
+                                          <label for="form_question_q7_1"><span title="Non"><b>Non</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q8">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q8">
+                                        <label class="control-label" for="form_question_q8">Si une prise n’a pas eu lieu, raisons :</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q8" class="case">
+                                          <input type="radio" id="form_question_q8_0" name="form[question_q8]" value="Retard pharmacie dans la délivrance" data-score="0" {{ reponses.obs_tttnonpris_cause is defined ? reponses.obs_tttnonpris_cause == 'Retard pharmacie dans la délivrance' ? 'checked':'':'' }}>
+                                          <label for="form_question_q8_0"><span title="Retard pharmacie dans la délivrance"><b>Retard pharmacie dans la délivrance</b></span></label>
+                                          <input type="radio" id="form_question_q8_1" name="form[question_q8]" value="Voyages ou vacances" data-score="0" {{ reponses.obs_tttnonpris_cause is defined ? reponses.obs_tttnonpris_cause == 'Voyages ou vacances' ? 'checked':'':'' }}>
+                                          <label for="form_question_q8_1"><span title="Voyages ou vacances"><b>Voyages ou vacances</b></span></label>
+                                          <input type="radio" id="form_question_q8_2" name="form[question_q8]" value="Difficulté à se rappeler de prendre le traitement" data-score="0" {{ reponses.obs_tttnonpris_cause is defined ? reponses.obs_tttnonpris_cause == 'Difficulté à se rappeler de prendre le traitement' ? 'checked':'':'' }}>
+                                          <label for="form_question_q8_2"><span title="Difficulté à se rappeler de prendre le traitement"><b>Difficulté à se rappeler de prendre le traitement</b></span></label>
+                                          <input type="radio" id="form_question_q8_3" name="form[question_q8]" value="Refus de traitement : pourquoi ?" data-score="0" {{ reponses.obs_tttnonpris_cause is defined ? reponses.obs_tttnonpris_cause == 'Refus de traitement : à détailler' ? 'checked':'':'' }}>
+                                          <label for="form_question_q8_3"><span title="Refus de traitement : pourquoi ?"><b>Refus de traitement : pourquoi ?</b></span></label>
+                                          <input type="radio" id="form_question_q8_4" name="form[question_q8]" value="Avis médical" data-score="0" {{ reponses.obs_tttnonpris_cause is defined ? reponses.obs_tttnonpris_cause == 'Avis médical' ? 'checked':'':'' }}>
+                                          <label for="form_question_q8_4"><span title="Avis médical"><b>Avis médical</b></span></label>
+                                          <input type="radio" id="form_question_q8_5" name="form[question_q8]" value="Autres raisons" data-score="0" {{ reponses.obs_tttnonpris_cause is defined ? reponses.obs_tttnonpris_cause == 'Autres raisons' ? 'checked':'':'' }}>
+                                          <label for="form_question_q8_5"><span title="Autres raisons"><b>Autres raisons : à détailler</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q8_autre">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q8_autre">
+                                        <label class="control-label">Détail : </label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q8_autre">
+                                          <input type="text" id="form_question_q8_autre" name="form[question_q8_autre]" value="{{ reponses.obs_tttnonpris_cause_comm is defined ? reponses.obs_tttnonpris_cause_comm : '' }}" class="form-control">
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q9">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q9">
+                                        <label class="control-label">Vous est-il déjà arrivé de réduire la dose ou d'arrêter de prendre vos
+                                          inhibiteurs de CDK4/6 contre le cancer du sein sans en informer votre
+                                          médecin, parce que vous vous sentiez moins bien en les prenant ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q9" class="case">
+                                          <input type="radio" id="form_question_q9_0" name="form[question_q9]" value="Oui" data-score="0" {{ reponses.obs_modif_dose is defined ? reponses.obs_modif_dose == 'Oui' ? 'checked':'':'' }}>
+                                          <label for="form_question_q9_0"><span title="Oui"><b>Oui</b></span></label>
+                                          <input type="radio" id="form_question_q9_1" name="form[question_q9]" value="Non" data-score="1" {{ reponses.obs_modif_dose is defined ? reponses.obs_modif_dose == 'Non' ? 'checked':'':'' }}>
+                                          <label for="form_question_q9_1"><span title="Non"><b>Non</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q10">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q10">
+                                        <label class="control-label">Lorsque vous voyagez ou que vous quittez la maison, vous arrive-t-il d'oublier d'emporter vos médicaments inhibiteurs de CDK4/6 contre le cancer du sein ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q10" class="case">
+                                          <input type="radio" id="form_question_q10_0" name="form[question_q10]" value="Oui" data-score="0" {{ reponses.obs_oubli_emporter is defined ? reponses.obs_oubli_emporter == 'Oui' ? 'checked':'':'' }}>
+                                          <label for="form_question_q10_0"><span title="Oui"><b>Oui</b></span></label>
+                                          <input type="radio" id="form_question_q10_1" name="form[question_q10]" value="Non" data-score="1" {{ reponses.obs_oubli_emporter is defined ? reponses.obs_oubli_emporter == 'Non' ? 'checked':'':'' }}>
+                                          <label for="form_question_q10_1"><span title="Non"><b>Non</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q11">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q11">
+                                        <label class="control-label">Avez-vous pris vos médicaments contre le cancer du sein ? Ce matin ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q11" class="case">
+                                          <input type="radio" id="form_question_q11_0" name="form[question_q11]" value="Oui" data-score="1" {{ reponses.obs_medic_pris_aujourdhui is defined ? reponses.obs_medic_pris_aujourdhui == 'Oui' ? 'checked':'':'' }}>
+                                          <label for="form_question_q11_0"><span title="Oui"><b>Oui</b></span></label>
+                                          <input type="radio" id="form_question_q11_1" name="form[question_q11]" value="Non" data-score="0" {{ reponses.obs_medic_pris_aujourdhui is defined ? reponses.obs_medic_pris_aujourdhui == 'Non' ? 'checked':'':'' }}>
+                                          <label for="form_question_q11_1"><span title="Non"><b>Non</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q12">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q12">
+                                        <label class="control-label">Quand vous ressentez beaucoup moins, voire plus du tout, vos symptômes, vous arrive-t-il parfois d'arrêter de prendre vos médicaments ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q12" class="case">
+                                          <input type="radio" id="form_question_q12_0" name="form[question_q12]" value="Oui" data-score="0" {{ reponses.obs_arret_medic_si_pas_symptome is defined ? reponses.obs_arret_medic_si_pas_symptome == 'Oui' ? 'checked':'':'' }}>
+                                          <label for="form_question_q12_0"><span title="Oui"><b>Oui</b></span></label>
+                                          <input type="radio" id="form_question_q12_1" name="form[question_q12]" value="Non" data-score="1" {{ reponses.obs_arret_medic_si_pas_symptome is defined ? reponses.obs_arret_medic_si_pas_symptome == 'Non' ? 'checked':'':'' }}>
+                                          <label for="form_question_q12_1"><span title="Non"><b>Non</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q13">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q13">
+                                        <label class="control-label">Le fait de devoir prendre des médicaments contre le cancer du sein tous les jours représente un réel incovénient pour certaines personnes. Vous arrive-t-il parfois d'être contrariée par le fait d'avoir à respecter un traitement contre le cancer du sein ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q13" class="case">
+                                          <input type="radio" id="form_question_q13_0" name="form[question_q13]" value="Oui" data-score="0" {{ reponses.obs_inconvenient_respect_ttt is defined ? reponses.obs_inconvenient_respect_ttt == 'Oui' ? 'checked':'':'' }}>
+                                          <label for="form_question_q13_0"><span title="Oui"><b>Oui</b></span></label>
+                                          <input type="radio" id="form_question_q13_1" name="form[question_q13]" value="Non" data-score="1" {{ reponses.obs_inconvenient_respect_ttt is defined ? reponses.obs_inconvenient_respect_ttt == 'Non' ? 'checked':'':'' }}>
+                                          <label for="form_question_q13_1"><span title="Non"><b>Non</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q14">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q14">
+                                        <label class="control-label" for="form_question_q14">Vous arrive-t-il d'avoir des difficultés à vous rappeler de prendre tous vos médicaments contre le cancer de du sein  ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q14" class="case">
+                                          <input type="radio" id="form_question_q14_0" name="form[question_q14]" value="Jamais/Rarement" data-score="1" {{ reponses.obs_rappel_difficile is defined ? reponses.obs_rappel_difficile == 'Jamais/Rarement' ? 'checked':'':'' }}>
+                                          <label for="form_question_q14_0"><span title="Jamais/Rarement"><b>Jamais/Rarement</b></span></label>
+                                          <input type="radio" id="form_question_q14_1" name="form[question_q14]" value="De temps en temps" data-score="0.75" {{ reponses.obs_rappel_difficile is defined ? reponses.obs_rappel_difficile == 'De temps en temps' ? 'checked':'':'' }}>
+                                          <label for="form_question_q14_1"><span title="VDe temps en temps"><b>De temps en temps</b></span></label>
+                                          <input type="radio" id="form_question_q14_2" name="form[question_q14]" value="Parfois" data-score="0.5" {{ reponses.obs_rappel_difficile is defined ? reponses.obs_rappel_difficile == 'Parfois' ? 'checked':'':'' }}>
+                                          <label for="form_question_q14_2"><span title="Parfois"><b>Parfois</b></span></label>
+                                          <input type="radio" id="form_question_q14_3" name="form[question_q14]" value="Régulièrement" data-score="0.25" {{ reponses.obs_rappel_difficile is defined ? reponses.obs_rappel_difficile == 'Régulièrement' ? 'checked':'':'' }}>
+                                          <label for="form_question_q14_3"><span title="Régulièrement"><b>Régulièrement</b></span></label>
+                                          <input type="radio" id="form_question_q14_4" name="form[question_q14]" value="Tout le temps" data-score="0" {{ reponses.obs_rappel_difficile is defined ? reponses.obs_rappel_difficile == 'Tout le temps' ? 'checked':'':'' }}>
+                                          <label for="form_question_q14_4"><span title="Tout le temps"><b>Tout le temps</b></span></label>
+                                          <input type="hidden" id="form_obs_score" name="form[obs_score]" value="{{ reponses.obs_score is defined ? reponses.obs_score : '' }}" />
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody></table>
+                              </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <div class="bloc bloc_blanc">
+                                <div class="bloc_title texteviolet">
+                                  Tolérance
+                                </div>
+                                <table class="table cellulecentrer"><tbody>
+                                  <tr id="tr_q15">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q15">
+                                        <label class="control-label">Avez-vous quelque chose à signaler depuis le début du traitement inhibiteur de CDK4/6 par rapport à la semaine passée ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q15">
+                                          <textarea id="form_question_q15" name="form[question_q15]" class="form-control" rows="3">{{ reponses.tolerance_comm is defined ? reponses.tolerance_comm : '' }}</textarea>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q16">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q16">
+                                        <label class="control-label" for="form_question_q16">Si signalement, grade 1 à 5 ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q16" class="case">
+                                          <input type="radio" id="form_question_q16_1" name="form[question_q16]" value="1 - Léger" data-score="0" {{ reponses.tolerance_grade is defined ? reponses.tolerance_grade == '1 - Léger' ? 'checked':'':'' }}>
+                                          <label for="form_question_q16_1"><span title="1 - Léger"><b>1 - Léger</b></span></label>
+                                          <input type="radio" id="form_question_q16_2" name="form[question_q16]" value="2 - Modéré" data-score="0" {{ reponses.tolerance_grade is defined ? reponses.tolerance_grade == '2 - Modéré' ? 'checked':'':'' }}>
+                                          <label for="form_question_q16_2"><span title="2 - Modéré"><b>2 - Modéré</b></span></label>
+                                          <input type="radio" id="form_question_q16_3" name="form[question_q16]" value="3 - Sévère" data-score="1" {{ reponses.tolerance_grade is defined ? reponses.tolerance_grade == '3 - Sévère' ? 'checked':'':'' }}>
+                                          <label for="form_question_q16_3"><span title="3 - Sévère"><b>3 - Sévère</b></span></label>
+                                          <input type="radio" id="form_question_q16_4" name="form[question_q16]" value="4 - Très Sévère" data-score="1" {{ reponses.tolerance_grade is defined ? reponses.tolerance_grade == '4 - Très Sévère' ? 'checked':'':'' }}>
+                                          <label for="form_question_q16_4"><span title="4 - Très Sévère"><b>4 - Très Sévère</b></span></label>
+                                          <input type="radio" id="form_question_q16_5" name="form[question_q16]" value="5 - Hospitalisation" data-score="1" {{ reponses.tolerance_grade is defined ? reponses.tolerance_grade == '5 - Hospitalisation' ? 'checked':'':'' }}>
+                                          <label for="form_question_q16_5"><span title="5 - Hospitalisation"><b>5 - Hospitalisation</b></span></label>
+                                          <input type="hidden" id="form_tolerance_score" name="form[tolerance_score]" value="" />
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody></table>
+                              </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <div class="bloc bloc_blanc">
+                                <div class="bloc_title texteviolet">
+                                  Qualité de vie
+                                </div>
+                                <table class="table cellulecentrer">
+                                <tbody>
+                                  <tr id="tr_q17">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q3">
+                                        <label class="control-label" for="form_question_q17">Pouvez vous évaluer votre mobilité aujourd'hui ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q17" class="caselarge">
+                                          <input type="radio" id="form_question_q17_0" name="form[question_q17]" value="Je n'ai aucun problème pour me déplacer" data-score="0" {{ reponses.qualvie_mobilite is defined ? reponses.qualvie_mobilite == 'Je n\'ai aucun problème pour me déplacer' ? 'checked':'':'' }}>
+                                          <label for="form_question_q17_0"><span title="Je n'ai aucun problème pour me déplacer"><b>Je n'ai aucun problème pour me déplacer</b></span></label>
+                                          <input type="radio" id="form_question_q17_1" name="form[question_q17]" value="J'ai quelques difficultés à me déplacer" data-score="0" {{ reponses.qualvie_mobilite is defined ? reponses.qualvie_mobilite == 'J\'ai quelques difficultés à me déplacer' ? 'checked':'':'' }}>
+                                          <label for="form_question_q17_1"><span title="J'ai quelques difficultés à me déplacer"><b>J'ai quelques difficultés à me déplacer</b></span></label>
+                                          <input type="radio" id="form_question_q17_2" name="form[question_q17]" value="Je suis confinée au lit" data-score="1" {{ reponses.qualvie_mobilite is defined ? reponses.qualvie_mobilite == 'Je suis confinée au lit' ? 'checked':'':'' }}>
+                                          <label for="form_question_q17_2"><span title="Je suis confinée au lit"><b>Je suis confinée au lit</b></span></label>
+                                          <input type="hidden" id="form_question_q17_score" name="form[question_q17_score]" value="" />
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q18">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q18">
+                                        <label class="control-label" for="form_question_q18">Pouvez-vous évaluer votre autonomie aujourd'hui ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q18" class="caselarge">
+                                          <input type="hidden" id="form_question_q18_score" name="form[question_q18_score]" value="" />
+                                          <input type="radio" id="form_question_q18_0" name="form[question_q18]" value="Je n'ai aucun problème d'autonomie" data-score="0" {{ reponses.qualvie_autonomie is defined ? reponses.qualvie_autonomie == 'Je n\'ai aucun problème d\'autonomie' ? 'checked':'':'' }}>
+                                          <label for="form_question_q18_0"><span title="Je n'ai aucun problème d'autonomie"><b>Je n'ai aucun problème d'autonomie</b></span></label>
+                                          <input type="radio" id="form_question_q18_1" name="form[question_q18]" value="J'ai quelques problèmes pour me laver ou m'habiller" data-score="0" {{ reponses.qualvie_autonomie is defined ? reponses.qualvie_autonomie == 'J\'ai quelques problèmes pour me laver ou m\'habiller' ? 'checked':'':'' }}>
+                                          <label for="form_question_q18_1"><span title="J'ai quelques problèmes pour me laver ou m'habiller"><b>J'ai quelques problèmes pour me laver ou m'habiller</b></span></label>
+                                          <input type="radio" id="form_question_q18_2" name="form[question_q18]" value="Je suis incapable de me laver ou de m'habiller toute seule" data-score="1" {{ reponses.qualvie_autonomie is defined ? reponses.qualvie_autonomie == 'Je suis incapable de me laver ou de m\'habiller toute seule' ? 'checked':'':'' }}>
+                                          <label for="form_question_q18_2"><span title="Je suis incapable de me laver ou de m'habiller toute seule"><b>Je suis incapable de me laver ou de m'habiller toute seule</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q19">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q19">
+                                        <label class="control-label" for="form_question_q19">Pouvez-vous évaluer votre activité courante aujourd'hui (exemple travail, étude, travaux domestiques, activités familiales ou loisirs) ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q19" class="caselarge">
+                                          <input type="hidden" id="form_question_q19_score" name="form[question_q19_score]" value="" />
+                                          <input type="radio" id="form_question_q19_0" name="form[question_q19]" value="Je n'ai aucun problème pour accomplir mes activités courantes" data-score="0" {{ reponses.qualvie_activite is defined ? reponses.qualvie_activite == 'Je n\'ai aucun problème pour accomplir mes activités courantes' ? 'checked':'':'' }}>
+                                          <label for="form_question_q19_0"><span title="Je n'ai aucun problème pour accomplir mes activités courantes"><b>Je n'ai aucun problème pour accomplir mes activités courantes</b></span></label>
+                                          <input type="radio" id="form_question_q19_1" name="form[question_q19]" value="J'ai des problèmes pour accomplir mes activités courantes" data-score="0" {{ reponses.qualvie_activite is defined ? reponses.qualvie_activite == 'J\'ai des problèmes pour accomplir mes activités courantes' ? 'checked':'':'' }}>
+                                          <label for="form_question_q19_1"><span title="J'ai des problèmes pour accomplir mes activités courantes"><b>J'ai des problèmes pour accomplir mes activités courantes</b></span></label>
+                                          <input type="radio" id="form_question_q19_2" name="form[question_q19]" value="Je suis incapable d'accomplir mes activités courantes" data-score="1" {{ reponses.qualvie_activite is defined ? reponses.qualvie_activite == 'Je suis incapable d\'accomplir mes activités courantes' ? 'checked':'':'' }}>
+                                          <label for="form_question_q19_2"><span title="Je suis incapable d'accomplir mes activités courantes"><b>Je suis incapable d'accomplir mes activités courantes</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q20">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q20">
+                                        <label class="control-label" for="form_question_q20">Pouvez-vous évaluer vos douleurs et/ou gênes aujourd'hui ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q20" class="caselarge">
+                                          <input type="hidden" id="form_question_q20_score" name="form[question_q20_score]" value="" />
+                                          <input type="radio" id="form_question_q20_0" name="form[question_q20]" value="Je n'ai pas de douleur ni gêne" data-score="0" {{ reponses.qualvie_douleur is defined ? reponses.qualvie_douleur == 'Je n\ai pas de douleur ni gêne' ? 'checked':'':'' }}>
+                                          <label for="form_question_q20_0"><span title="Je n'ai pas de douleur ni gêne"><b>Je n'ai pas de douleur ni gêne</b></span></label>
+                                          <input type="radio" id="form_question_q20_1" name="form[question_q20]" value="J'ai des douleurs ou une gêne modérée(s)" data-score="0" {{ reponses.qualvie_douleur is defined ? reponses.qualvie_douleur == 'J\'ai des douleurs ou une gêne modérée(s)' ? 'checked':'':'' }}>
+                                          <label for="form_question_q20_1"><span title="J'ai des douleurs ou une gêne modérée(s)"><b>J'ai des douleurs ou une gêne modérée(s)</b></span></label>
+                                          <input type="radio" id="form_question_q20_2" name="form[question_q20]" value="J'ai une ou des douleurs ou gênes importante" data-score="1" {{ reponses.qualvie_douleur is defined ? reponses.qualvie_douleur == 'J\'ai une ou des douleurs ou gênes importante' ? 'checked':'':'' }}>
+                                          <label for="form_question_q20_2"><span title="J'ai une ou des douleurs ou gênes importante"><b>J'ai une ou des douleurs ou gênes importante</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q21">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q21">
+                                        <label class="control-label" for="form_question_q21">Pouvez-vous évaluer votre état d'anxiété/de dépression aujourd'hui ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q21" class="caselarge">
+                                          <input type="hidden" id="form_question_q21_score" name="form[question_q21_score]" value="" />
+                                          <input type="radio" id="form_question_q21_0" name="form[question_q21]" value="Je ne suis pas anxieuse ou déprimée" data-score="0" {{ reponses.qualvie_anxiete is defined ? reponses.qualvie_anxiete == 'Je ne suis pas anxieuse ou déprimée' ? 'checked':'':'' }}>
+                                          <label for="form_question_q21_0"><span title="Je ne suis pas anxieuse ou déprimée"><b>Je ne suis pas anxieuse ou déprimée</b></span></label>
+                                          <input type="radio" id="form_question_q21_1" name="form[question_q21]" value="Je suis modérément anxieuse ou déprimée" data-score="0" {{ reponses.qualvie_anxiete is defined ? reponses.qualvie_anxiete == 'Je suis modérément anxieuse ou déprimée' ? 'checked':'':'' }}>
+                                          <label for="form_question_q21_1"><span title="Je suis modérément anxieuse ou déprimée"><b>Je suis modérément anxieuse ou déprimée</b></span></label>
+                                          <input type="radio" id="form_question_q21_2" name="form[question_q21]" value="Je suis extrêmement anxieuse ou déprimée" data-score="1" {{ reponses.qualvie_anxiete is defined ? reponses.qualvie_anxiete == 'Je suis extrêmement anxieuse ou déprimée' ? 'checked':'':'' }}>
+                                          <label for="form_question_q21_2"><span title="Je suis extrêmement anxieuse ou déprimée"><b>Je suis extrêmement anxieuse ou déprimée</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q22">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q22">
+                                        <label class="control-label" for="form_question_q22">Sur une échelle de 0 à 100 sachant que le meilleur état de santé est situé à 100 et que l'état de santé le plus dégradé est à 0, quel est votre niveau d'état de santé aujourd'hui ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q22" class="case">
+                                          <select id="form_question_q22" name="form[question_q22]" class="sliderform none form-control" init-min="0" init-max="100">
+                                            {% for i in 0..100 %}
+                                            <option value="{{ i }}" {{ reponses.qualvie_echelle_etatsante is defined ? reponses.qualvie_echelle_etatsante == i ? 'selected':'':'' }} >{{ i }}</option>
+                                            {% endfor %}
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody></table>
+                              </div>
+                            </div>
+                            {% if type_suivi == 'm06' or type_suivi == 'm12' %}
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                              <div class="bloc bloc_blanc">
+                                <div class="bloc_title texteviolet">
+                                  Satisfaction
+                                </div>
+                                <table class="table cellulecentrer">
+                                <tbody>
+                                  <tr id="tr_q23">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q23">
+                                        <label class="control-label">Etes vous satisfait de ce programme ? (1 - Pas Satisfait / 10 - Très satisfait)</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q23" class="casesmall">
+                                          <input type="radio" id="form_question_q23_0" name="form[question_q23]" value="1" {{ reponses.satisf_note_satisfaction is defined ? reponses.satisf_note_satisfaction == 1 ? 'checked':'':'' }}>
+                                          <label for="form_question_q23_0"><span title="1"><b>1</b></span></label>
+                                          <input type="radio" id="form_question_q23_1" name="form[question_q23]" value="2" {{ reponses.satisf_note_satisfaction is defined ? reponses.satisf_note_satisfaction == 2 ? 'checked':'':'' }}>
+                                          <label for="form_question_q23_1"><span title="2"><b>2</b></span></label>
+                                          <input type="radio" id="form_question_q23_2" name="form[question_q23]" value="3" {{ reponses.satisf_note_satisfaction is defined ? reponses.satisf_note_satisfaction == 3 ? 'checked':'':'' }}>
+                                          <label for="form_question_q23_2"><span title="3"><b>3</b></span></label>
+                                          <input type="radio" id="form_question_q23_3" name="form[question_q23]" value="4" {{ reponses.satisf_note_satisfaction is defined ? reponses.satisf_note_satisfaction == 4 ? 'checked':'':'' }}>
+                                          <label for="form_question_q23_3"><span title="4"><b>4</b></span></label>
+                                          <input type="radio" id="form_question_q23_4" name="form[question_q23]" value="5" {{ reponses.satisf_note_satisfaction is defined ? reponses.satisf_note_satisfaction == 5 ? 'checked':'':'' }}>
+                                          <label for="form_question_q23_4"><span title="5"><b>5</b></span></label>
+                                          <input type="radio" id="form_question_q23_5" name="form[question_q23]" value="6" {{ reponses.satisf_note_satisfaction is defined ? reponses.satisf_note_satisfaction == 6 ? 'checked':'':'' }}>
+                                          <label for="form_question_q23_5"><span title="6"><b>6</b></span></label>
+                                          <input type="radio" id="form_question_q23_6" name="form[question_q23]" value="7" {{ reponses.satisf_note_satisfaction is defined ? reponses.satisf_note_satisfaction == 7 ? 'checked':'':'' }}>
+                                          <label for="form_question_q23_6"><span title="7"><b>7</b></span></label>
+                                          <input type="radio" id="form_question_q23_7" name="form[question_q23]" value="8" {{ reponses.satisf_note_satisfaction is defined ? reponses.satisf_note_satisfaction == 8 ? 'checked':'':'' }}>
+                                          <label for="form_question_q23_7"><span title="8"><b>8</b></span></label>
+                                          <input type="radio" id="form_question_q23_8" name="form[question_q23]" value="9" {{ reponses.satisf_note_satisfaction is defined ? reponses.satisf_note_satisfaction == 9 ? 'checked':'':'' }}>
+                                          <label for="form_question_q23_8"><span title="9"><b>9</b></span></label>
+                                          <input type="radio" id="form_question_q23_9" name="form[question_q23]" value="10" {{ reponses.satisf_note_satisfaction is defined ? reponses.satisf_note_satisfaction == 10 ? 'checked':'':'' }}>
+                                          <label for="form_question_q23_9"><span title="10"><b>10</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q24">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q24">
+                                        <label class="control-label">Ce programme vous aide-t-il/a -t-il aidé dans votre relation avec votre oncologue ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q24" class="case">
+                                          <input type="radio" id="form_question_q24_0" name="form[question_q24]" value="1" {{ reponses.satisf_aide_relation_oncologue is defined ? reponses.satisf_aide_relation_oncologue == 1 ? 'checked':'':'' }}>
+                                          <label for="form_question_q24_0"><span title="1"><b>1</b></span></label>
+                                          <input type="radio" id="form_question_q24_1" name="form[question_q24]" value="2" {{ reponses.satisf_aide_relation_oncologue is defined ? reponses.satisf_aide_relation_oncologue == 2 ? 'checked':'':'' }}>
+                                          <label for="form_question_q24_1"><span title="2"><b>2</b></span></label>
+                                          <input type="radio" id="form_question_q24_2" name="form[question_q24]" value="3" {{ reponses.satisf_aide_relation_oncologue is defined ? reponses.satisf_aide_relation_oncologue == 3 ? 'checked':'':'' }}>
+                                          <label for="form_question_q24_2"><span title="3"><b>3</b></span></label>
+                                          <input type="radio" id="form_question_q24_3" name="form[question_q24]" value="4" {{ reponses.satisf_aide_relation_oncologue is defined ? reponses.satisf_aide_relation_oncologue == 4 ? 'checked':'':'' }}>
+                                          <label for="form_question_q24_3"><span title="4"><b>4</b></span></label>
+                                          <input type="radio" id="form_question_q24_4" name="form[question_q24]" value="5" {{ reponses.satisf_aide_relation_oncologue is defined ? reponses.satisf_aide_relation_oncologue == 5 ? 'checked':'':'' }}>
+                                          <label for="form_question_q24_4"><span title="5"><b>5</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q25">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q25">
+                                        <label class="control-label">Ce programme vous aide-t-il/a -t-il aidé dans la compréhension de votre maladie ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q25" class="case">
+                                          <input type="radio" id="form_question_q25_0" name="form[question_q25]" value="1" {{ reponses.satisf_aide_comprehension_maladie is defined ? reponses.satisf_aide_comprehension_maladie == 1 ? 'checked':'':'' }}>
+                                          <label for="form_question_q25_0"><span title="1"><b>1</b></span></label>
+                                          <input type="radio" id="form_question_q25_1" name="form[question_q25]" value="2" {{ reponses.satisf_aide_comprehension_maladie is defined ? reponses.satisf_aide_comprehension_maladie == 2 ? 'checked':'':'' }}>
+                                          <label for="form_question_q25_1"><span title="2"><b>2</b></span></label>
+                                          <input type="radio" id="form_question_q25_2" name="form[question_q25]" value="3" {{ reponses.satisf_aide_comprehension_maladie is defined ? reponses.satisf_aide_comprehension_maladie == 3 ? 'checked':'':'' }}>
+                                          <label for="form_question_q25_2"><span title="3"><b>3</b></span></label>
+                                          <input type="radio" id="form_question_q25_3" name="form[question_q25]" value="4" {{ reponses.satisf_aide_comprehension_maladie is defined ? reponses.satisf_aide_comprehension_maladie == 4 ? 'checked':'':'' }}>
+                                          <label for="form_question_q25_3"><span title="4"><b>4</b></span></label>
+                                          <input type="radio" id="form_question_q25_4" name="form[question_q25]" value="5" {{ reponses.satisf_aide_comprehension_maladie is defined ? reponses.satisf_aide_comprehension_maladie == 5 ? 'checked':'':'' }}>
+                                          <label for="form_question_q25_4"><span title="5"><b>5</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q26">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q26">
+                                        <label class="control-label">Ce programme vous aide-t-il/a -t-il aidé pour la prise de votre traitement ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q26" class="case">
+                                          <input type="radio" id="form_question_q26_0" name="form[question_q26]" value="1" {{ reponses.satisf_aide_prise_traitement is defined ? reponses.satisf_aide_prise_traitement == 1 ? 'checked':'' : '' }}>
+                                          <label for="form_question_q26_0"><span title="1"><b>1</b></span></label>
+                                          <input type="radio" id="form_question_q26_1" name="form[question_q26]" value="2" {{ reponses.satisf_aide_prise_traitement is defined ? reponses.satisf_aide_prise_traitement == 2 ? 'checked':'' : '' }}>
+                                          <label for="form_question_q26_1"><span title="2"><b>2</b></span></label>
+                                          <input type="radio" id="form_question_q26_2" name="form[question_q26]" value="3" {{ reponses.satisf_aide_prise_traitement is defined ? reponses.satisf_aide_prise_traitement == 3 ? 'checked':'' : '' }}>
+                                          <label for="form_question_q26_2"><span title="3"><b>3</b></span></label>
+                                          <input type="radio" id="form_question_q26_3" name="form[question_q26]" value="4" {{ reponses.satisf_aide_prise_traitement is defined ? reponses.satisf_aide_prise_traitement == 4 ? 'checked':'' : '' }}>
+                                          <label for="form_question_q26_3"><span title="4"><b>4</b></span></label>
+                                          <input type="radio" id="form_question_q26_4" name="form[question_q26]" value="5" {{ reponses.satisf_aide_prise_traitement is defined ? reponses.satisf_aide_prise_traitement == 5 ? 'checked':'' : '' }}>
+                                          <label for="form_question_q26_4"><span title="5"><b>5</b></span></label>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                  <tr id="tr_q27">
+                                    <td>
+                                      <div class="form-group fondviolet  texteblanc title_question" id="q27">
+                                        <label class="control-label">Avez-vous des suggestions ? Commentaires ?</label>
+                                      </div>
+                                      <div style="column-count:1;-moz-column-count: 1;">
+                                        <div id="form_question_q27">
+                                          <textarea id="form_question_q27" name="form[question_q27]" class="form-control" rows="3">{{ reponses.satisf_commentaire is defined ? reponses.satisf_commentaire : '' }}</textarea>
+                                        </div>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                </tbody></table>
+                              </div>
+                            </div>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-1 col-sm-1 col-xs-0">
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row rowlogin">
+                      <div class="col-md-12 col-sm-12 col-xs-12">
+                          <div class="col-md-1 col-sm-1 col-xs-0"></div>
+                          <div class="col-md-10 col-sm-10 col-xs-12" align="center">
+                            <div id="submit_questionnaire_container">
+                              <input type="submit" id="valider_questionnaire" name="valider_questionnaire" style="padding:15px !important;"
+                                     value="{{ 'Valider les réponses de ce questionnaire'|trans }}" class="btn btn-lg btn-info"/>
+                            </div>
+                            <div class="logincarreorange  effacable"></div>
+                          </div>
+                          <div class="col-md-1 col-sm-1 col-xs-0" style="height:100px">
+                              <div class="logincarrerose  effacable"></div>
+                              <div class="logincarreviolet  effacable"></div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+          </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{{ asset('js/questionnaire.js') }}"></script>
+
+{% endblock %}
+
+
+
+{% block radio_widget %}
+    {% spaceless %}
+            <input type="radio" {{ block('widget_attributes') }}{% if value is defined %} value="{{ value }}"{% endif %}{% if checked %} checked="checked"{% endif %} />
+            <label  for="{{ id }}">{{ label|raw }}</label>
+    {% endspaceless %}
+{% endblock radio_widget %}

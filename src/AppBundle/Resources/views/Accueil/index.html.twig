@@ -1,0 +1,158 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    <link href="{{ asset('css/questionnaire.css') }}" type="text/css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+{% endblock %}
+
+{% block app_body %}
+    <div class="dash questionnaire">
+        <div class="dash-left">
+            <div class="dash-left-top">
+                <div class="dash-prez-accroche">
+                    <img class="desktop" src="{{ asset('images/logo.png') }}" alt="Promed">
+                    <img class="resp" src="{{ asset('images/logo-resp.png') }}" alt="Promed">
+                    <div>
+                        <span>Une solution</span>
+                        <img class="desktop" src="{{ asset('images/patientys.png') }}" alt="Patientys">
+                        <img class="resp" src="{{ asset('images/patientys-resp.png') }}" alt="Patientys">
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                    <li>
+                        <a href="{{ path('professionnel_index')}}">
+                                <img src="{{ asset('images/picto/dashboard.png') }}" alt="">
+                                <span>Mon Tableau de bord</span>
+                            </a>
+                        </li>
+                        <li>
+                        <a href="{{ path('patient_inscription_preambule')}}">
+                                <img src="{{ asset('images/picto/coach.png') }}" alt="">
+                            <span>Inscrire un patient</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            <div class="dash-left-bottom">
+                <div class="question">
+                    <p>Pour toute question,<br/>contactez-nous au N° Vert :​</p>
+                    <span>Une question ?</span><br/>
+                    <img class="desktop" src="{{ asset('images/numero-vert.png') }}" width="200">
+                    <img class="resp" src="{{ asset('images/numero-vert_short.png') }}" width="150">
+                </div>
+            </div>
+            <div class="burger-menu">
+                <div class="burger-icon">
+                    <input type="checkbox" id="sidebartoggler">
+                    <div class="page-wrap">
+                        <label for="sidebartoggler" class="toggle">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </label>
+                        <div class="sidebar">
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('professionnel_index')}}">
+                                            <img src="{{ asset('image/picto/dashboard.png') }}" alt="">
+                                            <span>Mon Tableau de bord</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('patient_inscription_preambule')}}">
+                                            <img src="{{ asset('image/picto/coach.png') }}" alt="">
+                                            <span>Inscrire un patient</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dash-right">
+            <section class="content">
+                <div class="card">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-12 card-image">
+                          <center><img src="{{ asset('images/logo_application.png') }}" alt="{{ site.name }}"></center>
+                    </div>
+                        </div>
+                      <br/><br/>
+                      <div class="row">
+                        <div class="col-12">
+                          <h2 class="card-title text-primary text-center">
+                            Bienvenue sur la plateforme de suivi des patients inscrits au programme d’{{ site.type }} {{ site.name }}
+                            </h2>
+                        </div>
+                    </div>
+                      <br/><br/>
+                      <div class="row">
+                        <div class="col-10 offset-1">
+                          <h3 class="card-title text-center">
+                            Un programme personnalisé pour renforcer la prise en charge de votre patient et améliorer le bon usage de la spécialité Omnitrope®
+                          </h3>
+                        </div>
+                    </div>
+                      <br/><br/>
+                      <div class="row">
+                        <div class="buttons">
+                          <a href="{{ path('professionnel_index')}}">
+                            <button type="button" class="btn btn-primary">
+                              <span>Mon Tableau de bord</span>
+                            </button>
+                          </a>
+                          <a href="{{ path('patient_inscription_preambule')}}">
+                            <button type="button" class="btn btn-secondary">
+                              <span>Inscrire un patient</span>
+                            </button>
+                          </a>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    {#
+    <button class="btn textbtn1 pull-right fondrouge" style="font-size:1.2em;margin-right: 20px;" onclick="document.location.href='{{ path('fos_user_security_logout')}}'"><span class="glyphicon glyphicon-off"></span> Déconnexion</button>
+
+    <button class="btn textbtn1 pull-right fondbleu" style="" onclick="document.location.href='{{ path('patient_inscription_preambule')}}'"><span class="glyphicon glyphicon-user"></span> Inscrire un patient</button>
+
+    <div class="row" style="width:100%">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="bloc bloc_blanc" style="margin-top:0;">
+
+
+                <div class="bloc_title_profil_containerpro fondviolet" style="margin-top:-70px">
+                    <div class="bloc_title-image imageprofil"></div>
+                </div>
+
+                <div class="bloc_content">
+                    <h1 style="text-align: center;">Bienvenue sur la plateforme de l’action d’accompagnement En Cours</h1>
+                    <h2 style="text-align: center;">Un programme personnalisé pour renforcer le suivi des patientes atteintes de cancer du sein métastatique RH+/HER2- et traitées par un inhibiteur de CDK4/6</h2><br/><br/><br/>
+                    <div class="col-lg-3 col-md-0">
+                    </div>
+                    <div class="col-lg-3 col-sm-12" style="text-align: center">
+                        <a href="{{ path('professionnel_index')}}"><div class="btn fondviolet" style="width: 300px; height: 50px; font-size: 22px;">Accéder à mes patientes</div></a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-12" style="text-align: center">
+                        <a href="{{ path('patient_inscription')}}"><div class="btn fondrose" style="width: 300px; height: 50px; font-size: 22px;">Inscrire une patiente</div></a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-0">
+                    </div>
+                </div>
+                <div class="clearfix"></div><br/><br/>
+            </div>
+        </div>
+    </div>
+    #}
+{% endblock %}

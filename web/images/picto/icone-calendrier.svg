@@ -1,0 +1,19 @@
+<svg id="icone-calendrier" xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41">
+  <g id="Groupe_169" data-name="Groupe 169">
+    <g id="Rectangle_2015" data-name="Rectangle 2015" transform="translate(0 0)" fill="#fff" stroke="#b03661" stroke-width="2">
+      <rect width="41" height="41" rx="10" stroke="none"/>
+      <rect x="1" y="1" width="39" height="39" rx="9" fill="none"/>
+    </g>
+  </g>
+  <g id="Groupe_170" data-name="Groupe 170" transform="translate(10.314 8.98)">
+    <g id="Groupe_111" data-name="Groupe 111" transform="translate(0)">
+      <g id="Icon_feather-calendar" data-name="Icon feather-calendar">
+        <path id="Tracé_26" data-name="Tracé 26" d="M6.745,6H22.464a2.163,2.163,0,0,1,2.245,2.069V22.551a2.163,2.163,0,0,1-2.245,2.069H6.745A2.163,2.163,0,0,1,4.5,22.551V8.069A2.163,2.163,0,0,1,6.745,6Z" transform="translate(-4.5 -3.755)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <path id="Tracé_27" data-name="Tracé 27" d="M24,3V7.491" transform="translate(-9.404 -3)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <path id="Tracé_28" data-name="Tracé 28" d="M12,3V7.491" transform="translate(-6.386 -3)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+        <path id="Tracé_29" data-name="Tracé 29" d="M4.5,15H24.709" transform="translate(-4.5 -6.125)" fill="none" stroke="#b03661" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      </g>
+    </g>
+    <text id="_12" data-name="12" transform="translate(9.736 17.591)" fill="#b03661" font-size="8" font-family="Quicksand" font-weight="700"><tspan x="-3.6" y="0">12</tspan></text>
+  </g>
+</svg>

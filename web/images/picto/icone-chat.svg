@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36.956" height="39.315" viewBox="0 0 36.956 39.315">
+  <g id="icone-chat" transform="translate(-91 -613.375)">
+    <g id="Icon_ionic-md-chatbubbles" data-name="Icon ionic-md-chatbubbles" transform="translate(96.99 614.375)">
+      <path id="Tracé_74" data-name="Tracé 74" d="M35.056,3.375H11.083a3,3,0,0,0-3,3V25.785a3.012,3.012,0,0,0,3,3.005H31.535l6.517,4.551V6.372A3,3,0,0,0,35.056,3.375Z" transform="translate(-8.086 -3.375)" fill="none" stroke="#f8aab5" stroke-width="2"/>
+    </g>
+    <g id="Groupe_223" data-name="Groupe 223" transform="translate(106.088 622.692)">
+      <path id="Tracé_76" data-name="Tracé 76" d="M103.537,432.9H115.99" transform="translate(-103.537 -432.902)" fill="none" stroke="#f8c9cf" stroke-linecap="round" stroke-width="2"/>
+      <path id="Tracé_77" data-name="Tracé 77" d="M103.537,432.9H115.99" transform="translate(-103.537 -428.261)" fill="none" stroke="#f8c9cf" stroke-linecap="round" stroke-width="2"/>
+      <path id="Tracé_78" data-name="Tracé 78" d="M103.537,432.9H115.99" transform="translate(-103.537 -423.62)" fill="none" stroke="#f8c9cf" stroke-linecap="round" stroke-width="2"/>
+    </g>
+    <path id="Tracé_75" data-name="Tracé 75" d="M6070.339,3703.085v25.265l5.528-5.529h19.606" transform="translate(-5978.339 -3078.074)" fill="none" stroke="#f8aab5" stroke-linecap="round" stroke-width="2"/>
+  </g>
+</svg>
